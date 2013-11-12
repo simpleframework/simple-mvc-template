@@ -1,0 +1,235 @@
+.Blank_PageletsPage {
+  overflow: hidden;
+}
+
+#site_content .Blank_PageletsPage {
+  padding: 8px;
+}
+
+.Blank_PageletsPage .col1 {
+  float: left;
+  width: 100%;
+}
+
+.Blank_PageletsPage .col1_1 {
+  margin-right: 294px;
+}
+
+.Blank_PageletsPage .col2 {
+  float: right;
+  margin-left: -290px;
+  width: 290px;
+  position: relative;
+  *position: inherit; /* ie7 */
+}
+
+.Blank_PageletsPage .let {
+  border: 1px solid #ccc;
+  margin-bottom: 8px;
+  min-height: 200px;
+  background-color: #fff;
+}
+
+.Blank_PageletsPage .let .lh,
+.Blank_PageletsPage .let .tr .tab {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.Blank_PageletsPage .let .lh {
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+  color: #400;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 21px;
+  background: #f9f9f9;
+  border-bottom: 3px double #bbb;
+  padding: 6px 10px;
+  position: relative;
+}
+
+.Blank_PageletsPage .let .tr {
+  font-size: 9pt;
+  font-weight: normal;
+  cursor: default;
+  position: absolute;
+  right: 6px;
+  top: 14px;
+}
+
+.Blank_PageletsPage .let .tr .tab {
+  height: 16px;
+  line-height: 16px;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  padding: 1px 6px 0px 6px;
+  margin-left: -1px;
+}
+
+.Blank_PageletsPage .let .tr .tab.active {
+  border-color: #bbb;
+  background-color: #fff;
+  padding-top: 2px;
+  padding-bottom: 3px;
+}
+
+.Blank_PageletsPage .let .lc {
+  padding: 4px;
+}
+
+.TopBar_PageletsPage .tool_bar {
+  background-color: #fafafa;
+  margin-bottom: 6px;
+  border: 1px solid #ccc;
+  padding-bottom: 0;
+}
+
+.TopBar_PageletsPage .tool_bar .simple_tabs {
+  margin-top: 4px; 
+  margin-left: -1px;
+}
+
+.TopBar_PageletsPage .filter_bar {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  margin-top: -6px;
+  padding: 2px 8px;
+}
+
+.List_PageletsPage .tablepager .itr>td {
+  padding: 6px 8px;  
+}
+
+.List_PageletsPage .nc {
+  color: #777777;
+  line-height: 1.4;
+  padding: 6px 0;
+}
+
+.List_PageletsPage .nc .photo_icon {
+  margin: 0 15px 4px 0;
+  float: left;
+  width: 64px;
+  height: 64px;
+}
+
+.List_PageletsPage .time {
+  float: right;
+  text-align: center;
+  width: 40px;
+  margin: 1px 1px 6px 6px;
+  background-color: #7cd;
+  color: #fff;
+  padding: 4px;
+}
+
+.List_PageletsPage .time .month {
+  font-size: 11px;
+}
+
+.List_PageletsPage .time .day {
+  font-family: Georgia;
+  font-size: 24px;
+  font-weight: bold;
+  margin: -6px 0 -2px 0;
+}
+
+.List_PageletsPage .time .year {
+  font-size: 9px;
+}
+
+.List_PageletsPage .nd {
+  padding: 6px 12px 0 0;
+  color: #222;
+  text-align: right;
+}
+
+.View_PageletsPage {
+  border: 1px solid #ccc;
+  padding: 8px 8px 0;
+  margin-bottom: 80px;
+  background-color: #fff;
+}
+
+.View_PageletsPage .time {
+  background: url("images/date.gif") no-repeat scroll left top transparent;
+  color: #fff;
+  display: inline;
+  float: left;
+  font-size: 11px;
+  height: 64px;
+  line-height: 15px;
+  margin-left: 5px;
+  margin-top: 8px;
+  text-align: center;
+  width: 56px;
+}
+
+.View_PageletsPage .time .day {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 3px;
+  margin-top: 8px;
+}
+
+.View_PageletsPage .topic {
+  padding-left: 70px;
+}
+
+.View_PageletsPage .topic .l1 {
+  font-size: 16pt;
+  font-weight: bold;
+  line-height: 36px;
+}
+
+.View_PageletsPage .topic .l2 {
+  color: #777;
+  line-height: 21px;
+}
+
+.View_PageletsPage .cc {
+  line-height: 1.7;
+  font-size: 9.5pt;
+  margin: 25px 4px;
+}
+
+.View_PageletsPage .fd {
+  margin: 30px 2px;
+}
+
+.View_PageletsPage .form_tbl {
+  background-color: #ccc;
+  margin-top: -1px;
+}
+
+.View_PageletsPage .comment {
+  margin: 0 -9px -9px;
+}
+
+.View_PageletsPage .attach {
+  border-top: 1px solid #ccc;
+  margin: 0 -8px -1px;
+  position: relative;
+}
+
+.View_PageletsPage .attach_img {
+  height: 32px;
+  width: 32px;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  background: url("images/attach.png") no-repeat 0 0;
+}
+
+.View_PageletsPage .Comp_Attachment .l_attach {
+  padding-left: 20px;
+}
+
+.Blank_PageletsPage .let .tr .tab,
+.View_PageletsPage .attach_img {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}

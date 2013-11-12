@@ -1,0 +1,22 @@
+<div class="AdvSearchPage">
+  ${page.toItemsHTML(parameter)}
+  <div class="bb">
+    <a class="simple_btn simple_btn_all" onclick="$Actions['ajaxAdvSearchSave']();">#(AdvSearchPage.1)</a>
+    <a class="simple_btn simple_btn_all" onclick="$win(this).close();">#(Button.Close)</a>
+  </div>
+</div>
+<script type="text/javascript">
+  $ready(function() {
+    var b = true;
+    $Elements(".AdvSearchPage input[type=text]").each(function(oInput) {
+      if (b) {
+        oInput.focus();
+        b = false;
+      }
+      $UI.addReturnEvent(oInput, function(ev) {
+        var okBtn = oInput.up(".AdvSearchPage").down(".bb").down();
+        okBtn.simulate("click");
+      });
+    });
+  });
+</script>

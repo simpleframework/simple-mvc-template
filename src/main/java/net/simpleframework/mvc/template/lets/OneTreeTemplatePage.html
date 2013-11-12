@@ -1,0 +1,28 @@
+<div class="OneTreeTemplatePage">
+  <div class="t">
+    ${page.toTopicHTML(parameter)}
+  </div>
+  <div id="${treeId}" class="c"></div>
+  <div class="b">
+    ${page.toBottomHTML(parameter)}
+  </div>
+</div>
+<script type="text/javascript">
+  $ready(function() {
+    var c = $("${treeId}");
+    var w = $win(c);
+    if (w) {
+      w.content.setStyle("overflow:hidden;");
+      
+      var t = c.previous();
+      var b = c.next();
+      var s = function() {
+        c.setStyle('height: '
+            + (w.getSize(true).height - t.getHeight() - b.getHeight() - 8)
+            + 'px;');
+      };
+      s();
+      w.observe("resize:ended", s);
+    }
+  });
+</script>

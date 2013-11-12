@@ -1,0 +1,61 @@
+<table class="it">
+  <tr>
+    <td class="lbl">${lbl}</td>
+    <td><input type="radio" name="${name}" id="${name}1" value="${ETimePeriod.none.name()}" /><label
+      for="${name}1">${ETimePeriod.none}</label> <input type="radio" name="${name}" id="${name}2"
+      value="${ETimePeriod.day.name()}" /><label for="${name}2">${ETimePeriod.day}</label> <input
+      type="radio" name="${name}" id="${name}3" value="${ETimePeriod.day2.name()}" /><label
+      for="${name}3">${ETimePeriod.day2}</label> <input type="radio" name="${name}" id="${name}4"
+      value="${ETimePeriod.week.name()}" /><label for="${name}4">${ETimePeriod.week}</label> <input
+      type="radio" name="${name}" id="${name}5" value="${ETimePeriod.month.name()}" /><label
+      for="${name}5">${ETimePeriod.month}</label> <input type="radio" name="${name}" id="${name}6"
+      value="${ETimePeriod.year.name()}" /><label for="${name}6">${ETimePeriod.year}</label>
+      <div class="il">
+        <input type="radio" name="${name}" id="${name}7" value="${ETimePeriod.custom.name()}" /><label
+          for="${name}7">${ETimePeriod.custom}</label> <input type="text" class="date d1"
+          onclick="$Actions['advSearchCalendar'].show(this);" /> #(AdvSearchPage_date.0) <input
+          type="text" class="date d2" onclick="$Actions['advSearchCalendar'].show(this);" />
+      </div></td>
+  </tr>
+</table>
+<script type="text/javascript">
+  $ready(function() {
+    var ra = $("${name}7");
+
+    var d1 = ra.next(".d1"), d2 = ra.next(".d2");
+
+    var tbl = ra.up(".it");
+
+    tbl.select("input[type=radio]").invoke("observe", "click", function(ev) {
+      var b7 = (this.id == ra.id);
+      [ d1, d2 ].each(function(i) {
+        if (b7)
+          i.enable();
+        else
+          i.disable();
+      });
+    });
+    [ d1, d2 ].invoke("observe", "blur", function(ev) {
+      ra.value = $F(d1) + ";" + $F(d2);
+    });
+
+    var time = "${time}";
+    var timeArr = time.split(";");
+    if (timeArr.length > 1) {
+      d1.value = timeArr[0];
+      d2.value = timeArr[1];
+      ra.checked = true;
+      ra.value = $F(d1) + ";" + $F(d2);
+    } else {
+      var s = tbl.down("input[value=" + time + "]");
+      if (s)
+        s.checked = true;
+      else
+        $("${name}1").checked = true;
+    }
+    if (!ra.checked) {
+      d1.disable();
+      d2.disable();
+    }
+  });
+</script>

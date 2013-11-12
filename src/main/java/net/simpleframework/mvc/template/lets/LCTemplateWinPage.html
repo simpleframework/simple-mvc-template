@@ -1,0 +1,27 @@
+<div class="LCTemplateWinPage">
+  <div class="cl">
+    ${content_left}
+  </div>
+  <div class="cc">
+    ${toolbar_center}
+    ${content_center}
+  </div>
+  <div class="clearfix"></div>
+</div>
+<script type="text/javascript">
+  $ready(function() {
+    var us = $Actions['${winAct}'];
+    var w = us.window;
+    w.content.setStyle("overflow:hidden;");
+
+    var cl = w.content.down(".LCTemplateWinPage .cl");
+    var cc = w.content.down(".LCTemplateWinPage .cc");
+
+    var s = function() {
+      cl.setStyle("height:" + w.content.getHeight() + "px;");
+      cc.setStyle("height:" + w.content.getHeight() + "px;");
+    };
+    s();
+    w.observe("resize:ended", s);
+  });
+</script>

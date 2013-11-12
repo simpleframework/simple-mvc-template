@@ -1,0 +1,15 @@
+#fixed_body {
+  background: #fff;
+}
+
+#fixed_content {
+  padding: 8px;
+  min-height: 600px;
+  width: 1024px;
+}
+
+#fixed_footer {
+  background: #fbfbfb;
+  border-top: 1px solid #aaa;
+  margin: 0;
+}

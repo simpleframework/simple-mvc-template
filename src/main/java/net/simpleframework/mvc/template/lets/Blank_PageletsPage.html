@@ -1,0 +1,30 @@
+<div class="Blank_PageletsPage">
+  $if{showPagelets}
+  <div class="col1">
+    <div class="col1_1">${col1}</div>
+  </div>
+  <div class="col2">${page.toPageletHTML(parameter)}</div>
+  $else{} 
+    ${col1} 
+  $end{}
+</div>
+$if{pageletsScroll}
+<script type="text/javascript">
+  $ready(function() {
+    var col2 = $(".Blank_PageletsPage .col2");
+    var col1 = col2.previous();
+    var h = col1.cumulativeOffset().top;
+    var h2 = col1.getHeight() - col2.getHeight();
+    Event.observe(window, "scroll", function() {
+      var top = document.viewport.getScrollOffsets().top - h;
+      if (top > 0) {
+        if (top < h2 - 100) {
+          col2.style.top = (top + 5) + "px";
+        }
+      } else {
+        col2.style.top = "0px";
+      }
+    });
+  });
+</script>
+$end{}

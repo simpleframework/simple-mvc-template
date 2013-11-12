@@ -1,0 +1,114 @@
+.Category_BlankPage>table {
+  table-layout: fixed;
+  width: 100%;
+  border-spacing: 0;
+}
+
+.Category_BlankPage>table td {
+  padding: 0;
+}
+
+.Category_BlankPage .category {
+  vertical-align: top;
+  background: #eef;
+  -moz-user-select: none;  
+	-webkit-user-select: none;  
+	-ms-user-select: none;
+	padding: 20px 0;
+}
+
+.Category_BlankPage .col1 {
+  overflow: hidden;
+  position: relative;
+}
+
+.Category_BlankPage .col2 {
+  border-left: 1px solid #aaa;
+  margin-left: -1px;
+  background-color: #fff;
+  min-height: 640px;
+  overflow: auto;
+  *position: relative;
+}
+
+.Category_BlankPage .category a:hover {
+  text-decoration: none;
+}
+
+.Category_BlankPage .category .selected a {
+  font-weight: bold;
+}
+
+.Category_BlankPage .category .c_item,
+.Category_BlankPage .category .c_child_item {
+  border: 1px solid transparent;
+  text-align: left;
+  font-size: 10.5pt;
+  margin: 0 1px 0 -1px;
+  border-right: 0;
+}
+
+.Category_BlankPage .category .c_item {
+  line-height: 38px;
+  cursor: pointer;
+  padding-left: 25px;
+}
+
+.Category_BlankPage .category .c_child_item {
+  line-height: 30px;
+  cursor: pointer;
+  padding-left: 40px;
+}
+
+.Category_BlankPage .category .c_item:hover,
+.Category_BlankPage .category .c_child_item:hover {
+   background-color: #eec;
+   transition: background-color 0.4s;
+  -moz-transition: background-color 0.4s;
+  -webkit-transition: background-color 0.4s;
+  -ms-transition: background-color 0.4s;
+}
+
+.Category_BlankPage .category .selected,
+.Category_BlankPage .category .selected:hover {
+  background-color: #fff; 
+  border-color: #aaa;
+  margin-right: 0;
+}
+
+.Category_BlankPage .category .selected {
+  background: url(images/arrow-right.png) no-repeat 96% center #fff;
+}
+
+.Category_BlankPage .c_item span.icon,
+.Category_BlankPage .c_child_item span.icon {
+  padding-left: 30px;
+  background-repeat: no-repeat;
+  background-position: 0px 55%;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+.Category_BlankPage .c_child_item span.icon {
+  padding-left: 22px;
+}
+
+.Category_ListPage {
+  padding: 6px;
+}
+
+.Category_ListPage .tool_bar {
+  border: 1px solid #bbb;
+  margin-bottom: -1px;
+}
+
+.Category_ListPage .tool_bar .le {
+  max-width: 75%;
+}
+
+.Category_ListPage .tablepager .thead {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;  
+}

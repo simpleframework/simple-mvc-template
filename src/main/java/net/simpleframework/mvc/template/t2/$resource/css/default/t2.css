@@ -1,0 +1,71 @@
+body {
+  background: url("images/page-background.png") 0 0 repeat-x;
+  margin: 0;
+  padding: 0;
+}
+
+body:before {
+  content: "";
+  position: fixed;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  -webkit-box-shadow: 0px 0px 20px #999;
+  -moz-box-shadow: 0px 0px 20px #999;
+  box-shadow: 0px 0px 20px #999;
+  z-index: 100;
+}
+
+#site_body {
+  -webkit-box-shadow: 6px 6px 6px #aaa;
+  -moz-box-shadow: 6px 6px 6px #aaa;
+  box-shadow: 6px 6px 6px #aaa;
+  width: 1080px;
+  background: #fff;
+  text-align: left;
+  border: 1px solid #999;
+  margin: 6px 0 20px;
+}
+
+@media screen and (max-width: 1024px) {
+  #site_body {
+    width: 990px;
+  }
+}
+
+#site_header {
+  height: 65px;
+  background-color: #eed;
+}
+
+#site_header2 {
+  border-top: 6px solid #440;
+  border-bottom: 1px solid #666;
+  overflow: hidden;
+  _zoom: 1;
+  padding: 3px 0;
+  background: #fafafa;
+}
+
+#site_header2 .info {
+  float: left;
+  line-height: 21px;
+  margin-left: 8px;
+}
+
+#site_menu_bar {
+  float: right;
+  margin-right: 30px;
+}
+
+#site_content {
+  min-height: 600px;
+}
+
+#site_footer {
+  background-color: #fcfcfc;
+  border-top: 1px solid #999;
+  min-height: 60px;
+  padding: 5px;
+}

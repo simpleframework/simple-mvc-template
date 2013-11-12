@@ -1,0 +1,75 @@
+<style type="text/css">
+html,body {
+	overflow: hidden;
+}
+</style>
+<div align="center">
+  <div id="resized_header"${headerAttr}>$includeNamed{'header'}</div>
+  $if{showMenubar}
+  <div id="resized_menu">
+    <div id="resized_navigation_bar">${page.getNavigationBar(parameter)}</div>
+    <div id="resized_menu_bar"></div>
+    <div id="resized_toggle_bar"${toggleAttr}></div>
+  </div>
+  $end{}
+  ${tabsHTML}
+  <div id="resized_body">
+    <div class="child">
+      ${page._toContentBarHTML(parameter)}
+      ${content}
+    </div>
+  </div>
+  <div id="resized_footer">$includeNamed{'footer'}</div>
+</div>
+<script type="text/javascript">
+	$ready(function() {
+		var header = $('resized_header');
+		var footer = $('resized_footer');
+		var menu = $('resized_menu');
+		var tabbar = $('resized_tabbar');
+		var tabbar2 = $('resized_tabbar2');
+		var m = $('#resized_body .child');
+		var h = function(o) {
+			return o ? o.getHeight() : 0;
+		};
+		var r = function() {
+			var hHeight = header.visible() ? h(header) : 0;
+			var height = document.viewport.getHeight() - hHeight - 
+					h(menu) - 
+					h(tabbar) - 
+					h(footer);
+			m.setStyle('height: ' + height + 'px');
+			if (tabbar2) {
+			  tabbar2.setStyle('height: ' + height + 'px');
+			}
+			m.fire("size:body");
+		};
+		r.defer();
+		Event.observe(window, "resize", r);
+		/*
+  	m.observe("scroll", function() {
+    	if (m.lScrollTop && m.scrollTop == 0)
+       	m.scrollTop = m.lScrollTop;
+     	m.lScrollTop = m.scrollTop > 100 ? m.scrollTop : null;
+    });
+		*/
+    var toggle;
+    if (menu && (toggle = menu.down("#resized_toggle_bar"))) {
+      toggle.observe("click", function() {
+        header.$toggle({
+          afterFinish : function() {
+            r.defer();
+            var cookie = "${toggleCookie}";
+            if (header.visible()) {
+              document.removeCookie(cookie);
+              toggle.writeAttribute("className", "t1");
+            } else {
+              document.setCookie(cookie, true);
+              toggle.writeAttribute("className", "t2");
+            }
+          }
+        });
+      });
+    }
+  });
+</script>
