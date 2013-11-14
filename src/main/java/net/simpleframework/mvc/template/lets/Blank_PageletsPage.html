@@ -8,7 +8,7 @@
     ${col1} 
   $end{}
 </div>
-$if{pageletsScroll}
+$if{pageletsScroll > 0}
 <script type="text/javascript">
   $ready(function() {
     var col2 = $(".Blank_PageletsPage .col2");
@@ -18,7 +18,7 @@ $if{pageletsScroll}
     Event.observe(window, "scroll", function() {
       var top = document.viewport.getScrollOffsets().top - h;
       if (top > 0) {
-        if (top < h2 - 100) {
+        if (top < h2 - ${pageletsScroll}) {
           col2.style.top = (top + 5) + "px";
         }
       } else {

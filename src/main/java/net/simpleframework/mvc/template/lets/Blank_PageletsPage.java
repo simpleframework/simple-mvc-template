@@ -33,7 +33,7 @@ public abstract class Blank_PageletsPage extends AbstractTwoColPage {
 	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
 		return ((KVMap) super.createVariables(pp)).add("showPagelets", isShowPagelets(pp)).add(
-				"pageletsScroll", isPageletsScroll(pp));
+				"pageletsScroll", getPageletsScrollHeight(pp));
 	}
 
 	protected AjaxRequestBean addPageletTabAjaxRequest(final PageParameter pp) {
@@ -44,8 +44,8 @@ public abstract class Blank_PageletsPage extends AbstractTwoColPage {
 		return null;
 	}
 
-	protected boolean isPageletsScroll(final PageParameter pp) {
-		return true;
+	protected int getPageletsScrollHeight(final PageParameter pp) {
+		return 600;
 	}
 
 	public String toPageletHTML(final PageParameter pp) {
