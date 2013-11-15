@@ -95,7 +95,7 @@ public abstract class AdvSearchPage extends FormTemplatePage {
 
 	public FilterButton createFilterButton(final PageParameter pp, final String url,
 			final String rParam) {
-		final String val = pp.getParameter(rParam);
+		final String val = pp.getLocaleParameter(rParam);
 		if (StringUtils.hasText(val)) {
 			return _createFilterButton(pp, val, url, rParam);
 		}
