@@ -1,12 +1,13 @@
 package net.simpleframework.mvc.template.struct;
 
+import net.simpleframework.mvc.common.element.SpanElement;
+import net.simpleframework.mvc.common.element.TabButton;
 import net.simpleframework.mvc.common.element.TabButtons;
 
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885)
- *         https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class Pagelet {
@@ -62,5 +63,25 @@ public class Pagelet {
 	public Pagelet setTabs(final TabButtons tabs) {
 		this.tabs = tabs;
 		return this;
+	}
+
+	public String toTabsHTML() {
+		final StringBuilder sb = new StringBuilder();
+		final TabButtons tabs = getTabs();
+		int size;
+		if (tabs != null && (size = tabs.size()) > 0) {
+			sb.append("<div class='tr'>");
+			for (int i = 0; i < size; i++) {
+				final TabButton tab = tabs.get(i);
+				final SpanElement span = new SpanElement(tab.getText()).setClassName("tab").setOnclick(
+						tab.getOnclick());
+				if (i == tabs.getSelectedIndex()) {
+					span.addClassName("active");
+				}
+				sb.append(span);
+			}
+			sb.append("</div>");
+		}
+		return sb.toString();
 	}
 }
