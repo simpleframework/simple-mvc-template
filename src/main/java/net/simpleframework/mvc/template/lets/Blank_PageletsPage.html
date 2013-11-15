@@ -10,13 +10,14 @@
 </div>
 $if{pageletsScroll > 0}
 <script type="text/javascript">
-  $ready(function() {
+  (function() {
     var col2 = $(".Blank_PageletsPage .col2");
     var col1 = col2.previous();
     var h = col1.cumulativeOffset().top;
-    var h2 = col1.getHeight() - col2.getHeight();
+    var h2 = col1.measure("height") - col2.measure("height");
+    var vp = document.viewport;
     Event.observe(window, "scroll", function() {
-      var top = document.viewport.getScrollOffsets().top - h;
+      var top = vp.getScrollOffsets().top - h;
       if (top > 0) {
         if (top < h2 - ${pageletsScroll}) {
           col2.style.top = (top + 5) + "px";
@@ -25,6 +26,6 @@ $if{pageletsScroll > 0}
         col2.style.top = "0px";
       }
     });
-  });
+  }).delay(1);
 </script>
 $end{}

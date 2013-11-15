@@ -24,6 +24,7 @@ import net.simpleframework.mvc.common.element.InputElement;
 import net.simpleframework.mvc.common.element.Option;
 import net.simpleframework.mvc.common.element.PhotoImage;
 import net.simpleframework.mvc.component.ComponentParameter;
+import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestBean;
 import net.simpleframework.mvc.component.ext.userselect.UserSelectBean;
 import net.simpleframework.mvc.component.ui.pager.IGroupTablePagerHandler;
 import net.simpleframework.mvc.component.ui.pager.TablePagerColumn;
@@ -206,6 +207,10 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 				return user.exists() ? user.getText() : val;
 			};
 		}.setFilterAdvClick("$Actions['" + tblComponentName + "_userselect_" + columnName + "']();");
+	}
+
+	protected AjaxRequestBean addPageletTabAjaxRequest(final PageParameter pp) {
+		return addAjaxRequest(pp, "PageletTab_ajax").setHandleMethod("doPageletTab");
 	}
 
 	public static String toIconUser(final PageParameter pp, final Object user) {

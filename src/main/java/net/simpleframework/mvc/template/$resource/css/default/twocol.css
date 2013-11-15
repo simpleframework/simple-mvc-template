@@ -23,61 +23,6 @@
   *position: inherit; /* ie7 */
 }
 
-.Blank_PageletsPage .let {
-  border: 1px solid #ccc;
-  margin-bottom: 8px;
-  min-height: 200px;
-  background-color: #fff;
-}
-
-.Blank_PageletsPage .let .lh,
-.Blank_PageletsPage .let .tr .tab {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-
-.Blank_PageletsPage .let .lh {
-  padding-bottom: 4px;
-  margin-bottom: 4px;
-  color: #400;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 21px;
-  background: #f9f9f9;
-  border-bottom: 3px double #bbb;
-  padding: 6px 10px;
-  position: relative;
-}
-
-.Blank_PageletsPage .let .tr {
-  font-size: 9pt;
-  font-weight: normal;
-  cursor: default;
-  position: absolute;
-  right: 6px;
-  top: 14px;
-}
-
-.Blank_PageletsPage .let .tr .tab {
-  height: 16px;
-  line-height: 16px;
-  border: 1px solid transparent;
-  border-bottom: 0;
-  padding: 1px 6px 0px 6px;
-  margin-left: -1px;
-}
-
-.Blank_PageletsPage .let .tr .tab.active {
-  border-color: #bbb;
-  background-color: #fff;
-  padding-bottom: 3px;
-}
-
-.Blank_PageletsPage .let .lc {
-  padding: 4px;
-}
-
 .TopBar_PageletsPage .tool_bar {
   background-color: #fafafa;
   margin-bottom: 6px;
@@ -220,15 +165,11 @@
   top: -10px;
   left: -10px;
   background: url("images/attach.png") no-repeat 0 0;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
 }
 
 .View_PageletsPage .Comp_Attachment .l_attach {
   padding-left: 20px;
-}
-
-.Blank_PageletsPage .let .tr .tab,
-.View_PageletsPage .attach_img {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
 }

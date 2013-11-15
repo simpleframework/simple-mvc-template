@@ -19,13 +19,14 @@ public class Pagelets extends AbstractArrayListEx<Pagelets, Pagelet> {
 	public String toString() {
 		final StringBuilder sb = new StringBuilder();
 		for (final Pagelet let : this) {
-			sb.append("<div class='").append(StringUtils.text(let.getClassName(), "let")).append("'>");
+			sb.append("<div class='").append(StringUtils.text(let.getClassName(), "pagelets"))
+					.append("'>");
 			sb.append("<div class='lh'>");
 			final CategoryItem title = let.getTitle();
 			if (title != null) {
-				sb.append("<div class='tl'>").append(title.getTitle()).append("</div>");
+				sb.append("<span class='lbl'>").append(title.getTitle()).append("</span>");
 			}
-			sb.append(let.toTabsHTML("tr"));
+			sb.append(let.toTabsHTML());
 			sb.append("</div>");
 			sb.append("<div class='lc'>").append(StringUtils.blank(let.getContent())).append("</div>");
 			sb.append("</div>");

@@ -65,12 +65,12 @@ public class Pagelet {
 		return this;
 	}
 
-	public String toTabsHTML(final String className) {
+	public String toTabsHTML() {
 		final StringBuilder sb = new StringBuilder();
 		final TabButtons tabs = getTabs();
 		int size;
 		if (tabs != null && (size = tabs.size()) > 0) {
-			sb.append("<div class='").append(className).append("'>");
+			sb.append("<div class='tabs'>");
 			for (int i = 0; i < size; i++) {
 				final TabButton tab = tabs.get(i);
 				final SpanElement span = new SpanElement(tab.getText()).setClassName("tab").setOnclick(

@@ -93,8 +93,8 @@ Object.extend($UI, {
     var act = $Actions['PageletTab_ajax'];
 
     var tab = obj.up(".tab") || obj;
-    var lc = tab.up(".let").down(".lc");
-    var tabs = tab.up(".tr").select(".tab");
+    var lc = tab.up(".pagelets").down(".lc");
+    var tabs = tab.up(".tabs").select(".tab");
 
     var _update = function(_content) {
       lc.update(_content);

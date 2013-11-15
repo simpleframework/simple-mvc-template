@@ -4,7 +4,6 @@ import java.util.Map;
 
 import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.mvc.PageParameter;
-import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestBean;
 import net.simpleframework.mvc.component.ui.tooltip.TooltipRegistry;
 import net.simpleframework.mvc.template.AbstractTemplatePage;
 import net.simpleframework.mvc.template.struct.Pagelets;
@@ -26,17 +25,13 @@ public abstract class Blank_PageletsPage extends AbstractTwoColPage {
 	protected void addImportCSS(final PageParameter pp) {
 		super.addImportCSS(pp);
 
-		pp.addImportCSS(AbstractTemplatePage.class, "/pagelets.css");
+		pp.addImportCSS(AbstractTemplatePage.class, "/twocol.css");
 	}
 
 	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
 		return ((KVMap) super.createVariables(pp)).add("showPagelets", isShowPagelets(pp)).add(
 				"pageletsScroll", getPageletsScrollHeight(pp));
-	}
-
-	protected AjaxRequestBean addPageletTabAjaxRequest(final PageParameter pp) {
-		return addAjaxRequest(pp, "PageletTab_ajax").setHandleMethod("doPageletTab");
 	}
 
 	protected Pagelets getPagelets(final PageParameter pp) {
