@@ -25,7 +25,7 @@ public class Pagelets extends AbstractArrayListEx<Pagelets, Pagelet> {
 			if (title != null) {
 				sb.append("<div class='tl'>").append(title.getTitle()).append("</div>");
 			}
-			sb.append(let.toTabsHTML());
+			sb.append(let.toTabsHTML("tr"));
 			sb.append("</div>");
 			sb.append("<div class='lc'>").append(StringUtils.blank(let.getContent())).append("</div>");
 			sb.append("</div>");
