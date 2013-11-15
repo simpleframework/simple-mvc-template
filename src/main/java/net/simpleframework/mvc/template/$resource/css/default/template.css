@@ -45,7 +45,7 @@ body {
   font-weight: normal;
   position: absolute;
   right: 6px;
-  top: 9px;
+  top: 16px;
 }
 
 .pagelets .lh .lbl {
@@ -56,6 +56,7 @@ body {
 }
 
 .pagelets .lh .tabs,
+.pagelets .lh .tabs .tab,
 .pagelets .lh .lbl {
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -72,6 +73,7 @@ body {
   border-bottom: 0;
   padding: 1px 6px 0px 6px;
   margin-left: -1px;
+  vertical-align: top;
 }
 
 .pagelets .lh .tabs .tab.active {
