@@ -20,7 +20,7 @@ public class ListRows extends AbstractArrayListEx<ListRows, ListRow> {
 	private EImageDot dotIcon;
 
 	public EImageDot getDotIcon() {
-		return dotIcon == null ? EImageDot.dot1 : dotIcon;
+		return dotIcon == null ? EImageDot.none : dotIcon;
 	}
 
 	public ListRows setDotIcon(final EImageDot dotIcon) {
@@ -35,7 +35,12 @@ public class ListRows extends AbstractArrayListEx<ListRows, ListRow> {
 		boolean isShowTip = false;
 		sb.append("<div class='pagelet_list_rows' id='").append(id).append("'>");
 		for (final ListRow item : this) {
-			sb.append("<div class=\"ti ").append(getDotIcon().name()).append("\">");
+			sb.append("<div class=\"ti");
+			final EImageDot dot = getDotIcon();
+			if (dot != EImageDot.none) {
+				sb.append(" ").append(dot.name());
+			}
+			sb.append("\">");
 			final String[] shortDesc = item.getShortDesc();
 			if (shortDesc != null && shortDesc.length > 0) {
 				if (StringUtils.hasText(shortDesc[0])) {

@@ -19,12 +19,13 @@
   float: right;
   margin-left: -290px;
   width: 290px;
+  margin-bottom: 2px;
   position: relative;
   *position: inherit; /* ie7 */
 }
 
 .TopBar_PageletsPage .tool_bar {
-  background-color: #fafafa;
+  background-color: #F9F9F9;
   margin-bottom: 6px;
   border: 1px solid #ccc;
   padding-bottom: 0;

@@ -8,6 +8,8 @@ package net.simpleframework.mvc.template.struct;
  */
 public enum EImageDot {
 
+	none,
+
 	dot1,
 
 	dot2,

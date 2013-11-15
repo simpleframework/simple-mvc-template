@@ -28,7 +28,7 @@ body {
 /***************************************************/
 .pagelets {
   border: 1px solid #ccc;
-  margin-bottom: 5px;
+  margin-bottom: -1px;
 }
 
 .pagelets .lh {
@@ -90,10 +90,10 @@ body {
 
 .pagelet_list_rows .ti {
   background-repeat: no-repeat;
-  padding-left: 15px;
-  height: 23px;
-  line-height: 23px;
+  height: 24px;
+  line-height: 24px;
   overflow: hidden;
+  padding-left: 3px;
 }
 
 .pagelet_list_rows .ti .sdesc {
@@ -111,19 +111,23 @@ body {
   }
 }
 
+.pagelet_list_rows .ti.dot1,
+.pagelet_list_rows .ti.dot2,
+.pagelet_list_rows .ti.dot3 {
+  background-position: 3px 10px;
+  padding-left: 15px;
+}
+
 .pagelet_list_rows .ti.dot1 {
-  background-image: url("images/dot1.png");
-  background-position: 3px 9px;
+  background-image: url("images/dot1.png");  
 }
 
 .pagelet_list_rows .ti.dot2 {
   background-image: url("images/dot2.png");
-  background-position: 3px 9px;
 }
 
 .pagelet_list_rows .ti.dot3 {
   background-image: url("images/dot3.png");
-  background-position: 4px 9px;
 }
 
 /***************************************************/
