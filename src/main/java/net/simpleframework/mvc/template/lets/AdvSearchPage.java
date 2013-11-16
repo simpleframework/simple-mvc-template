@@ -4,11 +4,11 @@ import static net.simpleframework.common.I18n.$m;
 
 import java.util.Map;
 
+import net.simpleframework.common.ETimePeriod;
 import net.simpleframework.common.StringUtils;
+import net.simpleframework.common.TimePeriod;
 import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.common.web.HttpUtils;
-import net.simpleframework.ctx.common.bean.ETimePeriod;
-import net.simpleframework.ctx.common.bean.TimePeriod;
 import net.simpleframework.ctx.script.MVEL2Template;
 import net.simpleframework.mvc.IMVCConst;
 import net.simpleframework.mvc.JavascriptForward;

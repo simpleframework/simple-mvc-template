@@ -129,13 +129,11 @@ public class AbstractTwoColPage extends AbstractTemplatePage {
 
 		protected String toHTML_shortDesc(final ComponentParameter cp, final Object dataObject) {
 			final StringBuilder sb = new StringBuilder();
-			sb.append("<div class='nd'>");
 			sb.append(SpanElement.num(getDataProperty(cp, dataObject, OP_COMMENTS))).append(NBSP)
 					.append($m("AbstractTwoColPage.1"));
 			sb.append(SpanElement.SEP);
 			sb.append(SpanElement.num(getDataProperty(cp, dataObject, OP_VIEWS))).append(NBSP)
 					.append($m("AbstractTwoColPage.2"));
-			sb.append("</div>");
 			return sb.toString();
 		}
 
@@ -148,7 +146,7 @@ public class AbstractTwoColPage extends AbstractTemplatePage {
 			sb.append("<div class='nc'>");
 			sb.append(toHTML_image(cp, dataObject));
 			sb.append(toHTML_desc(cp, dataObject));
-			sb.append(toHTML_shortDesc(cp, dataObject));
+			sb.append(" <div class='nd'>").append(toHTML_shortDesc(cp, dataObject)).append("</div>");
 			sb.append("</div>");
 
 			return sb.toString();
