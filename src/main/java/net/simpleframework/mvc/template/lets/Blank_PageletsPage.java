@@ -29,6 +29,11 @@ public abstract class Blank_PageletsPage extends AbstractTwoColPage {
 	}
 
 	@Override
+	protected String getPageCSS(final PageParameter pp) {
+		return "Blank_PageletsPage";
+	}
+
+	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
 		return ((KVMap) super.createVariables(pp)).add("showPagelets", isShowPagelets(pp)).add(
 				"pageletsScroll", getPageletsScrollHeight(pp));

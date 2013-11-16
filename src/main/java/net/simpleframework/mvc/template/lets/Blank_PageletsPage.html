@@ -1,13 +1,11 @@
-<div class="Blank_PageletsPage">
-  $if{showPagelets}
-  <div class="col1">
-    <div class="col1_1">${col1}</div>
-  </div>
-  <div class="col2">${page.toPageletHTML(parameter)}</div>
-  $else{} 
-    ${col1} 
-  $end{}
+$if{showPagelets}
+<div class="col1">
+  <div class="col1_1">${col1}</div>
 </div>
+<div class="col2">${page.toPageletHTML(parameter)}</div>
+$else{} 
+  ${col1} 
+$end{}
 $if{pageletsScroll > 0}
 <script type="text/javascript">
   (function() {
