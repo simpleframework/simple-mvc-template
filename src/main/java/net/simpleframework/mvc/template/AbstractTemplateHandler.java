@@ -2,7 +2,6 @@ package net.simpleframework.mvc.template;
 
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.object.ObjectEx;
-import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.ctx.IModuleContext;
 import net.simpleframework.ctx.Module;
 import net.simpleframework.ctx.ModuleContextFactory;
