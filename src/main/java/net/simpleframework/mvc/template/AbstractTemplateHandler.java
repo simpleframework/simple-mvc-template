@@ -22,8 +22,7 @@ import net.simpleframework.mvc.ctx.WebModuleFunction;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class AbstractTemplateHandler extends ObjectEx implements ITemplateHandler,
-		HtmlConst {
+public abstract class AbstractTemplateHandler extends ObjectEx implements ITemplateHandler {
 
 	@Override
 	public String getFavicon(final PageParameter pp) {

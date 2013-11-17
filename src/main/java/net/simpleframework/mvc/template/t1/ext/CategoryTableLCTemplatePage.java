@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import net.simpleframework.common.StringUtils;
+import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.mvc.AbstractMVCPage;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.Icon;
@@ -47,7 +48,7 @@ public abstract class CategoryTableLCTemplatePage extends CategoryLCTemplatePage
 			sb.append("<div class='CategoryTableLCTemplatePage' id='table_").append(hashId)
 					.append("'>");
 			sb.append("</div>");
-			sb.append(TAG_SCRIPT_START);
+			sb.append(HtmlConst.TAG_SCRIPT_START);
 			sb.append("$ready(function() {");
 			sb.append(" var tbl = $Actions['").append(COMPONENT_TABLE).append("'];");
 			sb.append(" tbl.jsLoadedCallback = function() {");
@@ -69,7 +70,7 @@ public abstract class CategoryTableLCTemplatePage extends CategoryLCTemplatePage
 			sb.append("  $win.closePOPs();");
 			sb.append(" };");
 			sb.append("});");
-			sb.append(TAG_SCRIPT_END);
+			sb.append(HtmlConst.TAG_SCRIPT_END);
 			return sb.toString();
 		}
 		return super.toHtml(pp, pageClass, variables, currentVariable);

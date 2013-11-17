@@ -8,12 +8,14 @@ import java.util.Map;
 import net.simpleframework.common.BeanUtils;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.KVMap;
+import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.common.web.html.HtmlUtils;
 import net.simpleframework.lib.org.jsoup.nodes.Document;
 import net.simpleframework.lib.org.jsoup.nodes.Element;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.ImageCache;
 import net.simpleframework.mvc.common.element.ETextAlign;
+import net.simpleframework.mvc.common.element.LinkElement;
 import net.simpleframework.mvc.common.element.PhotoImage;
 import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.component.ComponentParameter;
@@ -75,11 +77,8 @@ public class AbstractTwoColPage extends AbstractTemplatePage {
 		}
 
 		protected String toHTML_topic(final ComponentParameter cp, final Object dataObject) {
-			final StringBuilder sb = new StringBuilder();
-			sb.append("<a class='f3 nt' target='_blank' href=\"")
-					.append(getDataProperty(cp, dataObject, OP_TOPIC_URL)).append("\">")
-					.append(getDataProperty(cp, dataObject, OP_TOPIC)).append("</a>");
-			return sb.toString();
+			return LinkElement.BLANK(getDataProperty(cp, dataObject, OP_TOPIC)).setClassName("f3 nt")
+					.setHref((String) getDataProperty(cp, dataObject, OP_TOPIC_URL)).toString();
 		}
 
 		protected String toHTML_date(final ComponentParameter cp, final Object dataObject) {
@@ -129,11 +128,11 @@ public class AbstractTwoColPage extends AbstractTemplatePage {
 
 		protected String toHTML_shortDesc(final ComponentParameter cp, final Object dataObject) {
 			final StringBuilder sb = new StringBuilder();
-			sb.append(SpanElement.num(getDataProperty(cp, dataObject, OP_COMMENTS))).append(NBSP)
-					.append($m("AbstractTwoColPage.1"));
+			sb.append(SpanElement.num(getDataProperty(cp, dataObject, OP_COMMENTS)))
+					.append(HtmlConst.NBSP).append($m("AbstractTwoColPage.1"));
 			sb.append(SpanElement.SEP);
-			sb.append(SpanElement.num(getDataProperty(cp, dataObject, OP_VIEWS))).append(NBSP)
-					.append($m("AbstractTwoColPage.2"));
+			sb.append(SpanElement.num(getDataProperty(cp, dataObject, OP_VIEWS)))
+					.append(HtmlConst.NBSP).append($m("AbstractTwoColPage.2"));
 			return sb.toString();
 		}
 

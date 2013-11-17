@@ -3,6 +3,7 @@ package net.simpleframework.mvc.template.t1.ext;
 import java.io.IOException;
 import java.util.Map;
 
+import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.mvc.AbstractMVCPage;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.component.AbstractComponentBean;
@@ -65,7 +66,7 @@ public abstract class CategoryLCTemplatePage extends T1ResizedLCTemplatePage {
 			final StringBuilder sb = new StringBuilder();
 			sb.append("<div class='CategoryLCTemplatePage' id='category_").append(hashId)
 					.append("'></div>");
-			sb.append(TAG_SCRIPT_START);
+			sb.append(HtmlConst.TAG_SCRIPT_START);
 			sb.append("$ready(function() {");
 			sb.append(" var tree = $Actions['").append(COMPONENT_CATEGORY).append("'];");
 			sb.append(" var category = $('category_").append(hashId).append("');");
@@ -76,7 +77,7 @@ public abstract class CategoryLCTemplatePage extends T1ResizedLCTemplatePage {
 			sb.append("    tb.replace(bar);");
 			sb.append(" }");
 			sb.append("});");
-			sb.append(TAG_SCRIPT_END);
+			sb.append(HtmlConst.TAG_SCRIPT_END);
 			return sb.toString();
 		}
 		return super.toHtml(pp, pageClass, variables, currentVariable);

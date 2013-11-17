@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import net.simpleframework.common.StringUtils;
+import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.mvc.AbstractMVCPage;
 import net.simpleframework.mvc.IPageHandler.PageSelector;
 import net.simpleframework.mvc.PageParameter;
@@ -54,10 +55,10 @@ public abstract class FormTemplatePage extends BlockTemplatePage {
 			sb.append("</div>");
 			final String focusElement = getFocusElement(pp);
 			if (StringUtils.hasText(focusElement)) {
-				sb.append(TAG_SCRIPT_START);
+				sb.append(HtmlConst.TAG_SCRIPT_START);
 				sb.append("(function() { var f = $('").append(focusElement)
 						.append("'); if (f) f.focus(); }).defer();");
-				sb.append(TAG_SCRIPT_END);
+				sb.append(HtmlConst.TAG_SCRIPT_END);
 			}
 			return sb.toString();
 		}

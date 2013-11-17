@@ -5,6 +5,7 @@ import static net.simpleframework.common.I18n.$m;
 import java.util.Date;
 
 import net.simpleframework.common.coll.KVMap;
+import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.common.element.TableRows;
@@ -92,7 +93,7 @@ public abstract class View_PageletsPage extends Blank_PageletsPage {
 
 	protected String getTopic2(final PageParameter pp) {
 		final StringBuilder sb = new StringBuilder();
-		sb.append(SpanElement.num(getDataProperty(pp, "views"))).append(NBSP)
+		sb.append(SpanElement.num(getDataProperty(pp, "views"))).append(HtmlConst.NBSP)
 				.append($m("AbstractTwoColPage.2"));
 		return sb.toString();
 	}

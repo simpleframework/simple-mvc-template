@@ -5,6 +5,7 @@ import java.util.Map;
 
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.web.JavascriptUtils;
+import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.mvc.AbstractMVCPage;
 import net.simpleframework.mvc.PageParameter;
 
@@ -39,13 +40,13 @@ public abstract class BlockTemplatePage extends AbstractTemplatePage {
 			sb.append("</div>");
 			final String title = getTitle(pp);
 			if (StringUtils.hasText(title)) {
-				sb.append(TAG_SCRIPT_START);
+				sb.append(HtmlConst.TAG_SCRIPT_START);
 				sb.append("(function(o) {");
 				sb.append(" if (w = $(o).up('.ui-window'))");
 				sb.append("	 w.window.setHeader(\"").append(JavascriptUtils.escape(title).trim())
 						.append("\");");
 				sb.append("})('").append(blockId).append("');");
-				sb.append(TAG_SCRIPT_END);
+				sb.append(HtmlConst.TAG_SCRIPT_END);
 			}
 			return sb.toString();
 		}

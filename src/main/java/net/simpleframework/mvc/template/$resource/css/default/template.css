@@ -217,6 +217,7 @@ body {
   border-bottom: 1px solid #999;
   padding: 6px 10px;
   text-align: left;
+  *overflow: hidden; /* ie7 */
 }
 
 .tool_bar .re,
