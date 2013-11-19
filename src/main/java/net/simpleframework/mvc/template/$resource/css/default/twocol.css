@@ -135,9 +135,9 @@
 }
 
 .View_PageletsPage .cc {
-  line-height: 1.7;
-  font-size: 9.5pt;
   margin: 25px 4px;
+  font-size: 10pt;
+  line-height: 1.7;
 }
 
 .View_PageletsPage .fd {
