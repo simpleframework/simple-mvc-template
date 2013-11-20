@@ -216,10 +216,11 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	public static String toIconUser(final PageParameter pp, final Object user) {
 		final StringBuilder sb = new StringBuilder();
 		sb.append(PhotoImage.icon16(pp.getPhotoUrl(user)).setStyle("margin-right: 5px;"));
-		if (user instanceof CharSequence) {
-			sb.append(user);
+		final Object _user = pp.getUser(user);
+		if (_user != null) {
+			sb.append(_user);
 		} else {
-			sb.append(pp.getUser(user));
+			sb.append(user == null ? "?" : user);
 		}
 		return sb.toString();
 	}
