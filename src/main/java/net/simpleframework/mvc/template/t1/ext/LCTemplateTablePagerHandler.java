@@ -21,7 +21,7 @@ public abstract class LCTemplateTablePagerHandler extends GroupDbTablePagerHandl
 	public Map<String, Object> toJSON(final ComponentParameter cp) {
 		final KVMap json = (KVMap) super.toJSON(cp);
 		AbstractMVCPage p;
-		if (cp.isAjaxRequest()
+		if (!cp.isHttpRequest()
 				&& (p = AbstractMVCPage.get(cp)) instanceof CategoryTableLCTemplatePage) {
 			final String bar = (String) ((CategoryTableLCTemplatePage) p).getVariables(cp).get(
 					"toolbar_center");
