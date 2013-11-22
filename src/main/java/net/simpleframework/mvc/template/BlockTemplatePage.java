@@ -21,7 +21,7 @@ public abstract class BlockTemplatePage extends AbstractTemplatePage {
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
 
-		addHtmlViewVariable(getClass(), "_block");
+		addHtmlViewVariable(pp, getClass(), "_block");
 	}
 
 	protected String getBlockId() {

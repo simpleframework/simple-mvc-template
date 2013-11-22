@@ -18,7 +18,7 @@ public class Category_ListPage extends Category_BlankPage implements IPageToolba
 	@Override
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
-		addHtmlViewVariable(Category_ListPage.class, "col2");
+		addHtmlViewVariable(pp, Category_ListPage.class, "col2");
 	}
 
 	@Override

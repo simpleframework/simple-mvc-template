@@ -22,7 +22,7 @@ public abstract class OneTableTemplatePage extends BlockTemplatePage implements 
 	@Override
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
-		addHtmlViewVariable(OneTableTemplatePage.class, "_block");
+		addHtmlViewVariable(pp, OneTableTemplatePage.class, "_block");
 	}
 
 	protected TablePagerBean addTablePagerBean(final PageParameter pp, final String name,

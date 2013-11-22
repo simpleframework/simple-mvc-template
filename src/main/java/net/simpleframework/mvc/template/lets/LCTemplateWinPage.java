@@ -21,8 +21,8 @@ public abstract class LCTemplateWinPage extends AbstractTemplatePage implements 
 		super.onForward(pp);
 		final Class<?> pageClass = getClass();
 
-		addHtmlViewVariable(pageClass, "content_left", getClassName(pageClass) + "_Left.html");
-		addHtmlViewVariable(pageClass, "content_center", getClassName(pageClass) + "_Center.html");
+		addHtmlViewVariable(pp, pageClass, "content_left", getClassName(pageClass) + "_Left.html");
+		addHtmlViewVariable(pp, pageClass, "content_center", getClassName(pageClass) + "_Center.html");
 	}
 
 	@Override

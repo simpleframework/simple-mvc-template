@@ -20,9 +20,9 @@ public abstract class T1ResizedLCTemplatePage extends T1ResizedTemplatePage {
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
 		final Class<?> pageClass = getClass();
-		addHtmlViewVariable(pageClass, "content_left", getClassName(pageClass) + "_Left.html");
-		addHtmlViewVariable(pageClass, "content_center", getClassName(pageClass) + "_Center.html");
-		addHtmlViewVariable(T1ResizedLCTemplatePage.class, "content");
+		addHtmlViewVariable(pp, pageClass, "content_left", getClassName(pageClass) + "_Left.html");
+		addHtmlViewVariable(pp, pageClass, "content_center", getClassName(pageClass) + "_Center.html");
+		addHtmlViewVariable(pp, T1ResizedLCTemplatePage.class, "content");
 	}
 
 	protected ElementList getLeftToolbar_LeftElements(final PageParameter pp) {

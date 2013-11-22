@@ -25,8 +25,8 @@ public class T1FormTemplatePage extends T1TemplatePage {
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
 
-		addHtmlViewVariable(T1FormTemplatePage.class, "body");
-		addHtmlViewVariable(getClass(), "content");
+		addHtmlViewVariable(pp, T1FormTemplatePage.class, "body");
+		addHtmlViewVariable(pp, getClass(), "content");
 	}
 
 	@Override

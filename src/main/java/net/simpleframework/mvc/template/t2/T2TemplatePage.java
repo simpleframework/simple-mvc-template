@@ -21,7 +21,7 @@ public abstract class T2TemplatePage extends RootTemplatePage {
 	@Override
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
-		addHtmlViewVariable(getClass(), "content");
+		addHtmlViewVariable(pp, getClass(), "content");
 	}
 
 	@Override

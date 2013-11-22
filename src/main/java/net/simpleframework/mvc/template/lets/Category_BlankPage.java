@@ -18,7 +18,7 @@ public abstract class Category_BlankPage extends AbstractTwoColPage {
 	@Override
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
-		addHtmlViewVariable(getClass(), "col2");
+		addHtmlViewVariable(pp, getClass(), "col2");
 	}
 
 	@Override

@@ -25,8 +25,8 @@ public abstract class T1ResizedTemplatePage extends T1TemplatePage implements IP
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
 
-		addHtmlViewVariable(T1ResizedTemplatePage.class, "body");
-		addHtmlViewVariable(getClass(), "content");
+		addHtmlViewVariable(pp, T1ResizedTemplatePage.class, "body");
+		addHtmlViewVariable(pp, getClass(), "content");
 	}
 
 	@Override

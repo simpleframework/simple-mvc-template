@@ -21,7 +21,7 @@ public abstract class FormPropEditorTemplatePage extends FormExTemplatePage {
 	@Override
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
-		addHtmlViewVariable(FormPropEditorTemplatePage.class, "_form");
+		addHtmlViewVariable(pp, FormPropEditorTemplatePage.class, "_form");
 	}
 
 	@Override

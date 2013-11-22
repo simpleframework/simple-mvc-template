@@ -21,8 +21,8 @@ public abstract class FormTemplatePage extends BlockTemplatePage {
 	@Override
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
-		addHtmlViewVariable(FormTemplatePage.class, "_block");
-		addHtmlViewVariable(getClass(), "_form");
+		addHtmlViewVariable(pp, FormTemplatePage.class, "_block");
+		addHtmlViewVariable(pp, getClass(), "_form");
 
 		getPageBean().setHandleClass(getClass().getName()).setHandleMethod("onLoad");
 	}

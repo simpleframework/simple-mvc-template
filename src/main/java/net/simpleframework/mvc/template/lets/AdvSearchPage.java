@@ -29,7 +29,7 @@ public abstract class AdvSearchPage extends FormTemplatePage {
 	@Override
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
-		addHtmlViewVariable(AdvSearchPage.class, "_form");
+		addHtmlViewVariable(pp, AdvSearchPage.class, "_form");
 
 		addAjaxRequest(pp, "ajaxAdvSearchSave").setHandleMethod("doSearch").setSelector(
 				".AdvSearchPage");

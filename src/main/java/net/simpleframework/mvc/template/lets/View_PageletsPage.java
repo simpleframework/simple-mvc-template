@@ -26,7 +26,7 @@ public abstract class View_PageletsPage extends Blank_PageletsPage {
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
 
-		addHtmlViewVariable(View_PageletsPage.class, "col1");
+		addHtmlViewVariable(pp, View_PageletsPage.class, "col1");
 	}
 
 	@Override

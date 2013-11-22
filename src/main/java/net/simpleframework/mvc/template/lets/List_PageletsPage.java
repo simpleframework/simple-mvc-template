@@ -18,7 +18,7 @@ public abstract class List_PageletsPage extends TopBar_PageletsPage {
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
 
-		addHtmlViewVariable(List_PageletsPage.class, "cc");
+		addHtmlViewVariable(pp, List_PageletsPage.class, "cc");
 	}
 
 	@Override

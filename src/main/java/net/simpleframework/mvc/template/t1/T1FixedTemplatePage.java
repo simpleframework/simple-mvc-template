@@ -14,8 +14,8 @@ public abstract class T1FixedTemplatePage extends T1TemplatePage {
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
 
-		addHtmlViewVariable(T1FixedTemplatePage.class, "body");
-		addHtmlViewVariable(getClass(), "content");
+		addHtmlViewVariable(pp, T1FixedTemplatePage.class, "body");
+		addHtmlViewVariable(pp, getClass(), "content");
 	}
 
 	@Override

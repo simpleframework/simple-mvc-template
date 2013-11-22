@@ -22,8 +22,8 @@ public abstract class TopBar_PageletsPage extends Blank_PageletsPage implements 
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
 
-		addHtmlViewVariable(TopBar_PageletsPage.class, "col1");
-		addHtmlViewVariable(getClass(), "cc");
+		addHtmlViewVariable(pp, TopBar_PageletsPage.class, "col1");
+		addHtmlViewVariable(pp, getClass(), "cc");
 	}
 
 	/**

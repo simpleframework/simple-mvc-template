@@ -23,7 +23,7 @@ public abstract class OneTreeTemplatePage extends BlockTemplatePage {
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
 
-		addHtmlViewVariable(OneTreeTemplatePage.class, "_block");
+		addHtmlViewVariable(pp, OneTreeTemplatePage.class, "_block");
 	}
 
 	@Override

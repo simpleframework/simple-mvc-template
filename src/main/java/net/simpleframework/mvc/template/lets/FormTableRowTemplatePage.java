@@ -27,7 +27,7 @@ public abstract class FormTableRowTemplatePage extends FormExTemplatePage implem
 	@Override
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
-		addHtmlViewVariable(FormTableRowTemplatePage.class, "_form");
+		addHtmlViewVariable(pp, FormTableRowTemplatePage.class, "_form");
 	}
 
 	/**

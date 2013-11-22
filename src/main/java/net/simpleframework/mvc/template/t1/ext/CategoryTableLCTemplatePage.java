@@ -29,7 +29,7 @@ public abstract class CategoryTableLCTemplatePage extends CategoryLCTemplatePage
 	@Override
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
-		addHtmlViewVariable(CategoryTableLCTemplatePage.class, "content_center");
+		addHtmlViewVariable(pp, CategoryTableLCTemplatePage.class, "content_center");
 	}
 
 	protected TablePagerBean addTablePagerBean(final PageParameter pp,

@@ -32,8 +32,8 @@ public abstract class CategoryLCTemplatePage extends T1ResizedLCTemplatePage {
 	@Override
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
-		addHtmlViewVariable(CategoryLCTemplatePage.class, "content_left");
-		addHtmlViewVariable(getClass(), "content_center");
+		addHtmlViewVariable(pp, CategoryLCTemplatePage.class, "content_left");
+		addHtmlViewVariable(pp, getClass(), "content_center");
 	}
 
 	protected CategoryBean addCategoryBean(final PageParameter pp,
