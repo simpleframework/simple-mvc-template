@@ -5,6 +5,7 @@ import net.simpleframework.common.coll.AbstractArrayListEx;
 import net.simpleframework.common.object.ObjectUtils;
 import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.mvc.common.element.BlockElement;
+import net.simpleframework.mvc.common.element.SpanElement;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -34,6 +35,7 @@ public class ListRows extends AbstractArrayListEx<ListRows, ListRow> {
 		final String id = ObjectUtils.hashStr(this);
 		boolean isShowTip = false;
 		sb.append("<div class='pagelet_list_rows' id='").append(id).append("'>");
+		int i = 1;
 		for (final ListRow item : this) {
 			sb.append("<div class=\"ti");
 			final EImageDot dot = getDotIcon();
@@ -51,6 +53,9 @@ public class ListRows extends AbstractArrayListEx<ListRows, ListRow> {
 					sb.append(">").append(shortDesc[0]).append("</span>");
 				}
 			}
+			if (dot == EImageDot.numDot) {
+				sb.append(createNumDot(i++));
+			}
 			sb.append(item.toString());
 			final String tooltip = item.getTooltip();
 			if (StringUtils.hasText(tooltip)) {
@@ -66,6 +71,14 @@ public class ListRows extends AbstractArrayListEx<ListRows, ListRow> {
 			sb.append(HtmlConst.TAG_SCRIPT_END);
 		}
 		return sb.toString();
+	}
+
+	protected SpanElement createNumDot(final int i) {
+		final SpanElement n = new SpanElement(i).setClassName("n");
+		if (i > 3) {
+			n.addClassName("n2");
+		}
+		return n;
 	}
 
 	private static final long serialVersionUID = -3115982190346893038L;

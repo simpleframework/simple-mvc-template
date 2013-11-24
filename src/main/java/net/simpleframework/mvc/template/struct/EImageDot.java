@@ -10,9 +10,11 @@ public enum EImageDot {
 
 	none,
 
-	dot1,
+	numDot,
 
-	dot2,
+	imgDot1,
 
-	dot3
+	imgDot2,
+
+	imgDot3
 }
