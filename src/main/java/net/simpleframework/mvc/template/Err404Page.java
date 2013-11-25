@@ -3,6 +3,7 @@ package net.simpleframework.mvc.template;
 import java.io.IOException;
 import java.util.Map;
 
+import net.simpleframework.mvc.PageMapping;
 import net.simpleframework.mvc.PageParameter;
 
 /**
@@ -11,6 +12,7 @@ import net.simpleframework.mvc.PageParameter;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
+@PageMapping(url = "/404")
 public class Err404Page extends AbstractTemplatePage {
 
 	@Override
