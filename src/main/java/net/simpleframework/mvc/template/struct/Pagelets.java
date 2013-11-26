@@ -22,9 +22,10 @@ public class Pagelets extends AbstractArrayListEx<Pagelets, Pagelet> {
 			sb.append("<div class='").append(StringUtils.text(let.getClassName(), "pagelets"))
 					.append("'>");
 			sb.append("<div class='lh'>");
-			final CategoryItem title = let.getTitle();
-			if (title != null) {
-				sb.append("<span class='lbl'>").append(title.getTitle()).append("</span>");
+			final CategoryItem titleItem = let.getTitle();
+			String t;
+			if (titleItem != null && StringUtils.hasText(t = titleItem.getTitle())) {
+				sb.append("<span class='lbl'>").append(t).append("</span>");
 			}
 			sb.append(let.toTabsHTML());
 			sb.append("</div>");
