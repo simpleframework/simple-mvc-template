@@ -35,14 +35,19 @@ public class ListRows extends AbstractArrayListEx<ListRows, ListRow> {
 		final String id = ObjectUtils.hashStr(this);
 		boolean isShowTip = false;
 		sb.append("<div class='pagelet_list_rows' id='").append(id).append("'>");
-		int i = 1;
+		int i = 0;
 		for (final ListRow item : this) {
+			i++;
 			sb.append("<div class=\"ti");
 			final EImageDot dot = getDotIcon();
 			if (dot != EImageDot.none) {
 				sb.append(" ").append(dot.name());
 			}
-			sb.append("\">");
+			sb.append("\"");
+			if (i == size()) {
+				sb.append(" style=\"border-bottom: 0px;\"");
+			}
+			sb.append(">");
 			final String[] shortDesc = item.getShortDesc();
 			if (shortDesc != null && shortDesc.length > 0) {
 				if (StringUtils.hasText(shortDesc[0])) {
@@ -54,7 +59,7 @@ public class ListRows extends AbstractArrayListEx<ListRows, ListRow> {
 				}
 			}
 			if (dot == EImageDot.numDot) {
-				sb.append(createNumDot(i++));
+				sb.append(createNumDot(i));
 			}
 			sb.append(item.toString());
 			final String tooltip = item.getTooltip();

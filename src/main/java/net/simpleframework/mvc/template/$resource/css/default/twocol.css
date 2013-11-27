@@ -106,8 +106,6 @@
   font-size: 11px;
   height: 64px;
   line-height: 15px;
-  margin-left: 5px;
-  margin-top: 8px;
   text-align: center;
   width: 56px;
 }
@@ -120,7 +118,9 @@
 }
 
 .View_PageletsPage .topic {
-  padding-left: 70px;
+  border-bottom: 4px solid #a00;
+  margin: 0 -9px;
+  padding: 0 0 8px 70px;
 }
 
 .View_PageletsPage .topic .l1 {
