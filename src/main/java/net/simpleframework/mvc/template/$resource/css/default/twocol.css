@@ -51,12 +51,14 @@
   color: #777777;
   line-height: 1.5;
   font-size: 9.5pt;
-  padding: 6px 0;
+  padding: 6px 0 6px 80px;
+  position: relative;
 }
 
 .List_PageletsPage .nc .photo_icon {
-  margin: 0 15px 4px 0;
-  float: left;
+  position: absolute;
+  left: 2px;
+  top: 10px;
   width: 64px;
   height: 64px;
 }
