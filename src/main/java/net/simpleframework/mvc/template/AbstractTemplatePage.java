@@ -25,6 +25,7 @@ import net.simpleframework.mvc.common.element.Option;
 import net.simpleframework.mvc.common.element.PhotoImage;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestBean;
+import net.simpleframework.mvc.component.ext.ckeditor.HtmlEditorBean;
 import net.simpleframework.mvc.component.ext.userselect.UserSelectBean;
 import net.simpleframework.mvc.component.ui.pager.IGroupTablePagerHandler;
 import net.simpleframework.mvc.component.ui.pager.TablePagerColumn;
@@ -161,6 +162,17 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	}
 
 	/*-------------------Components--------------------*/
+
+	/* HtmlEditorBean */
+	protected HtmlEditorBean addHtmlEditorBean(final PageParameter pp, final String name) {
+		return addComponentBean(pp, name, HtmlEditorBean.class);
+	}
+
+	protected HtmlEditorBean addHtmlEditorBean(final PageParameter pp, final String name,
+			final boolean codeEnabled) {
+		return addComponentBean(pp, new KVMap().add("name", name).add("codeEnabled", codeEnabled),
+				HtmlEditorBean.class);
+	}
 
 	protected void addComponent_logout(final PageParameter pp) {
 		addAjaxRequest(pp, "AbstractTemplatePage_logout").setHandleMethod("logout");
