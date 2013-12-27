@@ -5,6 +5,7 @@ import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.ButtonElement;
 import net.simpleframework.mvc.component.ComponentParameter;
+import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestBean;
 import net.simpleframework.mvc.component.base.validation.EWarnType;
 import net.simpleframework.mvc.component.base.validation.ValidationBean;
 
@@ -23,7 +24,12 @@ public abstract class FormExTemplatePage extends FormTemplatePage {
 		super.onForward(pp);
 
 		// 添加一个ajaxRequest组件
-		addAjaxRequest(pp, AJAX_SAVE).setHandleMethod("onSave").setSelector(getFormSelector());
+		addAjaxRequest_onSave(pp);
+	}
+
+	protected AjaxRequestBean addAjaxRequest_onSave(final PageParameter pp) {
+		return (AjaxRequestBean) addAjaxRequest(pp, AJAX_SAVE).setHandleMethod("onSave").setSelector(
+				getFormSelector());
 	}
 
 	protected String getFormSelector() {
