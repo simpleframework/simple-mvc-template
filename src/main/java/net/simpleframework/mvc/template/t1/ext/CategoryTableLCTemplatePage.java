@@ -8,6 +8,7 @@ import java.util.Map;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.mvc.AbstractMVCPage;
+import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.Icon;
 import net.simpleframework.mvc.common.element.LinkButton;
@@ -37,6 +38,20 @@ public abstract class CategoryTableLCTemplatePage extends CategoryLCTemplatePage
 		return (TablePagerBean) addComponentBean(pp, COMPONENT_TABLE, TablePagerBean.class)
 				.setShowLineNo(true).setPagerBarLayout(EPagerBarLayout.top)
 				.setContainerId("table_" + hashId).setHandleClass(handleClass);
+	}
+
+	public static JavascriptForward createTableRefresh() {
+		return createTableRefresh(null);
+	}
+
+	public static JavascriptForward createTableRefresh(final String params) {
+		final JavascriptForward js = new JavascriptForward();
+		js.append("$Actions['").append(COMPONENT_TABLE).append("'](");
+		if (StringUtils.hasText(params)) {
+			js.append("'").append(params).append("'");
+		}
+		js.append(");");
+		return js;
 	}
 
 	@Override
