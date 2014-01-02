@@ -53,7 +53,7 @@ public abstract class AbstractTemplateHandler extends ObjectEx implements ITempl
 			}
 			if (moduleItem != null) {
 				final MenuItems children = moduleItem.children();
-				doSubItems(ctx, children, null);
+				doSubItems(ctx, children, null, defaultFunction);
 				if (StringUtils.hasText(moduleItem.getUrl()) || children.size() > 0) {
 					al.add(moduleItem);
 				}
@@ -74,7 +74,7 @@ public abstract class AbstractTemplateHandler extends ObjectEx implements ITempl
 	}
 
 	private void doSubItems(final IModuleContext ctx, final MenuItems children,
-			final ModuleFunction parent) {
+			final ModuleFunction parent, final ModuleFunction defaultFunction) {
 		final ModuleFunctions functions = ctx.getFunctions(parent);
 		if (functions != null) {
 			for (final ModuleFunction function : functions) {
@@ -84,10 +84,13 @@ public abstract class AbstractTemplateHandler extends ObjectEx implements ITempl
 				if (!(function instanceof WebModuleFunction)) {
 					continue;
 				}
+				if (defaultFunction != null && defaultFunction.equals(function)) {
+					continue;
+				}
 				final MenuItem item = MenuItem.of(function.getText()).setUrl(
 						((WebModuleFunction) function).getUrl());
 				children.add(item);
-				doSubItems(ctx, item.children(), function);
+				doSubItems(ctx, item.children(), function, defaultFunction);
 			}
 		}
 	}
