@@ -25,15 +25,10 @@ public class T1FormTemplatePage extends T1TemplatePage {
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
 
+		pp.addImportCSS(T1TemplatePage.class, "/t1_form.css");
+
 		addHtmlViewVariable(pp, T1FormTemplatePage.class, "body");
 		addHtmlViewVariable(pp, getClass(), "content");
-	}
-
-	@Override
-	protected void addImportCSS(final PageParameter pp) {
-		super.addImportCSS(pp);
-
-		pp.addImportCSS(T1TemplatePage.class, "/t1_form.css");
 	}
 
 	protected SpanElement titleElement(final Object title) {

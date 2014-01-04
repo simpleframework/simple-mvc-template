@@ -24,8 +24,8 @@ import net.simpleframework.mvc.template.struct.NavigationButtons;
 public abstract class T1TemplatePage extends RootTemplatePage {
 
 	@Override
-	protected void addComponents(final PageParameter pp) {
-		super.addComponents(pp);
+	protected void onForward(final PageParameter pp) {
+		super.onForward(pp);
 
 		addComponentBean(pp, MenuBean.class, MainMenuHandler.class)
 				.setContainerId("resized_menu_bar");

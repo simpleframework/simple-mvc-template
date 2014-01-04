@@ -20,8 +20,8 @@ import net.simpleframework.mvc.template.struct.ListRows;
 public class HomeTemplatePage extends T2TemplatePage {
 
 	@Override
-	protected void addComponents(final PageParameter pp) {
-		super.addComponents(pp);
+	protected void onForward(final PageParameter pp) {
+		super.onForward(pp);
 
 		addComponentBean(pp, ImageSlideBean.class, HomeImageSlideHandler.class).setContainerId(
 				"imageSlide_" + hashId);

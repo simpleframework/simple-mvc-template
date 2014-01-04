@@ -20,8 +20,8 @@ import net.simpleframework.mvc.component.ui.tabs.TabsBean;
 public abstract class TabsTemplatePage extends AbstractTemplatePage {
 
 	@Override
-	protected void addComponents(final PageParameter pp) {
-		super.addComponents(pp);
+	protected void onForward(final PageParameter pp) {
+		super.onForward(pp);
 
 		final Class<?> beanClass = getClass();
 		if (!TabsTemplatePage.class.equals(beanClass)) {

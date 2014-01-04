@@ -15,16 +15,13 @@ import net.simpleframework.mvc.component.ui.menu.MenuItems;
  *         http://www.simpleframework.net
  */
 public abstract class RootTemplatePage extends AbstractTemplatePage {
+
 	@Override
-	protected void addImportCSS(final PageParameter pp) {
-		super.addImportCSS(pp);
+	protected void onForward(final PageParameter pp) {
+		super.onForward(pp);
 
 		pp.addImportCSS(AbstractTemplatePage.class, "/template.css");
-	}
 
-	@Override
-	protected void addImportJavascript(final PageParameter pp) {
-		super.addImportJavascript(pp);
 		pp.addImportJavascript(AbstractTemplatePage.class, "/js/template.js");
 	}
 

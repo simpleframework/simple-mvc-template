@@ -21,21 +21,12 @@ public abstract class T2TemplatePage extends RootTemplatePage {
 	@Override
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
-		addHtmlViewVariable(pp, getClass(), "content");
-	}
-
-	@Override
-	protected void addComponents(final PageParameter pp) {
-		super.addComponents(pp);
-
-		addComponentBean(pp, MenuBean.class, MainMenuHandler.class).setContainerId("site_menu_bar");
-	}
-
-	@Override
-	protected void addImportCSS(final PageParameter pp) {
-		super.addImportCSS(pp);
 
 		pp.addImportCSS(T2TemplatePage.class, "/t2.css");
+
+		addHtmlViewVariable(pp, getClass(), "content");
+
+		addComponentBean(pp, MenuBean.class, MainMenuHandler.class).setContainerId("site_menu_bar");
 	}
 
 	protected LinkElement getNavigationHome(final PageParameter pp) {

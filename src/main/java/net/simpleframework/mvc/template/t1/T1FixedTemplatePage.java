@@ -14,14 +14,9 @@ public abstract class T1FixedTemplatePage extends T1TemplatePage {
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
 
+		pp.addImportCSS(T1TemplatePage.class, "/t1_fixed.css");
+
 		addHtmlViewVariable(pp, T1FixedTemplatePage.class, "body");
 		addHtmlViewVariable(pp, getClass(), "content");
-	}
-
-	@Override
-	protected void addImportCSS(final PageParameter pp) {
-		super.addImportCSS(pp);
-
-		pp.addImportCSS(T1TemplatePage.class, "/t1_fixed.css");
 	}
 }

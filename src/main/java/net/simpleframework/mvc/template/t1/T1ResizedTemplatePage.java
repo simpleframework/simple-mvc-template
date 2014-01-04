@@ -25,15 +25,10 @@ public abstract class T1ResizedTemplatePage extends T1TemplatePage implements IP
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
 
+		pp.addImportCSS(T1TemplatePage.class, "/t1_resized.css");
+
 		addHtmlViewVariable(pp, T1ResizedTemplatePage.class, "body");
 		addHtmlViewVariable(pp, getClass(), "content");
-	}
-
-	@Override
-	protected void addImportCSS(final PageParameter pp) {
-		super.addImportCSS(pp);
-
-		pp.addImportCSS(T1TemplatePage.class, "/t1_resized.css");
 	}
 
 	private static final String toggleCookie = "t1_toggleHide";

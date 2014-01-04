@@ -22,11 +22,6 @@ public abstract class FormPropEditorTemplatePage extends FormExTemplatePage {
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
 		addHtmlViewVariable(pp, FormPropEditorTemplatePage.class, "_form");
-	}
-
-	@Override
-	protected void addComponents(final PageParameter pp) {
-		super.addComponents(pp);
 
 		final PropEditorBean propEditor = (PropEditorBean) addComponentBean(pp,
 				"FormPropEditorTemplatePage_propeditor", PropEditorBean.class).setContainerId(

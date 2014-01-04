@@ -18,14 +18,10 @@ public abstract class Blank_PageletsPage extends AbstractTwoColPage {
 	@Override
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
-		addHtmlViewVariable(pp, getClass(), "col1");
-	}
-
-	@Override
-	protected void addImportCSS(final PageParameter pp) {
-		super.addImportCSS(pp);
 
 		pp.addImportCSS(AbstractTemplatePage.class, "/twocol.css");
+
+		addHtmlViewVariable(pp, getClass(), "col1");
 	}
 
 	@Override
