@@ -47,7 +47,7 @@ public abstract class FormExTemplatePage extends FormTemplatePage {
 	 * @param compParameter
 	 * @return 返回浏览器端需要执行的javascript，缺省是关闭Dialog窗口，子类super得到后，然后重组自己的逻辑
 	 */
-	public JavascriptForward onSave(final ComponentParameter cp) {
+	public JavascriptForward onSave(final ComponentParameter cp) throws Exception {
 		return new JavascriptForward().append("$win($Actions['").append(cp.getComponentName())
 				.append("'].trigger).close();");
 	}
