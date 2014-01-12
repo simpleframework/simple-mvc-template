@@ -20,10 +20,14 @@ public class CategoryItems extends AbstractArrayListEx<CategoryItems, CategoryIt
 		int i = 0;
 		for (final CategoryItem item : this) {
 			item.setIndex(i++);
-			sb.append(item.toItemElement("c_item"));
+			final StringBuilder _sb = new StringBuilder();
 			for (final CategoryItem child : item.getChildren()) {
-				sb.append(child.toItemElement("c_child_item"));
+				if (item.isSelected() && child.isSelected()) {
+					item.setSelected(false);
+				}
+				_sb.append(child.toItemElement("c_child_item"));
 			}
+			sb.append(item.toItemElement("c_item")).append(_sb);
 		}
 		return sb.toString();
 	}
