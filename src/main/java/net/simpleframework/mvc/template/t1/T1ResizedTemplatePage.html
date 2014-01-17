@@ -56,7 +56,7 @@ html,body {
     var toggle;
     if (menu && (toggle = menu.down("#resized_toggle_bar"))) {
       toggle.observe("click", function() {
-        header.$toggle({
+        $Effect.toggle(header, {
           afterFinish : function() {
             r.defer();
             var cookie = "${toggleCookie}";

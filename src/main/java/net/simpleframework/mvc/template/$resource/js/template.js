@@ -10,7 +10,7 @@ Object.extend($UI, {
       return;
     btn.observe(e || "mouseover", function(ev) {
       if (btn._pop) {
-        btn._pop.$show();
+        $Effect.show(btn._pop);
         return;
       }
 
@@ -20,7 +20,7 @@ Object.extend($UI, {
       var pos = $UI.getPopupOffsets(ele, btn);
       ele.setStyle("top: " + (pos[1]) + "px; left: " + (pos[0]) + "px");
       $UI.CategoryPopItems_init(ele);
-      ele.$show();
+      $Effect.show(ele);
 
       ele.observe("mouseover", function(ev) {
         ele._active = true;
