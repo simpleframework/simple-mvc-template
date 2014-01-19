@@ -82,7 +82,7 @@ public abstract class CategoryTableLCTemplatePage extends CategoryLCTemplatePage
 					.append("').previous('.tb_container'))) {");
 			sb.append("    tb.replace(bar);");
 			sb.append("  }");
-			sb.append("  $win.closePOPs();");
+			sb.append("  $win.closeAll(true);");
 			sb.append(" };");
 			sb.append("});");
 			sb.append(HtmlConst.TAG_SCRIPT_END);
