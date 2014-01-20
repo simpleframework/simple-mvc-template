@@ -146,7 +146,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	}
 
 	public static final String G = IGroupTablePagerHandler.G;
-	public static Option OPTION_NO_GROUP = new Option("", $m("AbstractTemplatePage.0"));
+	public static Option OPTION_NO_GROUP = new Option("none", $m("AbstractTemplatePage.0"));
 
 	protected InputElement createGroupElement(final PageParameter pp, final String tblAction,
 			final Option... opts) {
