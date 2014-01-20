@@ -130,16 +130,13 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 		if (isSelected()) {
 			ele.addClassName("selected");
 		}
-
 		final AbstractElement<?> titleEle = toTitleElement();
 		final String iconClass = getIconClass();
+		final SpanElement span = new SpanElement().setClassName("icon");
 		if (StringUtils.hasText(iconClass)) {
-			final SpanElement span = new SpanElement().setClassName("icon " + iconClass);
-			ele.addElements(span.addElements(titleEle));
-		} else {
-			ele.addElements(titleEle);
+			span.addClassName(iconClass);
 		}
-
+		ele.addElements(span.addElements(titleEle));
 		final SupElement num = getNum();
 		if (num != null) {
 			ele.addElements(num.setStyle("margin-left: 4px;"));

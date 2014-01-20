@@ -49,15 +49,15 @@
 }
 
 .Category_BlankPage .category .c_item {
-  line-height: 38px;
+  line-height: 35px;
   cursor: pointer;
-  padding-left: 25px;
+  padding-left: 15px;
 }
 
 .Category_BlankPage .category .c_child_item {
   line-height: 30px;
   cursor: pointer;
-  padding-left: 40px;
+  padding-left: 35px;
 }
 
 .Category_BlankPage .category .c_item:hover,
@@ -84,7 +84,7 @@
 .Category_BlankPage .c_child_item span.icon {
   padding-left: 30px;
   background-repeat: no-repeat;
-  background-position: 0px 55%;
+  background-position: 0px 50%;
   display: inline-block;
   *display: inline;
   *zoom: 1;
