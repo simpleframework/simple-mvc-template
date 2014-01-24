@@ -62,7 +62,7 @@ public abstract class T1TemplatePage extends RootTemplatePage {
 		return t1 != null ? t1.isShowMenubar(pp) : true;
 	}
 
-	protected TabButtons getTabButtons(final PageParameter pp) {
+	public TabButtons getTabButtons(final PageParameter pp) {
 		return null;
 	}
 

@@ -41,7 +41,7 @@ public class T1FormTemplatePage extends T1TemplatePage {
 	}
 
 	@Override
-	protected TabButtons getTabButtons(final PageParameter pp) {
+	public TabButtons getTabButtons(final PageParameter pp) {
 		return null;
 	}
 
