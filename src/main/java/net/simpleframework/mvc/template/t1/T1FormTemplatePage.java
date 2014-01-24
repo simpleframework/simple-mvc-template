@@ -5,6 +5,7 @@ import static net.simpleframework.common.I18n.$m;
 import java.io.IOException;
 import java.util.Map;
 
+import net.simpleframework.ctx.permission.PermissionUser;
 import net.simpleframework.mvc.AbstractMVCPage;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.ElementList;
@@ -62,6 +63,10 @@ public class T1FormTemplatePage extends T1TemplatePage {
 				}
 				if (b2) {
 					sb.append("<div class='tab'>").append(tabs.toString(pp)).append("</div>");
+				}
+				final PermissionUser login = pp.getLogin();
+				if (login.getId() != null) {
+					sb.append(new SpanElement(login).setClassName("login"));
 				}
 				sb.append("</div>");
 				sb.append("<div class='form_tabs_bar2'></div>");
