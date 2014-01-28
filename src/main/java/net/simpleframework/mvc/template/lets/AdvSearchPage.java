@@ -15,7 +15,6 @@ import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.AbstractElement;
 import net.simpleframework.mvc.component.ComponentParameter;
-import net.simpleframework.mvc.component.ui.calendar.CalendarBean;
 import net.simpleframework.mvc.template.struct.FilterButton;
 
 /**
@@ -81,7 +80,7 @@ public abstract class AdvSearchPage extends FormTemplatePage {
 	}
 
 	protected String addSearchDateItem(final PageParameter pp, final String lbl, final String name) {
-		addComponentBean(pp, "advSearchCalendar", CalendarBean.class);
+		addCalendarBean(pp, "advSearchCalendar");
 		return MVEL2Template.replace(
 				new KVMap().add("lbl", lbl).add("name", name).add("ETimePeriod", ETimePeriod.class)
 						.add("time", StringUtils.blank(getParameterValue(pp, name))),
