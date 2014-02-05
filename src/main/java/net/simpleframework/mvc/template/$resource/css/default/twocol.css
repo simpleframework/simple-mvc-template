@@ -71,6 +71,9 @@
   background-color: #7cd;
   color: #fff;
   padding: 4px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px; 
 }
 
 .List_PageletsPage .time .month {
