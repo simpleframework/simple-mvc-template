@@ -2,7 +2,7 @@ body {
   background: url("images/page-background.png") 0 0 repeat-x #fdfdfd;
 }
 
-.form_tabs_bar {
+.form_tb_bar {
   background-color: #f9f9f9;
   background-image: -webkit-linear-gradient(top, #fff, #eef);
   background-image: -moz-linear-gradient(top, #fff, #eef);
@@ -18,37 +18,37 @@ body {
   z-index: 11;
 }
 
-.form_tabs_bar .login {
-  position: absolute;
-  right: 12px;
-  top: 3px;
-}
-
-.form_tabs_bar2 {
+.form_top_gap {
   height: 37px;
 }
 
-.form_tabs_bar .simple_tabs a {
+.form_tb_bar .simple_tabs a {
   border: 1px solid #aaa;
 }
 
-.form_tabs_bar .simple_tabs a.active {
+.form_tb_bar .simple_tabs a.active {
   background: url("images/tab_bg.png") 0 0 repeat-x;
   border-bottom-color: #E8F2FE;
 }
 
-.form_tabs_bar .tab {
+.form_tb_bar .re {
   position: absolute;
   top: 0;
   right: 0;
   padding: 10px 80px 0 10px;
 }
 
-.form_tabs_bar .eles {
+.form_tb_bar .re .login {
+  position: absolute;
+  right: 12px;
+  top: 3px;
+}
+
+.form_tb_bar .le {
   padding: 5px 0 0 8px;
 }
 
-.form_tabs_bar .eles .lbl {
+.form_tb_bar .le .lbl {
   color: #900;
   font-size: 10.5pt;
   font-style: italic;
@@ -58,7 +58,6 @@ body {
 .form_content {
   padding: 10px 10px 100px;
 }
-
 
 .form_content .FormTableRowTemplatePage {
   padding: 0;

@@ -46,30 +46,40 @@ public class T1FormTemplatePage extends T1TemplatePage {
 	}
 
 	@Override
+	public ElementList getRightElements(final PageParameter pp) {
+		final ElementList el = ElementList.of();
+		final TabButtons tabs = getTabButtons(pp);
+		if (tabs != null && tabs.size() > 0) {
+			el.append(new SpanElement().addHtml(tabs.toString(pp)));
+		}
+		final PermissionUser login = pp.getLogin();
+		if (login.getId() != null) {
+			el.append(new SpanElement(login).setClassName("login"));
+		}
+		return el;
+	}
+
+	@Override
 	protected String toHtml(final PageParameter pp,
 			final Class<? extends AbstractMVCPage> pageClass, final Map<String, Object> variables,
 			final String currentVariable) throws IOException {
 		if (T1FormTemplatePage.class.equals(pageClass)) {
 			final StringBuilder sb = new StringBuilder();
-			final ElementList eles = getLeftElements(pp);
-			final boolean b1 = eles != null && eles.size() > 0;
-			final TabButtons tabs = getTabButtons(pp);
-			final boolean b2 = tabs != null && tabs.size() > 0;
+			final ElementList le = getLeftElements(pp);
+			final boolean b1 = le != null && le.size() > 0;
+			final ElementList re = getRightElements(pp);
+			final boolean b2 = re != null && re.size() > 0;
 			sb.append("<div align='center'>");
 			if (b1 || b2) {
-				sb.append("<div class='form_tabs_bar'>");
+				sb.append("<div class='form_tb_bar'>");
 				if (b1) {
-					sb.append("<div class='eles'>").append(eles.toString()).append("</div>");
+					sb.append("<div class='le'>").append(le.toString()).append("</div>");
 				}
 				if (b2) {
-					sb.append("<div class='tab'>").append(tabs.toString(pp)).append("</div>");
-				}
-				final PermissionUser login = pp.getLogin();
-				if (login.getId() != null) {
-					sb.append(new SpanElement(login).setClassName("login"));
+					sb.append("<div class='re'>").append(re.toString()).append("</div>");
 				}
 				sb.append("</div>");
-				sb.append("<div class='form_tabs_bar2'></div>");
+				sb.append("<div class='form_top_gap'></div>");
 			}
 			sb.append(" <div class='form_content'>").append(variables.get("content")).append("</div>");
 			sb.append("</div>");
