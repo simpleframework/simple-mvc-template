@@ -82,8 +82,8 @@ public abstract class T1TemplatePage extends RootTemplatePage {
 	}
 
 	@Override
-	public Collection<Meta> meta(final PageParameter pp) {
-		final Collection<Meta> coll = super.meta(pp);
+	public Collection<Meta> html_meta(final PageParameter pp) {
+		final Collection<Meta> coll = super.html_meta(pp);
 		coll.add(Meta.ROBOTS_NONE);
 		return coll;
 	}
