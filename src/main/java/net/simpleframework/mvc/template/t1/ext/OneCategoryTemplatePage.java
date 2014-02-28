@@ -16,9 +16,9 @@ public abstract class OneCategoryTemplatePage extends OneTreeTemplatePage {
 
 	@Override
 	protected CategoryBean addCategoryBean(final PageParameter pp, final String name,
-			final Class<? extends ICategoryHandler> handleClass) {
+			final Class<? extends ICategoryHandler> handlerClass) {
 		return (CategoryBean) addComponentBean(pp, name, CategoryBean.class).setContainerId(
-				"tree_" + hashId).setHandleClass(handleClass);
+				"tree_" + hashId).setHandlerClass(handlerClass);
 	}
 
 	@Override

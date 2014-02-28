@@ -32,15 +32,15 @@ public abstract class OneTreeTemplatePage extends BlockTemplatePage {
 	}
 
 	protected TreeBean addTreeBean(final PageParameter pp, final String name,
-			final Class<? extends ITreeHandler> handleClass) {
+			final Class<? extends ITreeHandler> handlerClass) {
 		return (TreeBean) addComponentBean(pp, name, TreeBean.class).setContainerId("tree_" + hashId)
-				.setHandleClass(handleClass);
+				.setHandlerClass(handlerClass);
 	}
 
 	protected CategoryBean addCategoryBean(final PageParameter pp, final String name,
-			final Class<? extends ICategoryHandler> handleClass) {
+			final Class<? extends ICategoryHandler> handlerClass) {
 		return (CategoryBean) addComponentBean(pp, name, CategoryBean.class).setContainerId(
-				"tree_" + hashId).setHandleClass(handleClass);
+				"tree_" + hashId).setHandlerClass(handlerClass);
 	}
 
 	public String toTopicHTML(final PageParameter pp) {

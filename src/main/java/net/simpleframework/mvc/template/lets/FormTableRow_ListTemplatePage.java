@@ -22,11 +22,11 @@ import net.simpleframework.mvc.component.ui.pager.TablePagerBean;
 public abstract class FormTableRow_ListTemplatePage extends FormTableRowTemplatePage {
 
 	protected TablePagerBean addTablePagerBean(final PageParameter pp, final String name,
-			final Class<? extends ITablePagerHandler> handleClass) {
+			final Class<? extends ITablePagerHandler> handlerClass) {
 		clearTableCache(pp);
 		return (TablePagerBean) addComponentBean(pp, name, TablePagerBean.class)
 				.setShowFilterBar(false).setShowLineNo(true).setPagerBarLayout(EPagerBarLayout.bottom)
-				.setNoResultDesc(null).setContainerId("tbl_" + hashId).setHandleClass(handleClass);
+				.setNoResultDesc(null).setContainerId("tbl_" + hashId).setHandlerClass(handlerClass);
 	}
 
 	protected ElementList getTableButtons(final PageParameter pp) {

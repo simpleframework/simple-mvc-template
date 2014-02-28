@@ -66,14 +66,14 @@ public abstract class View_PageletsPage extends Blank_PageletsPage {
 	}
 
 	protected CommentBean addCommentBean(final PageParameter pp,
-			final Class<? extends ICommentHandler> handleClass) {
-		return (CommentBean) addComponentBean(pp, CommentBean.class, handleClass).setContainerId(
+			final Class<? extends ICommentHandler> handlerClass) {
+		return (CommentBean) addComponentBean(pp, CommentBean.class, handlerClass).setContainerId(
 				"comment_" + hashId);
 	}
 
 	protected AttachmentBean addAttachmentBean(final PageParameter pp,
-			final Class<? extends IAttachmentHandler> handleClass) {
-		return (AttachmentBean) addComponentBean(pp, AttachmentBean.class, handleClass)
+			final Class<? extends IAttachmentHandler> handlerClass) {
+		return (AttachmentBean) addComponentBean(pp, AttachmentBean.class, handlerClass)
 				.setContainerId("attachment_" + hashId);
 	}
 

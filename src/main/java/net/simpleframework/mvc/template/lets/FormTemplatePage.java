@@ -24,7 +24,7 @@ public abstract class FormTemplatePage extends BlockTemplatePage {
 		addHtmlViewVariable(pp, FormTemplatePage.class, "_block");
 		addHtmlViewVariable(pp, getClass(), "_form");
 
-		getPageBean().setHandleClass(getClass().getName()).setHandleMethod("onLoad");
+		getPageBean().setHandlerClass(getClass().getName()).setHandlerMethod("onLoad");
 	}
 
 	/**

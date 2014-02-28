@@ -34,10 +34,10 @@ public abstract class CategoryTableLCTemplatePage extends CategoryLCTemplatePage
 	}
 
 	protected TablePagerBean addTablePagerBean(final PageParameter pp,
-			final Class<? extends ITablePagerHandler> handleClass) {
+			final Class<? extends ITablePagerHandler> handlerClass) {
 		return (TablePagerBean) addComponentBean(pp, COMPONENT_TABLE, TablePagerBean.class)
 				.setShowLineNo(true).setPagerBarLayout(EPagerBarLayout.top)
-				.setContainerId("table_" + hashId).setHandleClass(handleClass);
+				.setContainerId("table_" + hashId).setHandlerClass(handlerClass);
 	}
 
 	public static JavascriptForward createTableRefresh() {

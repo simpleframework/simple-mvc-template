@@ -175,7 +175,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	}
 
 	protected void addComponent_logout(final PageParameter pp) {
-		addAjaxRequest(pp, "AbstractTemplatePage_logout").setHandleMethod("logout");
+		addAjaxRequest(pp, "AbstractTemplatePage_logout").setHandlerMethod("logout");
 	}
 
 	/**
@@ -222,7 +222,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	}
 
 	protected AjaxRequestBean addPageletTabAjaxRequest(final PageParameter pp) {
-		return addAjaxRequest(pp, "PageletTab_ajax").setHandleMethod("doPageletTab");
+		return addAjaxRequest(pp, "PageletTab_ajax").setHandlerMethod("doPageletTab");
 	}
 
 	public static String toIconUser(final PageParameter pp, final Object user) {

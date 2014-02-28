@@ -28,8 +28,8 @@ public abstract class FormExTemplatePage extends FormTemplatePage {
 	}
 
 	protected AjaxRequestBean addAjaxRequest_onSave(final PageParameter pp) {
-		return (AjaxRequestBean) addAjaxRequest(pp, AJAX_SAVE).setHandleMethod("onSave").setSelector(
-				getFormSelector());
+		return (AjaxRequestBean) addAjaxRequest(pp, AJAX_SAVE).setHandlerMethod("onSave")
+				.setSelector(getFormSelector());
 	}
 
 	protected String getFormSelector() {

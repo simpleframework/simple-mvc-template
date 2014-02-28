@@ -29,7 +29,7 @@ public abstract class OneTableTemplatePage extends BlockTemplatePage implements 
 			final Class<? extends ITablePagerHandler> tHdl) {
 		return (TablePagerBean) addComponentBean(pp, name, TablePagerBean.class).setShowLineNo(true)
 				.setShowCheckbox(true).setPagerBarLayout(EPagerBarLayout.bottom)
-				.setContainerId("table_" + hashId).setHandleClass(tHdl);
+				.setContainerId("table_" + hashId).setHandlerClass(tHdl);
 	}
 
 	@Override

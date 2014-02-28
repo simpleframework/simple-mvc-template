@@ -37,25 +37,25 @@ public abstract class CategoryLCTemplatePage extends T1ResizedLCTemplatePage {
 	}
 
 	protected CategoryBean addCategoryBean(final PageParameter pp,
-			final Class<? extends ICategoryHandler> handleClass) {
-		return addCategoryBean(pp, COMPONENT_CATEGORY, handleClass);
+			final Class<? extends ICategoryHandler> handlerClass) {
+		return addCategoryBean(pp, COMPONENT_CATEGORY, handlerClass);
 	}
 
 	protected CategoryBean addCategoryBean(final PageParameter pp, final String name,
-			final Class<? extends ICategoryHandler> handleClass) {
+			final Class<? extends ICategoryHandler> handlerClass) {
 		return (CategoryBean) (categoryBean = addComponentBean(pp, name, CategoryBean.class)
-				.setContainerId("category_" + hashId).setHandleClass(handleClass));
+				.setContainerId("category_" + hashId).setHandlerClass(handlerClass));
 	}
 
 	protected TreeBean addTreeBean(final PageParameter pp,
-			final Class<? extends ITreeHandler> handleClass) {
-		return addTreeBean(pp, COMPONENT_CATEGORY, handleClass);
+			final Class<? extends ITreeHandler> handlerClass) {
+		return addTreeBean(pp, COMPONENT_CATEGORY, handlerClass);
 	}
 
 	protected TreeBean addTreeBean(final PageParameter pp, final String name,
-			final Class<? extends ITreeHandler> handleClass) {
+			final Class<? extends ITreeHandler> handlerClass) {
 		return (TreeBean) (categoryBean = addComponentBean(pp, name, TreeBean.class).setContainerId(
-				"category_" + hashId).setHandleClass(handleClass));
+				"category_" + hashId).setHandlerClass(handlerClass));
 	}
 
 	@Override

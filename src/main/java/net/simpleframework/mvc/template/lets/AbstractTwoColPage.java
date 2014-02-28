@@ -47,17 +47,17 @@ public class AbstractTwoColPage extends AbstractTemplatePage {
 			$m("AbstractTwoColPage.0")).setTextAlign(ETextAlign.left).setSort(false).setNowrap(false);
 
 	protected TablePagerBean addTablePagerBean(final PageParameter pp, final String name,
-			final Class<? extends ITablePagerHandler> handleClass) {
-		return addTablePagerBean(pp, name, handleClass, true);
+			final Class<? extends ITablePagerHandler> handlerClass) {
+		return addTablePagerBean(pp, name, handlerClass, true);
 	}
 
 	protected TablePagerBean addTablePagerBean(final PageParameter pp, final String name,
-			final Class<? extends ITablePagerHandler> handleClass, final boolean addTopicColumn) {
+			final Class<? extends ITablePagerHandler> handlerClass, final boolean addTopicColumn) {
 		final TablePagerBean tablePager = (TablePagerBean) pp
 				.addComponentBean(name, TablePagerBean.class).setShowFilterBar(false)
 				.setShowHead(false).setShowLineNo(true).setShowCheckbox(false).setExportAction("false")
 				.setPagerBarLayout(EPagerBarLayout.bottom).setPageItems(30)
-				.setContainerId("list_" + hashId).setHandleClass(handleClass);
+				.setContainerId("list_" + hashId).setHandlerClass(handlerClass);
 		if (addTopicColumn) {
 			tablePager.addColumn(COLUMN_TOPIC);
 		}
