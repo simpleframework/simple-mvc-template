@@ -22,7 +22,6 @@ import net.simpleframework.mvc.common.element.BlockElement;
 import net.simpleframework.mvc.common.element.ElementList;
 import net.simpleframework.mvc.common.element.InputElement;
 import net.simpleframework.mvc.common.element.Option;
-import net.simpleframework.mvc.common.element.PhotoImage;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestBean;
 import net.simpleframework.mvc.component.ext.ckeditor.HtmlEditorBean;
@@ -223,17 +222,5 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 
 	protected AjaxRequestBean addPageletTabAjaxRequest(final PageParameter pp) {
 		return addAjaxRequest(pp, "PageletTab_ajax").setHandlerMethod("doPageletTab");
-	}
-
-	public static String toIconUser(final PageParameter pp, final Object user) {
-		final StringBuilder sb = new StringBuilder();
-		sb.append(PhotoImage.icon16(pp.getPhotoUrl(user)).setStyle("margin-right: 5px;"));
-		final Object _user = pp.getUser(user);
-		if (_user != null) {
-			sb.append(_user);
-		} else {
-			sb.append(user == null ? "?" : user);
-		}
-		return sb.toString();
 	}
 }
