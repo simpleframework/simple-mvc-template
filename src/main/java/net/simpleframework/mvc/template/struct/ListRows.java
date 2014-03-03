@@ -84,7 +84,7 @@ public class ListRows extends AbstractArrayListEx<ListRows, ListRow> {
 			n.addClassName("n2");
 		}
 		if (i > 9) {
-			n.setStyle("padding: 0;");
+			n.addStyle("padding: 0;");
 		}
 		return n;
 	}

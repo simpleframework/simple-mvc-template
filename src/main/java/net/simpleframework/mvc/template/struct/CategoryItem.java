@@ -139,7 +139,7 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 		ele.addElements(span.addElements(titleEle));
 		final SupElement num = getNum();
 		if (num != null) {
-			ele.addElements(num.setStyle("margin-left: 4px;"));
+			ele.addElements(num.addStyle("margin-left: 4px;"));
 		}
 		return ele;
 	}

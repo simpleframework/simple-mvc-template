@@ -21,7 +21,7 @@ public class FilterButtons extends AbstractArrayListEx<FilterButtons, FilterButt
 		int i = 0;
 		for (final FilterButton item : this) {
 			if (i++ > 0) {
-				sb.append(new SpanElement().setStyle("display: inline-block; width: 8px;"));
+				sb.append(new SpanElement().addStyle("display: inline-block; width: 8px;"));
 			}
 			sb.append(item);
 		}
