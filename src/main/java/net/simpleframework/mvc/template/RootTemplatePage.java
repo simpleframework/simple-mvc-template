@@ -34,8 +34,12 @@ public abstract class RootTemplatePage extends AbstractTemplatePage {
 			header = t1.getHeaderPage();
 			footer = t1.getFooterPage();
 		}
-		return new NamedTemplate(pp).add("header", header == null ? HeaderPage.class : header).add(
-				"footer", footer == null ? FooterPage.class : footer);
+		final NamedTemplate nt = new NamedTemplate(pp).add("header",
+				header == null ? HeaderPage.class : header);
+		if (t.isShowFooter(pp)) {
+			nt.add("footer", footer == null ? FooterPage.class : footer);
+		}
+		return nt;
 	}
 
 	protected MenuItems getMainMenuItems(final ComponentParameter cp, final MenuItem menuItem) {
