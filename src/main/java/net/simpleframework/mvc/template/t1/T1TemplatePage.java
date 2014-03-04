@@ -38,7 +38,8 @@ public abstract class T1TemplatePage extends RootTemplatePage {
 
 	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
-		return ((KVMap) super.createVariables(pp)).add("showMenubar", isShowMenubar(pp));
+		return ((KVMap) super.createVariables(pp)).add("showMenubar", isShowMenubar(pp)).add(
+				"showFooter", isShowFooter(pp));
 	}
 
 	protected LinkElement getNavigationHome(final PageParameter pp) {
@@ -60,6 +61,11 @@ public abstract class T1TemplatePage extends RootTemplatePage {
 	protected boolean isShowMenubar(final PageParameter pp) {
 		final ITemplateHandlerT1 t1 = (ITemplateHandlerT1) ctx.getTemplate(pp);
 		return t1 != null ? t1.isShowMenubar(pp) : true;
+	}
+
+	protected boolean isShowFooter(final PageParameter pp) {
+		final ITemplateHandlerT1 t1 = (ITemplateHandlerT1) ctx.getTemplate(pp);
+		return t1 != null ? t1.isShowFooter(pp) : true;
 	}
 
 	public TabButtons getTabButtons(final PageParameter pp) {

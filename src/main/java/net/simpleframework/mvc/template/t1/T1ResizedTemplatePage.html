@@ -4,12 +4,12 @@ html,body {
 }
 </style>
 <div align="center">
-  <div id="resized_header"${headerAttr}>$includeNamed{'header'}</div>
+  ${headerDiv}
   $if{showMenubar}
   <div id="resized_menu">
     <div id="resized_navigation_bar">${page.getNavigationBar(parameter)}</div>
     <div id="resized_menu_bar"></div>
-    <div id="resized_toggle_bar"${toggleAttr}></div>
+    ${toggleDiv}
   </div>
   $end{}
   ${tabsHTML}
@@ -19,7 +19,9 @@ html,body {
       ${content}
     </div>
   </div>
+  $if{showFooter}
   <div id="resized_footer">$includeNamed{'footer'}</div>
+  $end{}
 </div>
 <script type="text/javascript">
 	$ready(function() {

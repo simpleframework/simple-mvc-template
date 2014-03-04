@@ -36,10 +36,21 @@ public abstract class T1ResizedTemplatePage extends T1TemplatePage implements IP
 	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
 		final boolean hide = isHeaderHidden(pp);
-		final KVMap kv = ((KVMap) super.createVariables(pp)).add("toggleCookie", toggleCookie)
-				.add("headerAttr", hide ? " style='display:none;'" : "")
-				.add("toggleAttr", hide ? " class='t2'" : " class='t1'");
 		final StringBuilder sb = new StringBuilder();
+		sb.append("<div id='resized_header'");
+		if (hide) {
+			sb.append(" style='display:none;'");
+		}
+		sb.append(">").append(getNamedTemplate(pp).get("header")).append("</div>");
+		final KVMap kv = ((KVMap) super.createVariables(pp)).add("toggleCookie", toggleCookie).add(
+				"headerDiv", sb.toString());
+
+		sb.setLength(0);
+		sb.append("<div id='resized_toggle_bar'").append(hide ? " class='t2'" : " class='t1'");
+		sb.append("></div>");
+		kv.add("toggleDiv", sb.toString());
+
+		sb.setLength(0);
 		final boolean vertical = isTabbarVertical(pp);
 		final String tabs = toTabsHTML(pp);
 		if (StringUtils.hasText(tabs)) {

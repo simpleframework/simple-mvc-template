@@ -37,6 +37,11 @@ public abstract class AbstractTemplateHandler extends ObjectEx implements ITempl
 		return true;
 	}
 
+	@Override
+	public boolean isShowFooter(final PageParameter pp) {
+		return true;
+	}
+
 	public MenuItems getMainMenuItems(final ComponentParameter cp, final MenuItem menuItem) {
 		final MenuItems al = MenuItems.of();
 		for (final IModuleContext ctx : ModuleContextFactory.allModules()) {
