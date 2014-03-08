@@ -5,6 +5,7 @@ import static net.simpleframework.common.I18n.$m;
 import java.util.ArrayList;
 import java.util.Map;
 
+import net.simpleframework.common.ClassUtils;
 import net.simpleframework.common.ID;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.KVMap;
@@ -26,6 +27,7 @@ import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestBean;
 import net.simpleframework.mvc.component.ext.ckeditor.HtmlEditorBean;
 import net.simpleframework.mvc.component.ext.userselect.UserSelectBean;
+import net.simpleframework.mvc.component.ui.autocomplete.AutocompleteBean;
 import net.simpleframework.mvc.component.ui.pager.IGroupTablePagerHandler;
 import net.simpleframework.mvc.component.ui.pager.TablePagerColumn;
 import net.simpleframework.mvc.component.ui.pager.db.GroupDbTablePagerHandler;
@@ -171,6 +173,28 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 			final boolean codeEnabled) {
 		return addComponentBean(pp, new KVMap().add("name", name).add("codeEnabled", codeEnabled),
 				HtmlEditorBean.class);
+	}
+
+	/* AutocompleteBean */
+	protected AutocompleteBean addUserAutocompleteBean(final PageParameter pp, final String name) {
+		return addAutocompleteBean(pp, name,
+				"net.simpleframework.organization.web.component.autocomplete.UserAutocompleteHandler");
+	}
+
+	protected AutocompleteBean addUserRoleAutocompleteBean(final PageParameter pp, final String name) {
+		return addAutocompleteBean(pp, name,
+				"net.simpleframework.organization.web.component.autocomplete.UserRoleAutocompleteHandler");
+	}
+
+	protected AutocompleteBean addAutocompleteBean(final PageParameter pp, final String name,
+			final String handlerClass) {
+		final AutocompleteBean autocomplete = addComponentBean(pp, name, AutocompleteBean.class);
+		try {
+			autocomplete.setHandlerClass(ClassUtils.forName(handlerClass));
+		} catch (final ClassNotFoundException e) {
+			log.warn(e);
+		}
+		return autocomplete;
 	}
 
 	protected void addComponent_logout(final PageParameter pp) {
