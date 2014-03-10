@@ -63,7 +63,7 @@ public abstract class FormExTemplatePage extends FormTemplatePage {
 			sb.append("'").append(params).append("'");
 		}
 		sb.append(");");
-		return ButtonElement.saveBtn().setClassName("validation").setOnclick(sb.toString());
+		return ButtonElement.saveBtn().addClassName("validation").setOnclick(sb.toString());
 	}
 
 	protected ButtonElement VALIDATION_BTN() {
