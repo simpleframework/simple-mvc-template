@@ -5,6 +5,7 @@ import net.simpleframework.common.StringUtils;
 import net.simpleframework.ctx.permission.PermissionUser;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.PhotoImage;
+import net.simpleframework.mvc.common.element.SpanElement;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -18,15 +19,14 @@ public abstract class TemplateUtils {
 		return toIconUser(pp, user, null);
 	}
 
-	public static String toIconUser(final PageParameter pp, final ID userId, final String userText) {
+	public static String toIconUser(final PageParameter pp, final ID userId, String userText) {
 		final StringBuilder sb = new StringBuilder();
 		sb.append(PhotoImage.icon16(pp.getPhotoUrl(userId)).addStyle("margin-right: 5px;"));
-		if (StringUtils.hasText(userText)) {
-			sb.append(userText);
-		} else {
+		if (!StringUtils.hasText(userText)) {
 			final PermissionUser _user = pp.getUser(userId);
-			sb.append(_user.getId() != null ? _user : "?");
+			userText = _user.getId() != null ? _user.toString() : "?";
 		}
+		sb.append(new SpanElement(userText).setClassName("icon_txt"));
 		return sb.toString();
 	}
 }
