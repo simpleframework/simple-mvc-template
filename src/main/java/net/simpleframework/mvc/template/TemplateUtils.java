@@ -21,7 +21,7 @@ public abstract class TemplateUtils {
 
 	public static String toIconUser(final PageParameter pp, final ID userId, String userText) {
 		final StringBuilder sb = new StringBuilder();
-		sb.append(PhotoImage.icon16(pp.getPhotoUrl(userId)).addStyle("margin-right: 5px;"));
+		sb.append(PhotoImage.icon12(pp.getPhotoUrl(userId)).addStyle("margin-right: 5px;"));
 		if (!StringUtils.hasText(userText)) {
 			final PermissionUser _user = pp.getUser(userId);
 			userText = _user.getId() != null ? _user.toString() : "?";
