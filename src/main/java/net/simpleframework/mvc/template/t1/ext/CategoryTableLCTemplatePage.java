@@ -107,8 +107,12 @@ public abstract class CategoryTableLCTemplatePage extends CategoryLCTemplatePage
 			final String params) {
 		final StringBuilder click = new StringBuilder();
 		click.append("$Actions['").append(COMPONENT_TABLE).append("'].doAct('").append(act)
-				.append("'");
-		click.append(", '").append(StringUtils.hasText(idKey) ? idKey : "undefined").append("'");
+				.append("', ");
+		if (StringUtils.hasText(idKey)) {
+			click.append("'").append(idKey).append("'");
+		} else {
+			click.append("undefined");
+		}
 		if (StringUtils.hasText(params)) {
 			click.append(", '").append(params).append("'");
 		}
