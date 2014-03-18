@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import net.simpleframework.common.ClassUtils;
-import net.simpleframework.common.DateUtils.NumberConvert;
 import net.simpleframework.common.ID;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.KVMap;
@@ -24,7 +23,6 @@ import net.simpleframework.mvc.common.element.BlockElement;
 import net.simpleframework.mvc.common.element.ElementList;
 import net.simpleframework.mvc.common.element.InputElement;
 import net.simpleframework.mvc.common.element.Option;
-import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestBean;
 import net.simpleframework.mvc.component.ext.ckeditor.HtmlEditorBean;
@@ -249,11 +247,4 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	protected AjaxRequestBean addPageletTabAjaxRequest(final PageParameter pp) {
 		return addAjaxRequest(pp, "PageletTab_ajax").setHandlerMethod("doPageletTab");
 	}
-
-	protected static NumberConvert DATE_NUMBERCONVERT = new NumberConvert() {
-		@Override
-		public Object convert(final Number n) {
-			return SpanElement.num(n).addStyle("margin-right: 2px;");
-		}
-	};
 }
