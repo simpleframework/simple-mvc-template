@@ -56,12 +56,15 @@ public abstract class T1ResizedLCTemplatePage extends T1ResizedTemplatePage {
 		final String html = toLeftToolbarHTML(pp);
 		if (StringUtils.hasText(html)) {
 			sb.append("<div class='tool_bar'>").append(html).append("</div>");
-			sb.append("<style type='text/css'>");
-			sb.append("#resized_tabbar2 .simple_tabs { margin-top: 45px; }");
-			sb.append("</style>");
+			sb.append(super.hackVerticalTabs(pp));
 		}
-		kv.add("toolbar_left", sb.toString()).add("toolbar_center", _toContentBarHTML(pp, false));
+		kv.add("toolbar_left", sb.toString()).add("toolbar_center", super._toContentBarHTML(pp));
 		return kv;
+	}
+
+	@Override
+	protected String hackVerticalTabs(final PageParameter pp) {
+		return "";
 	}
 
 	@Override

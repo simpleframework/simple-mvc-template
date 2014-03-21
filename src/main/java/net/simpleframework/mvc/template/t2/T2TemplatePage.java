@@ -49,9 +49,8 @@ public abstract class T2TemplatePage extends RootTemplatePage {
 	}
 
 	@Override
-	public Collection<Meta> html_meta(final PageParameter pp) {
-		final Collection<Meta> coll = super.html_meta(pp);
+	public void onHttpRequestMeta(final PageParameter pp, final Collection<Meta> coll) {
+		super.onHttpRequestMeta(pp, coll);
 		coll.add(Meta.ROBOTS_ALL);
-		return coll;
 	}
 }

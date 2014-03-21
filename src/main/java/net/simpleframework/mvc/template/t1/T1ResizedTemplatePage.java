@@ -51,7 +51,7 @@ public abstract class T1ResizedTemplatePage extends T1TemplatePage implements IP
 		kv.add("toggleDiv", sb.toString());
 
 		sb.setLength(0);
-		final boolean vertical = isTabbarVertical(pp);
+		final boolean vertical = isTabsVertical(pp);
 		final String tabs = toTabsHTML(pp);
 		if (StringUtils.hasText(tabs)) {
 			sb.append("<div id='").append(vertical ? "resized_tabbar2" : "resized_tabbar")
@@ -71,15 +71,19 @@ public abstract class T1ResizedTemplatePage extends T1TemplatePage implements IP
 		return Convert.toBool(pp.getCookie(toggleCookie));
 	}
 
-	protected boolean isTabbarVertical(final PageParameter pp) {
+	protected boolean isTabsVertical(final PageParameter pp) {
 		return true;
+	}
+
+	protected int getTabsrMarginTop(final PageParameter pp) {
+		return 45;
 	}
 
 	public String toTabsHTML(final PageParameter pp) {
 		final StringBuilder sb = new StringBuilder();
 		final TabButtons tabs = getTabButtons(pp);
 		if (tabs != null && tabs.size() > 0) {
-			final ElementList el = tabs.setVertical(isTabbarVertical(pp)).getTopElements();
+			final ElementList el = tabs.setVertical(isTabsVertical(pp)).getTopElements();
 			if (el != null) {
 				sb.append("<div class='tb_top'>").append(el).append("</div>");
 			}
@@ -92,15 +96,24 @@ public abstract class T1ResizedTemplatePage extends T1TemplatePage implements IP
 		return sb.toString();
 	}
 
-	public String _toContentBarHTML(final PageParameter pp) {
-		return _toContentBarHTML(pp, true);
+	protected String hackVerticalTabs(final PageParameter pp) {
+		final StringBuilder sb = new StringBuilder();
+		int top;
+		if (isTabsVertical(pp) && (top = getTabsrMarginTop(pp)) > 0) {
+			sb.append("<style type='text/css'>");
+			sb.append("#resized_tabbar2 .simple_tabs.vertical { margin-top: ").append(top)
+					.append("px !important; }");
+			sb.append("</style>");
+		}
+		return sb.toString();
 	}
 
-	protected String _toContentBarHTML(final PageParameter pp, final boolean cssHack) {
+	public String _toContentBarHTML(final PageParameter pp) {
 		final StringBuilder sb = new StringBuilder();
 		String html = toToolbarHTML(pp);
 		if (StringUtils.hasText(html)) {
 			sb.append(html);
+			sb.append(hackVerticalTabs(pp));
 		}
 		html = toFilterBarHTML(pp);
 		if (StringUtils.hasText(html)) {
@@ -109,11 +122,6 @@ public abstract class T1ResizedTemplatePage extends T1TemplatePage implements IP
 		if (sb.length() > 0) {
 			sb.insert(0, "<div class='tb_container'>");
 			sb.append("</div>");
-			if (cssHack) {
-				sb.append("<style type='text/css'>");
-				sb.append("#resized_tabbar2 .simple_tabs.vertical { margin-top: 45px !important; }");
-				sb.append("</style>");
-			}
 		}
 		return sb.toString();
 	}
