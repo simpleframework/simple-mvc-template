@@ -53,13 +53,18 @@ public abstract class FormTemplatePage extends BlockTemplatePage {
 			sb.append("<div class='FormTemplatePage'>");
 			sb.append(variables.get("_form"));
 			sb.append("</div>");
+			sb.append(HtmlConst.TAG_SCRIPT_START);
+			sb.append("(function() {");
+			sb.append("  var ele;");
 			final String focusElement = getFocusElement(pp);
 			if (StringUtils.hasText(focusElement)) {
-				sb.append(HtmlConst.TAG_SCRIPT_START);
-				sb.append("(function() { var f = $('").append(focusElement)
-						.append("'); if (f) f.focus(); }).defer();");
-				sb.append(HtmlConst.TAG_SCRIPT_END);
+				sb.append("ele = $('").append(focusElement).append("');");
 			}
+			sb.append("  if (!ele) ele = $('").append(getBlockId())
+					.append("').down(\"input[type='text'], input[type='password'], textarea\");");
+			sb.append("  if (ele) ele.focus();");
+			sb.append("}).defer();");
+			sb.append(HtmlConst.TAG_SCRIPT_END);
 			return sb.toString();
 		}
 		return super.toHtml(pp, pageClass, variables, currentVariable);
