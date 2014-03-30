@@ -64,7 +64,7 @@ public class ListRows extends AbstractArrayListEx<ListRows, ListRow> {
 			sb.append(item.toString());
 			final String tooltip = item.getTooltip();
 			if (StringUtils.hasText(tooltip)) {
-				sb.append(BlockElement.tip(tooltip).setClassName("tt"));
+				sb.append(BlockElement.tipText(tooltip).setClassName("tt"));
 				isShowTip = true;
 			}
 			sb.append("</div>");
