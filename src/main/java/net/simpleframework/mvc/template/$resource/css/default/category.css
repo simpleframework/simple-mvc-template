@@ -49,15 +49,16 @@
 }
 
 .Category_BlankPage .category .c_item {
-  line-height: 35px;
+  line-height: 32px;
   cursor: pointer;
   padding-left: 15px;
 }
 
 .Category_BlankPage .category .c_child_item {
-  line-height: 30px;
+  line-height: 24px;
   cursor: pointer;
   padding-left: 35px;
+  font-size: 9.5pt;
 }
 
 .Category_BlankPage .category .c_item:hover,
