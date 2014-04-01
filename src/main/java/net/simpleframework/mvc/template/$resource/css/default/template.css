@@ -237,6 +237,7 @@
 /*                    tool_bar                     */
 /***************************************************/
 .tool_bar {
+  position: relative;
   background-color: #fafafa;
   border-bottom: 1px solid #999;
   padding: 6px 10px;
