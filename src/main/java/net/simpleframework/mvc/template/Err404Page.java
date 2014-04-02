@@ -3,6 +3,9 @@ package net.simpleframework.mvc.template;
 import java.io.IOException;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import net.simpleframework.mvc.AbstractMVCPage;
 import net.simpleframework.mvc.PageMapping;
 import net.simpleframework.mvc.PageParameter;
 
@@ -34,5 +37,9 @@ public class Err404Page extends AbstractTemplatePage {
 		sb.append("</div>");
 		sb.append("</div>");
 		return sb.toString();
+	}
+
+	public static String url(final HttpServletRequest request) {
+		return request.getContextPath() + AbstractMVCPage.url(Err404Page.class);
 	}
 }
