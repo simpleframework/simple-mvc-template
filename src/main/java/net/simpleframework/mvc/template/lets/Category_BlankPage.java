@@ -37,7 +37,7 @@ public abstract class Category_BlankPage extends AbstractTwoColPage {
 	}
 
 	protected int getCategoryWidth(final PageParameter pp) {
-		return 170;
+		return 165;
 	}
 
 	@Override
