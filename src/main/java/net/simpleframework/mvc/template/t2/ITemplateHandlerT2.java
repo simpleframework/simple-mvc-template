@@ -1,11 +1,11 @@
 package net.simpleframework.mvc.template.t2;
 
-import net.simpleframework.mvc.ITemplateHandler;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.LinkElement;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ui.menu.MenuItem;
 import net.simpleframework.mvc.component.ui.menu.MenuItems;
+import net.simpleframework.mvc.template.ITemplateHandler;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -22,6 +22,7 @@ public interface ITemplateHandlerT2 extends ITemplateHandler {
 	 * @param menuItem
 	 * @return
 	 */
+	@Override
 	MenuItems getMainMenuItems(ComponentParameter cp, MenuItem menuItem);
 
 	LinkElement getNavigationHome(PageParameter pp);

@@ -42,8 +42,13 @@ public abstract class T1TemplatePage extends RootTemplatePage {
 				"showFooter", isShowFooter(pp));
 	}
 
+	@Override
+	public ITemplateHandlerT1 getTemplate(final PageParameter pp) {
+		return AbstractTemplateHandlerT1.get();
+	}
+
 	protected LinkElement getNavigationHome(final PageParameter pp) {
-		final ITemplateHandlerT1 t1 = (ITemplateHandlerT1) ctx.getTemplate(pp);
+		final ITemplateHandlerT1 t1 = getTemplate(pp);
 		return t1 != null ? t1.getNavigationHome(pp) : null;
 	}
 
@@ -59,12 +64,12 @@ public abstract class T1TemplatePage extends RootTemplatePage {
 	 * @return
 	 */
 	protected boolean isShowMenubar(final PageParameter pp) {
-		final ITemplateHandlerT1 t1 = (ITemplateHandlerT1) ctx.getTemplate(pp);
+		final ITemplateHandlerT1 t1 = getTemplate(pp);
 		return t1 != null ? t1.isShowMenubar(pp) : true;
 	}
 
 	protected boolean isShowFooter(final PageParameter pp) {
-		final ITemplateHandlerT1 t1 = (ITemplateHandlerT1) ctx.getTemplate(pp);
+		final ITemplateHandlerT1 t1 = getTemplate(pp);
 		return t1 != null ? t1.isShowFooter(pp) : true;
 	}
 

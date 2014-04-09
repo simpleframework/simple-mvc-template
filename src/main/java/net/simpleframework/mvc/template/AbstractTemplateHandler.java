@@ -7,8 +7,8 @@ import net.simpleframework.ctx.Module;
 import net.simpleframework.ctx.ModuleContextFactory;
 import net.simpleframework.ctx.ModuleFunction;
 import net.simpleframework.ctx.ModuleFunctions;
+import net.simpleframework.mvc.AbstractMVCPage;
 import net.simpleframework.mvc.IMVCContextVar;
-import net.simpleframework.mvc.ITemplateHandler;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.LinkElement;
 import net.simpleframework.mvc.component.ComponentParameter;
@@ -24,6 +24,16 @@ import net.simpleframework.mvc.ctx.WebModuleFunction;
  */
 public abstract class AbstractTemplateHandler extends ObjectEx implements ITemplateHandler,
 		IMVCContextVar {
+
+	@Override
+	public Class<? extends AbstractMVCPage> getHeaderPage() {
+		return HeaderPage.class;
+	}
+
+	@Override
+	public Class<? extends AbstractMVCPage> getFooterPage() {
+		return FooterPage.class;
+	}
 
 	@Override
 	public String getFavicon(final PageParameter pp) {
@@ -44,6 +54,7 @@ public abstract class AbstractTemplateHandler extends ObjectEx implements ITempl
 		return true;
 	}
 
+	@Override
 	public MenuItems getMainMenuItems(final ComponentParameter cp, final MenuItem menuItem) {
 		final MenuItems al = MenuItems.of();
 		for (final IModuleContext ctx : ModuleContextFactory.allModules()) {

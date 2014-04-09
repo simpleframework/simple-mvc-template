@@ -29,8 +29,13 @@ public abstract class T2TemplatePage extends RootTemplatePage {
 		addComponentBean(pp, MenuBean.class, MainMenuHandler.class).setContainerId("site_menu_bar");
 	}
 
+	@Override
+	public ITemplateHandlerT2 getTemplate(final PageParameter pp) {
+		return AbstractTemplateHandlerT2.get();
+	}
+
 	protected LinkElement getNavigationHome(final PageParameter pp) {
-		final ITemplateHandlerT2 t2 = (ITemplateHandlerT2) ctx.getTemplate(pp);
+		final ITemplateHandlerT2 t2 = getTemplate(pp);
 		return t2 != null ? t2.getNavigationHome(pp) : null;
 	}
 

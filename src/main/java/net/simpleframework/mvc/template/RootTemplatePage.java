@@ -1,7 +1,6 @@
 package net.simpleframework.mvc.template;
 
 import net.simpleframework.mvc.AbstractMVCPage;
-import net.simpleframework.mvc.ITemplateHandler;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ui.menu.AbstractMenuHandler;
@@ -25,29 +24,36 @@ public abstract class RootTemplatePage extends AbstractTemplatePage {
 		pp.addImportJavascript(AbstractTemplatePage.class, "/js/template.js");
 	}
 
+	public ITemplateHandler getTemplate(final PageParameter pp) {
+		return null;
+	}
+
+	@Override
+	public String getFavicon(final PageParameter pp) {
+		final ITemplateHandler tmp = getTemplate(pp);
+		return tmp != null ? tmp.getFavicon(pp) : super.getFavicon(pp);
+	}
+
 	@Override
 	protected NamedTemplate createNamedTemplates(final PageParameter pp) {
-		Class<? extends AbstractMVCPage> header = null, footer = null;
-		final ITemplateHandler t = ctx.getTemplate(pp);
-		if (t instanceof ITemplateHandler) {
-			final ITemplateHandler t1 = t;
-			header = t1.getHeaderPage();
-			footer = t1.getFooterPage();
-		}
-		final NamedTemplate nt = new NamedTemplate(pp).add("header",
-				header == null ? HeaderPage.class : header);
-		if (t.isShowFooter(pp)) {
-			nt.add("footer", footer == null ? FooterPage.class : footer);
+		final NamedTemplate nt = new NamedTemplate(pp);
+		final ITemplateHandler t = getTemplate(pp);
+		if (t != null) {
+			final Class<? extends AbstractMVCPage> header = t.getHeaderPage();
+			if (header != null) {
+				nt.add("header", header);
+			}
+			Class<? extends AbstractMVCPage> footer;
+			if (t.isShowFooter(pp) && (footer = t.getFooterPage()) != null) {
+				nt.add("footer", footer);
+			}
 		}
 		return nt;
 	}
 
 	protected MenuItems getMainMenuItems(final ComponentParameter cp, final MenuItem menuItem) {
-		final ITemplateHandler t = ctx.getTemplate(cp);
-		if (t instanceof AbstractTemplateHandler) {
-			return ((AbstractTemplateHandler) t).getMainMenuItems(cp, menuItem);
-		}
-		return null;
+		final ITemplateHandler t = getTemplate(cp);
+		return t != null ? t.getMainMenuItems(cp, menuItem) : null;
 	}
 
 	public static class MainMenuHandler extends AbstractMenuHandler {

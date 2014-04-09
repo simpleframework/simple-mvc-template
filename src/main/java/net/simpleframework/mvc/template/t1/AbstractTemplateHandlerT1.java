@@ -1,5 +1,6 @@
 package net.simpleframework.mvc.template.t1;
 
+import net.simpleframework.ctx.IApplicationContext;
 import net.simpleframework.mvc.template.AbstractTemplateHandler;
 
 /**
@@ -10,4 +11,10 @@ import net.simpleframework.mvc.template.AbstractTemplateHandler;
  */
 public abstract class AbstractTemplateHandlerT1 extends AbstractTemplateHandler implements
 		ITemplateHandlerT1 {
+
+	public static ITemplateHandlerT1 get() {
+		final String t1 = ((IApplicationContext) mvcContext).getContextSettings().getProperty(
+				"Template.T1");
+		return (ITemplateHandlerT1) (t1 != null ? singleton(t1) : null);
+	}
 }

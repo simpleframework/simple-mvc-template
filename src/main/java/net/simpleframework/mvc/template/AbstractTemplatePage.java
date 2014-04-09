@@ -14,7 +14,6 @@ import net.simpleframework.ctx.permission.PermissionUser;
 import net.simpleframework.ctx.service.ado.db.IDbBeanService;
 import net.simpleframework.mvc.AbstractBasePage;
 import net.simpleframework.mvc.IForward;
-import net.simpleframework.mvc.ITemplateHandler;
 import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.TextForward;
@@ -83,12 +82,6 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 			pp.setRequestAttr(key, t);
 		}
 		return t;
-	}
-
-	@Override
-	public String getFavicon(final PageParameter pp) {
-		final ITemplateHandler tmp = ctx.getTemplate(pp);
-		return tmp != null ? tmp.getFavicon(pp) : super.getFavicon(pp);
 	}
 
 	/**
