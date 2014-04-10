@@ -4,15 +4,15 @@ html,body {
 }
 </style>
 <div align="center">
-  ${headerDiv}
+  ${page._toHeaderHTML(parameter)}
   $if{showMenubar}
   <div id="resized_menu">
     <div id="resized_navigation_bar">${page.getNavigationBar(parameter)}</div>
     <div id="resized_menu_bar"></div>
-    ${toggleDiv}
+    ${page._toToggleHTML(parameter)}
   </div>
   $end{}
-  ${tabsHTML}
+  ${page._toTabsHTML(parameter)}
   <div id="resized_body">
     <div class="child">
       ${page._toContentBarHTML(parameter)}

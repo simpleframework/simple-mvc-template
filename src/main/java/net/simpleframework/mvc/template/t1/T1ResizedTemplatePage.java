@@ -35,29 +35,8 @@ public abstract class T1ResizedTemplatePage extends T1TemplatePage implements IP
 
 	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
-		final boolean hide = isHeaderHidden(pp);
-		final StringBuilder sb = new StringBuilder();
-		sb.append("<div id='resized_header'");
-		if (hide) {
-			sb.append(" style='display:none;'");
-		}
-		sb.append(">").append(getNamedTemplate(pp).get("header")).append("</div>");
 		final KVMap kv = ((KVMap) super.createVariables(pp)).add("toggleCookie", toggleCookie).add(
-				"headerDiv", sb.toString());
-
-		sb.setLength(0);
-		sb.append("<div id='resized_toggle_bar'").append(hide ? " class='t2'" : " class='t1'");
-		sb.append("></div>");
-		kv.add("toggleDiv", sb.toString());
-
-		sb.setLength(0);
-		final boolean vertical = isTabsVertical(pp);
-		final String tabs = toTabsHTML(pp);
-		if (StringUtils.hasText(tabs)) {
-			sb.append("<div id='").append(vertical ? "resized_tabbar2" : "resized_tabbar")
-					.append("'>").append(tabs).append("</div>");
-		}
-		kv.add("tabsHTML", sb.toString()).add("vertical", vertical);
+				"headerHidden", isHeaderHidden(pp));
 		return kv;
 	}
 
@@ -77,23 +56,6 @@ public abstract class T1ResizedTemplatePage extends T1TemplatePage implements IP
 
 	protected int getTabsrMarginTop(final PageParameter pp) {
 		return 45;
-	}
-
-	public String toTabsHTML(final PageParameter pp) {
-		final StringBuilder sb = new StringBuilder();
-		final TabButtons tabs = getTabButtons(pp);
-		if (tabs != null && tabs.size() > 0) {
-			final ElementList el = tabs.setVertical(isTabsVertical(pp)).getTopElements();
-			if (el != null) {
-				sb.append("<div class='tb_top'>").append(el).append("</div>");
-			}
-			sb.append("<div class='tabs_bar");
-			if (tabs.getTextAlign() == ETextAlign.right) {
-				sb.append(" tab_right");
-			}
-			sb.append("'>").append(tabs.toString(pp)).append("</div>");
-		}
-		return sb.toString();
 	}
 
 	protected String hackVerticalTabs(final PageParameter pp) {
@@ -121,6 +83,45 @@ public abstract class T1ResizedTemplatePage extends T1TemplatePage implements IP
 		}
 		if (sb.length() > 0) {
 			sb.insert(0, "<div class='tb_container'>");
+			sb.append("</div>");
+		}
+		return sb.toString();
+	}
+
+	public String _toHeaderHTML(final PageParameter pp) {
+		final StringBuilder sb = new StringBuilder();
+		sb.append("<div id='resized_header'");
+		if (Convert.toBool(getVariables(pp).get("headerHidden"))) {
+			sb.append(" style='display:none;'");
+		}
+		sb.append(">").append(getNamedTemplate(pp).get("header")).append("</div>");
+		return sb.toString();
+	}
+
+	public String _toToggleHTML(final PageParameter pp) {
+		final StringBuilder sb = new StringBuilder();
+		sb.append("<div id='resized_toggle_bar'").append(
+				Convert.toBool(getVariables(pp).get("headerHidden")) ? " class='t2'" : " class='t1'");
+		sb.append("></div>");
+		return sb.toString();
+	}
+
+	public String _toTabsHTML(final PageParameter pp) {
+		final StringBuilder sb = new StringBuilder();
+		final TabButtons tabs = getTabButtons(pp);
+		if (tabs != null && tabs.size() > 0) {
+			final boolean vertical = isTabsVertical(pp);
+			sb.append("<div id='").append(vertical ? "resized_tabbar2" : "resized_tabbar")
+					.append("'>");
+			final ElementList el = tabs.setVertical(isTabsVertical(pp)).getTopElements();
+			if (el != null) {
+				sb.append("<div class='tb_top'>").append(el).append("</div>");
+			}
+			sb.append("<div class='tabs_bar");
+			if (tabs.getTextAlign() == ETextAlign.right) {
+				sb.append(" tab_right");
+			}
+			sb.append("'>").append(tabs.toString(pp)).append("</div>");
 			sb.append("</div>");
 		}
 		return sb.toString();
