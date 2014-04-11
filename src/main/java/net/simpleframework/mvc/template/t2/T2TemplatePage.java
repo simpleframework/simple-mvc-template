@@ -27,6 +27,8 @@ public abstract class T2TemplatePage extends RootTemplatePage {
 		addHtmlViewVariable(pp, getClass(), "content");
 
 		addComponentBean(pp, MenuBean.class, MainMenuHandler.class).setContainerId("site_menu_bar");
+
+		addHeaderFooterNamedTemplates(pp);
 	}
 
 	@Override

@@ -24,6 +24,28 @@ public abstract class RootTemplatePage extends AbstractTemplatePage {
 		pp.addImportJavascript(AbstractTemplatePage.class, "/js/template.js");
 	}
 
+	/**
+	 * 创建mvel预定义好的模板
+	 * 
+	 * html写法：$includeNamed{'key'}
+	 * 
+	 * @param pp
+	 */
+	protected void addHeaderFooterNamedTemplates(final PageParameter pp) {
+		/* 创建头尾模板 */
+		final ITemplateHandler t = getTemplate(pp);
+		if (t != null) {
+			final Class<? extends AbstractMVCPage> header = t.getHeaderPage();
+			if (header != null) {
+				addMVELNamedTemplate(pp, "header", header);
+			}
+			Class<? extends AbstractMVCPage> footer;
+			if (t.isShowFooter(pp) && (footer = t.getFooterPage()) != null) {
+				addMVELNamedTemplate(pp, "footer", footer);
+			}
+		}
+	}
+
 	public ITemplateHandler getTemplate(final PageParameter pp) {
 		return null;
 	}
@@ -32,23 +54,6 @@ public abstract class RootTemplatePage extends AbstractTemplatePage {
 	public String getFavicon(final PageParameter pp) {
 		final ITemplateHandler tmp = getTemplate(pp);
 		return tmp != null ? tmp.getFavicon(pp) : super.getFavicon(pp);
-	}
-
-	@Override
-	protected NamedTemplate createNamedTemplates(final PageParameter pp) {
-		final NamedTemplate nt = new NamedTemplate(pp);
-		final ITemplateHandler t = getTemplate(pp);
-		if (t != null) {
-			final Class<? extends AbstractMVCPage> header = t.getHeaderPage();
-			if (header != null) {
-				nt.add("header", header);
-			}
-			Class<? extends AbstractMVCPage> footer;
-			if (t.isShowFooter(pp) && (footer = t.getFooterPage()) != null) {
-				nt.add("footer", footer);
-			}
-		}
-		return nt;
 	}
 
 	protected MenuItems getMainMenuItems(final ComponentParameter cp, final MenuItem menuItem) {

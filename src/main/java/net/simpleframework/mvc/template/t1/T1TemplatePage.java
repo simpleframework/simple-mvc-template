@@ -29,6 +29,8 @@ public abstract class T1TemplatePage extends RootTemplatePage {
 
 		addComponentBean(pp, MenuBean.class, MainMenuHandler.class)
 				.setContainerId("resized_menu_bar");
+
+		addHeaderFooterNamedTemplates(pp);
 	}
 
 	@Override
