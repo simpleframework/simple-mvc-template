@@ -8,6 +8,7 @@ import net.simpleframework.ctx.ModuleContextFactory;
 import net.simpleframework.ctx.ModuleFunction;
 import net.simpleframework.ctx.ModuleFunctions;
 import net.simpleframework.mvc.AbstractMVCPage;
+import net.simpleframework.mvc.IMVCConst;
 import net.simpleframework.mvc.IMVCContextVar;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.LinkElement;
@@ -33,6 +34,11 @@ public abstract class AbstractTemplateHandler extends ObjectEx implements ITempl
 	@Override
 	public Class<? extends AbstractMVCPage> getFooterPage() {
 		return FooterPage.class;
+	}
+
+	protected AbstractMVCPage getParentPage(final PageParameter pp) {
+		final String pageClass = pp.getParameter(IMVCConst.PARAM_PARENT_PAGE);
+		return pageClass != null ? (AbstractMVCPage) singleton(pageClass) : null;
 	}
 
 	@Override
