@@ -22,6 +22,8 @@ import net.simpleframework.mvc.common.element.BlockElement;
 import net.simpleframework.mvc.common.element.ElementList;
 import net.simpleframework.mvc.common.element.InputElement;
 import net.simpleframework.mvc.common.element.Option;
+import net.simpleframework.mvc.common.element.SpanElement;
+import net.simpleframework.mvc.common.element.TabButtons;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestBean;
 import net.simpleframework.mvc.component.ext.ckeditor.HtmlEditorBean;
@@ -139,22 +141,6 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 		return null;
 	}
 
-	public static final String G = IGroupTablePagerHandler.G;
-	public static Option OPTION_NO_GROUP = new Option("none", $m("AbstractTemplatePage.0"));
-
-	protected InputElement createGroupElement(final PageParameter pp, final String tblAction,
-			final Option... opts) {
-		final ArrayList<Option> list = new ArrayList<Option>();
-		list.add(OPTION_NO_GROUP);
-		if (opts != null) {
-			for (final Option opt : opts) {
-				list.add(opt);
-			}
-		}
-		return GroupDbTablePagerHandler.createGroupElement(pp, tblAction,
-				list.toArray(new Option[list.size()]));
-	}
-
 	/*-------------------Components--------------------*/
 
 	/* HtmlEditorBean */
@@ -239,5 +225,27 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 
 	protected AjaxRequestBean addPageletTabAjaxRequest(final PageParameter pp) {
 		return addAjaxRequest(pp, "PageletTab_ajax").setHandlerMethod("doPageletTab");
+	}
+
+	/*-------------------Element utils--------------------*/
+
+	public static final String G = IGroupTablePagerHandler.G;
+	public static Option OPTION_NO_GROUP = new Option("none", $m("AbstractTemplatePage.0"));
+
+	protected InputElement createGroupElement(final PageParameter pp, final String tblAction,
+			final Option... opts) {
+		final ArrayList<Option> list = new ArrayList<Option>();
+		list.add(OPTION_NO_GROUP);
+		if (opts != null) {
+			for (final Option opt : opts) {
+				list.add(opt);
+			}
+		}
+		return GroupDbTablePagerHandler.createGroupElement(pp, tblAction,
+				list.toArray(new Option[list.size()]));
+	}
+
+	protected SpanElement createTabsElement(final PageParameter pp, final TabButtons tabs) {
+		return new SpanElement().setClassName("tabbtns").addHtml(tabs.toString(pp));
 	}
 }
