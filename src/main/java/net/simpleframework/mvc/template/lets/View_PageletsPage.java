@@ -86,7 +86,7 @@ public abstract class View_PageletsPage extends Blank_PageletsPage {
 	 * 
 	 * @param pParameter
 	 * @param key
-	 *           参考OP_开头的属性
+	 *        参考OP_开头的属性
 	 * @return
 	 */
 	protected abstract Object getDataProperty(PageParameter pp, String key);
