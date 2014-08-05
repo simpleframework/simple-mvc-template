@@ -171,7 +171,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 		try {
 			autocomplete.setHandlerClass(ClassUtils.forName(handlerClass));
 		} catch (final ClassNotFoundException e) {
-			log.warn(e);
+			getLog().warn(e);
 		}
 		return autocomplete;
 	}
