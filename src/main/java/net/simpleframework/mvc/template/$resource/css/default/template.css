@@ -327,9 +327,10 @@
 }
 
 .FormTableRowTemplatePage .form_block {
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   padding: 6px;
   text-align: left;
+  background-color: #fff;
 }
 
 .FormTableRowTemplatePage .tabs {
