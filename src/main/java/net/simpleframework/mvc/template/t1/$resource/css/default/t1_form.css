@@ -4,10 +4,10 @@ body {
 
 .form_tb_bar {
   background-color: #f9f9f9;
-  background-image: -webkit-linear-gradient(top, #fff, #eef);
-  background-image: -moz-linear-gradient(top, #fff, #eef);
-  background-image: -ms-linear-gradient(top, #fff, #eef);
-  background-image: linear-gradient(to bottom, #fff, #eef);
+  background-image: -webkit-linear-gradient(top, #fff, #def);
+  background-image: -moz-linear-gradient(top, #fff, #def);
+  background-image: -ms-linear-gradient(top, #fff, #def);
+  background-image: linear-gradient(to bottom, #fff, #def);
   border: 1px solid #aaa;
   border-top: 0;
   height: 36px;
