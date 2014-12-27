@@ -63,7 +63,7 @@
 
 .Category_BlankPage .category .c_item:hover,
 .Category_BlankPage .category .c_child_item:hover {
-   background-color: #eec;
+   background-color: #ddc;
    transition: background-color 0.4s;
   -moz-transition: background-color 0.4s;
   -webkit-transition: background-color 0.4s;
