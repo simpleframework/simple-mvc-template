@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.Map;
 
 import net.simpleframework.common.coll.KVMap;
-import net.simpleframework.ctx.permission.IPermissionConst;
 import net.simpleframework.mvc.AbstractMVCPage;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.LinkElement;
@@ -31,11 +30,6 @@ public abstract class T1TemplatePage extends RootTemplatePage {
 				.setContainerId("resized_menu_bar");
 
 		addHeaderFooterNamedTemplates(pp);
-	}
-
-	@Override
-	public String getRole(final PageParameter pp) {
-		return IPermissionConst.ROLE_ALL_ACCOUNT;
 	}
 
 	@Override
