@@ -16,6 +16,7 @@ import net.simpleframework.mvc.AbstractBasePage;
 import net.simpleframework.mvc.IForward;
 import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.PageParameter;
+import net.simpleframework.mvc.PageParameter.IVal;
 import net.simpleframework.mvc.TextForward;
 import net.simpleframework.mvc.UrlForward;
 import net.simpleframework.mvc.common.element.BlockElement;
@@ -76,14 +77,14 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 		return forward;
 	}
 
-	@SuppressWarnings("unchecked")
 	public static <T> T getCacheBean(final PageParameter pp, final IDbBeanService<T> beanService,
 			final String key) {
-		T t = (T) pp.getRequestAttr(key);
-		if (t == null && (t = beanService.getBean(pp.getParameter(key))) != null) {
-			pp.setRequestAttr(key, t);
-		}
-		return t;
+		return pp.getCache(key, new IVal<T>() {
+			@Override
+			public T get() {
+				return beanService.getBean(pp.getParameter(key));
+			}
+		});
 	}
 
 	/**
