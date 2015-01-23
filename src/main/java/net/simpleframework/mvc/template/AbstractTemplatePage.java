@@ -32,7 +32,6 @@ import net.simpleframework.mvc.component.ext.userselect.UserSelectBean;
 import net.simpleframework.mvc.component.ui.autocomplete.AutocompleteBean;
 import net.simpleframework.mvc.component.ui.pager.IGroupTablePagerHandler;
 import net.simpleframework.mvc.component.ui.pager.TablePagerColumn;
-import net.simpleframework.mvc.component.ui.pager.db.GroupDbTablePagerHandler;
 import net.simpleframework.mvc.template.struct.FilterButtons;
 import net.simpleframework.mvc.template.struct.NavigationButtons;
 
@@ -242,8 +241,37 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 				list.add(opt);
 			}
 		}
-		return GroupDbTablePagerHandler.createGroupElement(pp, tblAction,
-				list.toArray(new Option[list.size()]));
+		return _createGroupElement(pp, tblAction, list.toArray(new Option[list.size()]));
+	}
+
+	private InputElement _createGroupElement(final PageParameter pp, final String tblAction,
+			final Option... opts) {
+		final String g = pp.getParameter(G);
+
+		final StringBuilder sb = new StringBuilder();
+		sb.append("var val = $F(this); $Actions['").append(tblAction)
+				.append("']('g=' + val); document.setCookie('group_")
+				.append(getClass().getSimpleName()).append("', val);");
+		final InputElement select = InputElement.select("InputElement_group").setOnchange(
+				sb.toString());
+		if (opts != null) {
+			for (final Option opt : opts) {
+				final String name = opt.getName();
+				if (name == null) {
+					continue;
+				}
+				select.addElements(opt.setSelected(name.equals(g)));
+			}
+		}
+		return select;
+	}
+
+	protected void setDefaultGroupVal(final PageParameter pp, final String defaultGroupVal) {
+		String groupVal = pp.getCookie("group_" + getClass().getSimpleName());
+		if (!StringUtils.hasText(groupVal)) {
+			groupVal = defaultGroupVal;
+		}
+		pp.putParameter(IGroupTablePagerHandler.G, groupVal);
 	}
 
 	protected SpanElement createTabsElement(final PageParameter pp, final TabButtons tabs) {
