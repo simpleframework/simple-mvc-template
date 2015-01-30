@@ -39,10 +39,13 @@ public abstract class Category_BlankPage extends AbstractTwoColPage {
 	protected int getCategoryWidth(final PageParameter pp) {
 		return 165;
 	}
+	protected boolean isShowCategory(final PageParameter pp) {
+		return true;
+	}
 
 	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
 		return ((KVMap) super.createVariables(pp)).add("w", getCategoryWidth(pp)).add("categoryHTML",
-				toCategoryHTML(pp));
+				toCategoryHTML(pp)).add("isShowCategory", isShowCategory(pp));
 	}
 }

@@ -1,9 +1,11 @@
 <div class="Category_BlankPage">
   <table>
     <tr>
+      $if{isShowCategory}
       <td width="${w}" class="category">
         <div class="col1">${categoryHTML}</div>
       </td>
+      $end{}
       <td valign="top">
         <div class="col2">${col2}</div>
       </td>
