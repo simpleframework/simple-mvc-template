@@ -48,4 +48,8 @@ public abstract class Category_BlankPage extends AbstractTwoColPage {
 		return ((KVMap) super.createVariables(pp)).add("w", getCategoryWidth(pp)).add("categoryHTML",
 				toCategoryHTML(pp)).add("isShowCategory", isShowCategory(pp));
 	}
+	
+	public String toTabButtonsHTML(final PageParameter pp){
+		return "";
+	}
 }
