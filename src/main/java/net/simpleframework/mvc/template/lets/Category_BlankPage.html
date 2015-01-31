@@ -1,4 +1,10 @@
-${page.toTabButtonsHTML(parameter)}
+$if{isShowTitle}
+<div class="Category_BlankPage_title">
+	${titleEles}
+	${tabbuttons}
+	<div class="clearfix"></div>
+</div>
+$end{}
 <div class="Category_BlankPage">
   <table>
     <tr>
