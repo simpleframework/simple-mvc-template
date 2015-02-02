@@ -1,0 +1,17 @@
+.Category_BlankPage_title{
+	position: relative;
+	padding: 6px 10px 1px 10px;
+	min-height: 25px;
+}
+.Category_BlankPageTabs ul.simple_tabs a{
+  border: 1px solid #999 !important;
+}
+.Category_BlankPageTabs{
+	position: absolute;
+	right: 80px;
+	bottom: 0;
+}
+
+.Category_BlankPageTabs ul.simple_tabs a.active{
+  border-bottom-color: #fff !important;
+}
