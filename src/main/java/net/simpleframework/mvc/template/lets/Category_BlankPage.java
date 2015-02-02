@@ -51,27 +51,25 @@ public abstract class Category_BlankPage extends AbstractTwoColPage {
 	public Map<String, Object> createVariables(final PageParameter pp) {
 		// ${page.toTabButtonsHTML(parameter)}
 
-		String tabs = toTabButtonsHTML(pp);
+		final String tabs = toTabButtonsHTML(pp);
 
 		String titleEle = "";
-		ElementList t = getTitleElement(pp);
+		final ElementList t = getTitleElement(pp);
 		if (null != t && t.size() > 0) {
 			titleEle = t.toString();
 		}
-		return ((KVMap) super.createVariables(pp))
-				.add("w", getCategoryWidth(pp))
-				.add("categoryHTML", toCategoryHTML(pp))
-				.add("tabbuttons", tabs)
+		return ((KVMap) super.createVariables(pp)).add("w", getCategoryWidth(pp))
+				.add("categoryHTML", toCategoryHTML(pp)).add("tabbuttons", tabs)
 				.add("isShowCategory", isShowCategory(pp))
 				.add("isShowTitle", !("".equals(tabs) && "".equals(titleEle)))
 				.add("titleEles", titleEle);
 	}
 
 	public String toTabButtonsHTML(final PageParameter pp) {
-		TabButtons tabs = getTabButtons(pp);
-		if (null != tabs && tabs.size() > 0)
-			return createTabsElement(pp, tabs).setClassName(
-					"Category_BlankPageTabs").toString();
+		final TabButtons tabs = getTabButtons(pp);
+		if (null != tabs && tabs.size() > 0) {
+			return createTabsElement(pp, tabs).setClassName("Category_BlankPageTabs").toString();
+		}
 		return "";
 	}
 
