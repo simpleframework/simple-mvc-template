@@ -1,0 +1,25 @@
+.Tabs_BlankPage .Tabs_tb {
+  border: 1px solid #aaa;
+  background-color: #e4e4e4;
+  padding: 6px 8px;
+  padding-bottom: 0;
+}
+
+.Tabs_BlankPage .Tabs_tb .le {
+  float: left;
+}
+
+.Tabs_BlankPage .Tabs_tb .re {
+  float: right;
+}
+
+.Tabs_BlankPage .Tabs_tb ul.simple_tabs {
+  margin-right: 120px;
+}
+
+.Tabs_BlankPage .Tabs_cc {
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-top: 0;
+  padding: 8px;
+}
