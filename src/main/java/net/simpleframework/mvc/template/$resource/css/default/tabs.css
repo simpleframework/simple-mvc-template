@@ -17,6 +17,10 @@
   margin-right: 120px;
 }
 
+.Tabs_BlankPage .Tabs_tb ul.simple_tabs a {
+  padding: 2px 21px;
+}
+
 .Tabs_BlankPage .Tabs_cc {
   background-color: #fff;
   border: 1px solid #aaa;
