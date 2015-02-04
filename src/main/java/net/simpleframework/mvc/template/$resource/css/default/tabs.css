@@ -26,4 +26,5 @@
   border: 1px solid #aaa;
   border-top: 0;
   padding: 8px;
+  min-height: 480px;
 }
