@@ -17,6 +17,8 @@ public abstract class Tabs_BlankPage extends AbstractTemplatePage {
 	protected void onForward(final PageParameter pp) {
 		super.onForward(pp);
 		pp.addImportCSS(AbstractTemplatePage.class, "/tabs.css");
+
+		addHtmlViewVariable(pp, getClass(), "cc");
 	}
 
 	public TabButtons getTabButtons(final PageParameter pp) {
@@ -33,11 +35,6 @@ public abstract class Tabs_BlankPage extends AbstractTemplatePage {
 		if (tabs != null && tabs.size() > 0) {
 			sb.append("<div class='re'>").append(tabs.toString(pp)).append("</div>");
 		}
-		return sb.toString();
-	}
-
-	public String toContentHTML(final PageParameter pp) {
-		final StringBuilder sb = new StringBuilder();
 		return sb.toString();
 	}
 }
