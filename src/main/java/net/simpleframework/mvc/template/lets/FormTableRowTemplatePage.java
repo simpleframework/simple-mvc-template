@@ -54,7 +54,7 @@ public abstract class FormTableRowTemplatePage extends FormExTemplatePage implem
 
 	public String toTableRowsString(final PageParameter pp) {
 		final TableRows tableRows = getTableRows(pp);
-		return tableRows != null ? tableRows.toString() : "";
+		return tableRows != null ? tableRows.toString() : null;
 	}
 
 	protected boolean show_opt_next(final PageParameter pp) {
@@ -77,6 +77,10 @@ public abstract class FormTableRowTemplatePage extends FormExTemplatePage implem
 		return ElementList.of(SAVE_BTN(), SpanElement.SPACE, ButtonElement.WINDOW_CLOSE);
 	}
 
+	protected ElementList getFormElements(final PageParameter pp) {
+		return null;
+	}
+
 	@Override
 	protected String toHtml(final PageParameter pp,
 			final Class<? extends AbstractMVCPage> pageClass, final Map<String, Object> variables,
@@ -88,7 +92,16 @@ public abstract class FormTableRowTemplatePage extends FormExTemplatePage implem
 			if (top) {
 				sb.append(toToolbarHTML(pp));
 			}
-			sb.append("<form>").append(toTableRowsString(pp)).append("</form>");
+			sb.append("<form>");
+			final ElementList el = getFormElements(pp);
+			if (el != null && el.size() > 0) {
+				sb.append(el);
+			}
+			final String tableRows = toTableRowsString(pp);
+			if (tableRows != null) {
+				sb.append(tableRows);
+			}
+			sb.append("</form>");
 			final String bstr = _toFormBottomHTML(pp);
 			if (StringUtils.hasText(bstr)) {
 				sb.append(bstr);
