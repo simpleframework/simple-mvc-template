@@ -1,8 +1,7 @@
 .Tabs_BlankPage .Tabs_tb {
   border: 1px solid #aaa;
   background-color: #e4e4e4;
-  padding: 6px 8px;
-  padding-bottom: 0;
+  padding: 8px 8px 0;
 }
 
 .Tabs_BlankPage .Tabs_tb .le {
