@@ -16,7 +16,7 @@ import net.simpleframework.mvc.AbstractBasePage;
 import net.simpleframework.mvc.IForward;
 import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.PageParameter;
-import net.simpleframework.mvc.PageParameter.IVal;
+import net.simpleframework.mvc.PageRequestResponse.IVal;
 import net.simpleframework.mvc.TextForward;
 import net.simpleframework.mvc.UrlForward;
 import net.simpleframework.mvc.common.element.BlockElement;
