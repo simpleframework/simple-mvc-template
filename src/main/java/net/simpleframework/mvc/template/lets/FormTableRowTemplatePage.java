@@ -57,7 +57,7 @@ public abstract class FormTableRowTemplatePage extends FormExTemplatePage implem
 		return tableRows != null ? tableRows.toString() : null;
 	}
 
-	protected boolean show_opt_next(final PageParameter pp) {
+	protected boolean isShowOptNext(final PageParameter pp) {
 		return false;
 	}
 
@@ -66,7 +66,7 @@ public abstract class FormTableRowTemplatePage extends FormExTemplatePage implem
 	@Override
 	public ElementList getLeftElements(final PageParameter pp) {
 		final ElementList el = ElementList.of();
-		if (show_opt_next(pp)) {
+		if (isShowOptNext(pp)) {
 			el.append(new Checkbox(OPT_NEXT + hashId, $m("FormExTemplatePage.0")).setName(OPT_NEXT));
 		}
 		return el;
