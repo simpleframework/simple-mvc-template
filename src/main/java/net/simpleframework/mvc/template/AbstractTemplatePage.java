@@ -219,7 +219,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 				}
 				final PermissionUser user = pp.getUser(ID.of(val));
 				return user.exists() ? user.getText() : val;
-			};
+			}
 		}.setFilterAdvClick("$Actions['" + tblComponentName + "_userselect_" + columnName + "']();");
 	}
 
