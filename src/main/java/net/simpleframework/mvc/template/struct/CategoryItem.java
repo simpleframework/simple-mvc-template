@@ -5,11 +5,13 @@ import java.util.List;
 
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.object.DescriptionObject;
+import net.simpleframework.ctx.ModuleFunction;
 import net.simpleframework.mvc.common.element.AbstractElement;
 import net.simpleframework.mvc.common.element.BlockElement;
 import net.simpleframework.mvc.common.element.LinkElement;
 import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.common.element.SupElement;
+import net.simpleframework.mvc.ctx.WebModuleFunction;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -147,5 +149,13 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 	@Override
 	public String toString() {
 		return toItemElement(null).toString();
+	}
+
+	public static CategoryItem of(final ModuleFunction mf) {
+		final CategoryItem item = new CategoryItem(mf.getText());
+		if (mf instanceof WebModuleFunction) {
+			item.setHref(((WebModuleFunction) mf).getUrl());
+		}
+		return item;
 	}
 }
