@@ -10,6 +10,7 @@ import net.simpleframework.common.ID;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.common.object.ObjectUtils;
+import net.simpleframework.ctx.permission.PermissionConst;
 import net.simpleframework.ctx.permission.PermissionUser;
 import net.simpleframework.ctx.service.ado.db.IDbBeanService;
 import net.simpleframework.mvc.AbstractBasePage;
@@ -177,7 +178,8 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	}
 
 	protected void addComponent_logout(final PageParameter pp) {
-		addAjaxRequest(pp, "AbstractTemplatePage_logout").setHandlerMethod("logout");
+		addAjaxRequest(pp, "AbstractTemplatePage_logout").setHandlerMethod("logout").setRole(
+				PermissionConst.ROLE_ALL_ACCOUNT);
 	}
 
 	/**
