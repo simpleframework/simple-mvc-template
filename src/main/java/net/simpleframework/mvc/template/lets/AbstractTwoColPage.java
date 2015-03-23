@@ -14,7 +14,6 @@ import net.simpleframework.lib.org.jsoup.nodes.Document;
 import net.simpleframework.lib.org.jsoup.nodes.Element;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.ImageCache;
-import net.simpleframework.mvc.common.element.ETextAlign;
 import net.simpleframework.mvc.common.element.LinkElement;
 import net.simpleframework.mvc.common.element.PhotoImage;
 import net.simpleframework.mvc.common.element.SpanElement;
@@ -44,7 +43,7 @@ public class AbstractTwoColPage extends AbstractTemplatePage {
 	protected static final String OP_DESCRIPTION = "description";
 
 	public static TablePagerColumn COLUMN_TOPIC = new TablePagerColumn("topic",
-			$m("AbstractTwoColPage.0")).setTextAlign(ETextAlign.left).setSort(false).setNowrap(false);
+			$m("AbstractTwoColPage.0")).setSort(false).setNowrap(false);
 
 	protected TablePagerBean addTablePagerBean(final PageParameter pp, final String name,
 			final Class<? extends ITablePagerHandler> handlerClass) {
