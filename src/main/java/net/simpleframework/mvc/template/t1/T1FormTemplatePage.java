@@ -1,7 +1,5 @@
 package net.simpleframework.mvc.template.t1;
 
-import static net.simpleframework.common.I18n.$m;
-
 import java.io.IOException;
 import java.util.Map;
 
@@ -9,8 +7,6 @@ import net.simpleframework.ctx.permission.PermissionUser;
 import net.simpleframework.mvc.AbstractMVCPage;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.ElementList;
-import net.simpleframework.mvc.common.element.Icon;
-import net.simpleframework.mvc.common.element.LinkButton;
 import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.common.element.TabButtons;
 
@@ -34,10 +30,6 @@ public class T1FormTemplatePage extends T1TemplatePage {
 
 	protected SpanElement titleElement(final Object title) {
 		return new SpanElement(title).setClassName("lbl");
-	}
-
-	protected LinkButton backBtn() {
-		return new LinkButton($m("T1FormTemplatePage.0")).setIconClass(Icon.share_alt);
 	}
 
 	@Override
