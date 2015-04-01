@@ -51,11 +51,11 @@
 .Category_BlankPage .category .c_item {
   line-height: 32px;
   cursor: pointer;
-  padding-left: 15px;
+  padding-left: 10px;
 }
 
 .Category_BlankPage .category .c_child_item {
-  line-height: 24px;
+  line-height: 25px;
   cursor: pointer;
   padding-left: 35px;
   font-size: 9.5pt;
