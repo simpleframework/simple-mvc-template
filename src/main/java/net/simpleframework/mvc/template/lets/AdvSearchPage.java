@@ -10,7 +10,6 @@ import net.simpleframework.common.TimePeriod;
 import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.common.web.HttpUtils;
 import net.simpleframework.ctx.script.MVEL2Template;
-import net.simpleframework.mvc.IMVCConst;
 import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.AbstractElement;
@@ -48,7 +47,7 @@ public abstract class AdvSearchPage extends FormTemplatePage {
 	}
 
 	protected String getRefererUrl(final PageParameter pp) {
-		return StringUtils.decodeHexString(pp.getParameter(IMVCConst.PARAM_REFERER));
+		return StringUtils.decodeHexString(pp.getRefererParam());
 	}
 
 	protected String getParameterValue(final PageParameter pp, final String key) {
