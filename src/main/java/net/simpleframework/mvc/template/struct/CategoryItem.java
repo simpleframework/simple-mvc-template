@@ -116,7 +116,7 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 		AbstractElement<?> titleEle;
 		final String href = getHref();
 		if (StringUtils.hasText(href)) {
-			titleEle = new LinkElement(getTitle()).setHref(href);
+			titleEle = new LinkElement(getTitle()).setHref("javascript:void(0);");
 		} else {
 			titleEle = new SpanElement(getTitle());
 		}
