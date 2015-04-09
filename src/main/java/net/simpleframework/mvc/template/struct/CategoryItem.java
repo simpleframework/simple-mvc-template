@@ -116,7 +116,7 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 		AbstractElement<?> titleEle;
 		final String href = getHref();
 		if (StringUtils.hasText(href)) {
-			titleEle = new LinkElement(getTitle()).setHref("javascript:void(0);");
+			titleEle = new LinkElement(getTitle()).setHref(href);
 		} else {
 			titleEle = new SpanElement(getTitle());
 		}
@@ -125,14 +125,18 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 
 	public BlockElement toItemElement(final String itemClass) {
 		final BlockElement ele = new BlockElement().setClassName(itemClass);
+		final AbstractElement<?> titleEle = toTitleElement();
 		final String href = getHref();
 		if (StringUtils.hasText(href)) {
 			ele.setOnclick("$Actions.loc('" + href + "');");
+			if (titleEle instanceof LinkElement) {
+				((LinkElement) titleEle).setHref("javascript:void(0);");
+			}
 		}
 		if (isSelected()) {
 			ele.addClassName("selected");
 		}
-		final AbstractElement<?> titleEle = toTitleElement();
+
 		final String iconClass = getIconClass();
 		final SpanElement span = new SpanElement().setClassName("icon");
 		if (StringUtils.hasText(iconClass)) {
