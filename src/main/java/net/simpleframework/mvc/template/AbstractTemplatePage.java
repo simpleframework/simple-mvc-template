@@ -19,7 +19,6 @@ import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.TextForward;
 import net.simpleframework.mvc.UrlForward;
-import net.simpleframework.mvc.common.element.BlockElement;
 import net.simpleframework.mvc.common.element.ElementList;
 import net.simpleframework.mvc.common.element.InputElement;
 import net.simpleframework.mvc.common.element.Option;
@@ -114,14 +113,13 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 			final boolean bLe = le != null && le.size() > 0;
 			final boolean bRe = re != null && re.size() > 0;
 			if (bLe || bRe) {
-				sb.append("<div class='tool_bar'>");
+				sb.append("<div class='tool_bar clearfix'>");
 				if (bLe) {
 					sb.append(" <div class='le'>").append(le).append("</div>");
 				}
 				if (bRe) {
 					sb.append(" <div class='re'>").append(re).append("</div>");
 				}
-				sb.append(BlockElement.CLEAR);
 				sb.append("</div>");
 			}
 		}
