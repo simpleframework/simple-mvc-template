@@ -92,7 +92,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	 * @return
 	 */
 	public NavigationButtons getNavigationBar(final PageParameter pp) {
-		return null;
+		return NavigationButtons.of();
 	}
 
 	/*-------------------IPageToolbarAware--------------------*/
