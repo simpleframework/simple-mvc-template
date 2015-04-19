@@ -3,7 +3,7 @@ body {
 }
 
 .form_tb_bar {
-  background-color: #f9f9f9;
+  background-color: #def;
   background-image: -webkit-linear-gradient(top, #fff, #def);
   background-image: -moz-linear-gradient(top, #fff, #def);
   background-image: -ms-linear-gradient(top, #fff, #def);
