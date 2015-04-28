@@ -77,7 +77,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 
 	public static <T> T getCacheBean(final PageParameter pp, final IDbBeanService<T> beanService,
 			final String key) {
-		return pp.getRequestCache(key, new IVal<T>() {
+		return pp.getRequestCache(key, new CacheV<T>() {
 			@Override
 			public T get() {
 				return beanService.getBean(pp.getParameter(key));
