@@ -40,7 +40,7 @@ public abstract class Category_BlankPage extends AbstractTwoColPage {
 	}
 
 	protected int getCategoryWidth(final PageParameter pp) {
-		return 165;
+		return 160;
 	}
 
 	protected boolean isShowCategory(final PageParameter pp) {
