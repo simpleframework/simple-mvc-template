@@ -1,7 +1,7 @@
 .Tabs_BlankPage .Tabs_tb {
   border: 1px solid #aaa;
   background-color: #fff;
-  padding: 6px;
+  padding: 7px;
 }
 
 .Tabs_BlankPage .Tabs_tb .le {
@@ -20,8 +20,8 @@
 
 .Tabs_BlankPage .Tabs_tb .re {
   float: right;
-  margin-bottom: -6px;
-  margin-top: 2px;
+  margin-bottom: -7px;
+  margin-top: 3px;
 }
 
 .Tabs_BlankPage .Tabs_tb ul.simple_tabs {
@@ -40,7 +40,7 @@
 }
 
 .Tabs_BlankPage .Tabs_cc .tbar {
-  padding: 8px;
+  padding: 7px;
   border-bottom: 1px solid #bbb;
   background-color: #f5f5f5;
   position: relative;
