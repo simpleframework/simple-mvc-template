@@ -74,7 +74,7 @@ public abstract class FormTableRowTemplatePage extends FormExTemplatePage implem
 
 	@Override
 	public ElementList getRightElements(final PageParameter pp) {
-		return ElementList.of(SAVE_BTN(), SpanElement.SPACE, ButtonElement.WINDOW_CLOSE);
+		return ElementList.of(SAVE_BTN(), SpanElement.SPACE, ButtonElement.closeBtn());
 	}
 
 	protected ElementList getFormElements(final PageParameter pp) {

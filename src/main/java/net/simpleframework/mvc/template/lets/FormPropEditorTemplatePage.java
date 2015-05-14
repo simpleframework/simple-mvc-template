@@ -31,7 +31,7 @@ public abstract class FormPropEditorTemplatePage extends FormExTemplatePage {
 
 	@Override
 	public ElementList getRightElements(final PageParameter pp) {
-		return ElementList.of(SAVE_BTN(), SpanElement.SPACE, ButtonElement.WINDOW_CLOSE);
+		return ElementList.of(SAVE_BTN(), SpanElement.SPACE, ButtonElement.closeBtn());
 	}
 
 	@Override
