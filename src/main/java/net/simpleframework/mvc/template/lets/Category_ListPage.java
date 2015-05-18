@@ -21,6 +21,12 @@ public class Category_ListPage extends Category_BlankPage implements IPageToolba
 		addHtmlViewVariable(pp, Category_ListPage.class, "col2");
 	}
 
+	protected String toListHTML(final PageParameter pp) {
+		final StringBuilder sb = new StringBuilder();
+		sb.append("<div id='list_").append(hashId).append("'></div>");
+		return sb.toString();
+	}
+
 	@Override
 	protected String toHtml(final PageParameter pp,
 			final Class<? extends AbstractMVCPage> pageClass, final Map<String, Object> variables,
@@ -29,7 +35,7 @@ public class Category_ListPage extends Category_BlankPage implements IPageToolba
 			final StringBuilder sb = new StringBuilder();
 			sb.append("<div class='Category_ListPage'>");
 			sb.append(StringUtils.blank(toToolbarHTML(pp)));
-			sb.append(" <div id='list_").append(hashId).append("'></div>");
+			sb.append(StringUtils.blank(toListHTML(pp)));
 			sb.append("</div>");
 			return sb.toString();
 		}
