@@ -60,8 +60,8 @@ public abstract class FormTemplatePage extends BlockTemplatePage {
 			if (StringUtils.hasText(focusElement)) {
 				sb.append("ele = $('").append(focusElement).append("');");
 			}
-			sb.append("  if (!ele) ele = $('").append(getBlockId())
-					.append("').down(\"input[type='text'], input[type='password'], textarea\");");
+			sb.append("  if (!ele) { var _form = $('#").append(getBlockId())
+					.append(" form'); if (_form) ele = Form.findFirstElement(_form); }");
 			sb.append("  if (ele) ele.focus();");
 			sb.append("}).defer();");
 			sb.append(HtmlConst.TAG_SCRIPT_END);
