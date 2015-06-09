@@ -107,6 +107,8 @@
   .pagelet_list_rows .ti .sdesc {
     font-size: 12px;
     -webkit-transform: scale(0.75);
+    -webkit-transform-origin-x: 0;
+    -webkit-text-size-adjust: none;
   }
 }
 
@@ -317,8 +319,8 @@
 
 .FormTableRowTemplatePage .tool_bar {
   background-color: #eee;
-  border: 1px solid #ccc;
-  margin-top: -1px;
+  border: 1px solid #bbb;
+  margin: -1px -2px 0 -2px;
 }
 
 .FormTableRowTemplatePage .form_tbl,
