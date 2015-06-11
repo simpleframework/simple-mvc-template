@@ -28,12 +28,17 @@ public abstract class Tabs_BlankPage extends AbstractTemplatePage {
 	public String toTabsbarHTML(final PageParameter pp) {
 		final StringBuilder sb = new StringBuilder();
 		final ElementList el = getLeftElements(pp);
-		if (el != null && el.size() > 0) {
-			sb.append("<div class='le'>").append(el).append("</div>");
-		}
+		final boolean l = el != null && el.size() > 0;
 		final TabButtons tabs = getTabButtons(pp);
-		if (tabs != null && tabs.size() > 0) {
-			sb.append("<div class='re'>").append(tabs.toString(pp)).append("</div>");
+		final boolean r = tabs != null && tabs.size() > 0;
+		if (l || r) {
+			sb.append("<div class='Tabs_tb clearfix'>");
+			if (l) {
+				sb.append("<div class='le'>").append(el).append("</div>");
+			} else {
+				sb.append("<div class='re'>").append(tabs.toString(pp)).append("</div>");
+			}
+			sb.append("</div>");
 		}
 		return sb.toString();
 	}

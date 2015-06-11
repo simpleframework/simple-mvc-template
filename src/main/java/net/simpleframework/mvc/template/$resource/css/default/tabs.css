@@ -1,5 +1,6 @@
 .Tabs_BlankPage .Tabs_tb {
   border: 1px solid #aaa;
+  border-bottom: 0;
   background-color: #fff;
   padding: 7px;
 }
@@ -35,7 +36,6 @@
 .Tabs_BlankPage .Tabs_cc {
   background-color: #fff;
   border: 1px solid #aaa;
-  border-top: 0;
   min-height: 480px;
 }
 
