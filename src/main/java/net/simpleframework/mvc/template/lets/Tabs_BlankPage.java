@@ -35,7 +35,8 @@ public abstract class Tabs_BlankPage extends AbstractTemplatePage {
 			sb.append("<div class='Tabs_tb clearfix'>");
 			if (l) {
 				sb.append("<div class='le'>").append(el).append("</div>");
-			} else {
+			}
+			if (r) {
 				sb.append("<div class='re'>").append(tabs.toString(pp)).append("</div>");
 			}
 			sb.append("</div>");
