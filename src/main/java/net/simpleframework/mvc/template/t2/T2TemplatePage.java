@@ -19,7 +19,7 @@ import net.simpleframework.mvc.template.struct.NavigationButtons;
 public abstract class T2TemplatePage extends RootTemplatePage {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 
 		pp.addImportCSS(T2TemplatePage.class, "/t2.css");

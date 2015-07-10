@@ -20,7 +20,7 @@ import net.simpleframework.mvc.template.BlockTemplatePage;
 public abstract class OneTreeTemplatePage extends BlockTemplatePage {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 
 		addHtmlViewVariable(pp, OneTreeTemplatePage.class, "_block");

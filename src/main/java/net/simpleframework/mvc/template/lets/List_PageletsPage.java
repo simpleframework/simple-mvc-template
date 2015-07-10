@@ -15,7 +15,7 @@ import net.simpleframework.mvc.PageParameter;
 public abstract class List_PageletsPage extends TopBar_PageletsPage {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 
 		addHtmlViewVariable(pp, List_PageletsPage.class, "cc");

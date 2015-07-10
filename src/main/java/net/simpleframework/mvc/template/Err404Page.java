@@ -19,7 +19,7 @@ import net.simpleframework.mvc.PageParameter;
 public class Err404Page extends AbstractTemplatePage {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 
 		pp.addImportCSS(Err404Page.class, "/template.css");

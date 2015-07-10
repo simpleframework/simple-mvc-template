@@ -19,7 +19,7 @@ import net.simpleframework.mvc.component.ui.propeditor.PropEditorBean;
 public abstract class FormPropEditorTemplatePage extends FormExTemplatePage {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 		addHtmlViewVariable(pp, FormPropEditorTemplatePage.class, "_form");
 

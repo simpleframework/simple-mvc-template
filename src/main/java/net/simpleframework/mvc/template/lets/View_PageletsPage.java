@@ -23,7 +23,7 @@ import net.simpleframework.mvc.component.ext.comments.ICommentHandler;
 public abstract class View_PageletsPage extends Blank_PageletsPage {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 
 		addHtmlViewVariable(pp, View_PageletsPage.class, "col1");

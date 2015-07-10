@@ -20,7 +20,7 @@ import net.simpleframework.mvc.template.IPageToolbarAware;
 public abstract class OneTableTemplatePage extends BlockTemplatePage implements IPageToolbarAware {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 		addHtmlViewVariable(pp, OneTableTemplatePage.class, "_block");
 	}

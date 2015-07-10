@@ -28,7 +28,7 @@ public abstract class CategoryTableLCTemplatePage extends CategoryLCTemplatePage
 	public static final String COMPONENT_TABLE = "TP_ComponentTable";
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 		addHtmlViewVariable(pp, CategoryTableLCTemplatePage.class, "content_center");
 	}

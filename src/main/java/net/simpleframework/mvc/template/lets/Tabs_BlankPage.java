@@ -14,7 +14,7 @@ import net.simpleframework.mvc.template.AbstractTemplatePage;
 public abstract class Tabs_BlankPage extends AbstractTemplatePage {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 		pp.addImportCSS(AbstractTemplatePage.class, "/tabs.css");
 

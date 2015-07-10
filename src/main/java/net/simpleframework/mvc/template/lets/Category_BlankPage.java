@@ -18,7 +18,7 @@ import net.simpleframework.mvc.template.struct.CategoryItems;
 public abstract class Category_BlankPage extends AbstractTwoColPage {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 
 		pp.addImportCSS(AbstractTemplatePage.class, "/category.css");

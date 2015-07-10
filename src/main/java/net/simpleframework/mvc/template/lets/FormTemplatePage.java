@@ -19,7 +19,7 @@ import net.simpleframework.mvc.template.BlockTemplatePage;
 public abstract class FormTemplatePage extends BlockTemplatePage {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 		addHtmlViewVariable(pp, FormTemplatePage.class, "_block");
 		addHtmlViewVariable(pp, getClass(), "_form");

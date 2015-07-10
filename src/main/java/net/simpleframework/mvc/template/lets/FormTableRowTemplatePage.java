@@ -25,7 +25,7 @@ public abstract class FormTableRowTemplatePage extends FormExTemplatePage implem
 		IPageToolbarAware {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 		addHtmlViewVariable(pp, FormTableRowTemplatePage.class, "_form");
 	}

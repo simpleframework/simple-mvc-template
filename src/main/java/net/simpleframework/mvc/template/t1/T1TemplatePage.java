@@ -23,7 +23,7 @@ import net.simpleframework.mvc.template.struct.NavigationButtons;
 public abstract class T1TemplatePage extends RootTemplatePage {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 
 		addComponentBean(pp, MenuBean.class, MainMenuHandler.class)

@@ -60,7 +60,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	public static UrlForward PAGE404 = new UrlForward(url(Err404Page.class));
 
 	@Override
-	public IForward forward(final PageParameter pp) {
+	public IForward forward(final PageParameter pp) throws Exception {
 		if (isPage404(pp)) {
 			return PAGE404;
 		}

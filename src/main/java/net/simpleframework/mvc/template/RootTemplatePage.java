@@ -16,7 +16,7 @@ import net.simpleframework.mvc.component.ui.menu.MenuItems;
 public abstract class RootTemplatePage extends AbstractTemplatePage {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 
 		pp.addImportCSS(AbstractTemplatePage.class, "/template.css");

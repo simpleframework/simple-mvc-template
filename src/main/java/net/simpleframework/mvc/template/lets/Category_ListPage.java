@@ -16,7 +16,7 @@ import net.simpleframework.mvc.template.IPageToolbarAware;
  */
 public class Category_ListPage extends Category_BlankPage implements IPageToolbarAware {
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 		addHtmlViewVariable(pp, Category_ListPage.class, "col2");
 	}

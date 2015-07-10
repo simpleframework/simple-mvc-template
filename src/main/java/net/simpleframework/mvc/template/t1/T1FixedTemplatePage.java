@@ -11,7 +11,7 @@ import net.simpleframework.mvc.PageParameter;
 public abstract class T1FixedTemplatePage extends T1TemplatePage {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 
 		pp.addImportCSS(T1TemplatePage.class, "/t1_fixed.css");

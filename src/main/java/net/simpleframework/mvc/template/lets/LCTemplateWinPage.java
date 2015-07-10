@@ -17,7 +17,7 @@ import net.simpleframework.mvc.template.IPageToolbarAware;
 public abstract class LCTemplateWinPage extends AbstractTemplatePage implements IPageToolbarAware {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 		final Class<?> pageClass = getClass();
 

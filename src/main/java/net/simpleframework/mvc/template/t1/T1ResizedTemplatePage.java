@@ -22,7 +22,7 @@ public abstract class T1ResizedTemplatePage extends T1TemplatePage implements IP
 		IPageFilterbarAware {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 
 		pp.addImportCSS(T1TemplatePage.class, "/t1_resized.css");

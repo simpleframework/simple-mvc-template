@@ -17,7 +17,7 @@ import net.simpleframework.mvc.common.element.ElementList;
 public abstract class T1ResizedLCTemplatePage extends T1ResizedTemplatePage {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 		final Class<?> pageClass = getClass();
 		addHtmlViewVariable(pp, pageClass, "content_left", getClassName(pageClass) + "_Left.html");

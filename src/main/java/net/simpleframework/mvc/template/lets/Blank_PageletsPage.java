@@ -16,7 +16,7 @@ import net.simpleframework.mvc.template.struct.Pagelets;
  */
 public abstract class Blank_PageletsPage extends AbstractTwoColPage {
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 
 		pp.addImportCSS(AbstractTemplatePage.class, "/twocol.css");

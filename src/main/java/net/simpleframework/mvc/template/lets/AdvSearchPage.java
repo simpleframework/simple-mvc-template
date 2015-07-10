@@ -25,7 +25,7 @@ import net.simpleframework.mvc.template.struct.FilterButton;
 public abstract class AdvSearchPage extends FormTemplatePage {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 		addHtmlViewVariable(pp, AdvSearchPage.class, "_form");
 

@@ -22,7 +22,7 @@ public abstract class FormExTemplatePage extends FormTemplatePage {
 	protected final String AJAX_SAVE = "ajax_" + hashId;
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 
 		// 添加一个ajaxRequest组件
