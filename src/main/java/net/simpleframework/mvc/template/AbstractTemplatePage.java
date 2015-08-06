@@ -21,6 +21,7 @@ import net.simpleframework.mvc.TextForward;
 import net.simpleframework.mvc.UrlForward;
 import net.simpleframework.mvc.common.element.ElementList;
 import net.simpleframework.mvc.common.element.InputElement;
+import net.simpleframework.mvc.common.element.JS;
 import net.simpleframework.mvc.common.element.Option;
 import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.common.element.TabButtons;
@@ -187,8 +188,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	 */
 	public IForward logout(final ComponentParameter cp) {
 		cp.getPermission().logout(cp);
-		return new JavascriptForward("$Actions.loc('").append(settings.getLoginPath(cp))
-				.append("');");
+		return new JavascriptForward(JS.loc(settings.getLoginPath(cp)));
 	}
 
 	// 表格过滤用到的用户选择

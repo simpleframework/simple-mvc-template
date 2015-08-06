@@ -13,6 +13,7 @@ import net.simpleframework.ctx.script.MVEL2Template;
 import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.AbstractElement;
+import net.simpleframework.mvc.common.element.JS;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.template.struct.FilterButton;
 
@@ -39,7 +40,7 @@ public abstract class AdvSearchPage extends FormTemplatePage {
 
 	public JavascriptForward doSearch(final ComponentParameter cp) throws Exception {
 		final JavascriptForward js = new JavascriptForward();
-		return js.append("$Actions.loc('").append(toQueryParams(cp, getFilterParams())).append("');");
+		return js.append(JS.loc(toQueryParams(cp, getFilterParams())));
 	}
 
 	public static String encodeRefererUrl(final String url) {
@@ -113,7 +114,6 @@ public abstract class AdvSearchPage extends FormTemplatePage {
 			final String url, final String rParam) {
 		final Map<String, Object> params = pp.toQueryParams(getFilterParams());
 		params.remove(rParam);
-		return new FilterButton(val).setOndelete("$Actions.loc('"
-				+ HttpUtils.addParameters(url, params) + "');");
+		return new FilterButton(val).setOndelete(JS.loc(HttpUtils.addParameters(url, params)));
 	}
 }
