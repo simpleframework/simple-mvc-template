@@ -8,6 +8,7 @@ import net.simpleframework.common.object.DescriptionObject;
 import net.simpleframework.ctx.ModuleFunction;
 import net.simpleframework.mvc.common.element.AbstractElement;
 import net.simpleframework.mvc.common.element.BlockElement;
+import net.simpleframework.mvc.common.element.JS;
 import net.simpleframework.mvc.common.element.LinkElement;
 import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.common.element.SupElement;
@@ -128,7 +129,7 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 		final AbstractElement<?> titleEle = toTitleElement();
 		final String href = getHref();
 		if (StringUtils.hasText(href)) {
-			ele.setOnclick("$Actions.loc('" + href + "');");
+			ele.setOnclick(JS.loc(href));
 			if (titleEle instanceof LinkElement) {
 				((LinkElement) titleEle).setHref("javascript:void(0);");
 			}
