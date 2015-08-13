@@ -36,7 +36,7 @@ public abstract class CategoryTableLCTemplatePage extends CategoryLCTemplatePage
 	protected TablePagerBean addTablePagerBean(final PageParameter pp,
 			final Class<? extends ITablePagerHandler> handlerClass) {
 		return (TablePagerBean) addComponentBean(pp, COMPONENT_TABLE, TablePagerBean.class)
-				.setShowLineNo(true).setPagerBarLayout(EPagerBarLayout.top)
+				.setShowLineNo(true).setPagerBarLayout(EPagerBarLayout.bottom)
 				.setContainerId("table_" + hashId).setHandlerClass(handlerClass);
 	}
 
