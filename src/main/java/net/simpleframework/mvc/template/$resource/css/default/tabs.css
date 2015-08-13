@@ -2,11 +2,22 @@
   border: 1px solid #aaa;
   border-bottom: 0;
   background-color: #fff;
-  padding: 7px;
+  padding: 5px 10px;
 }
 
 .Tabs_BlankPage .Tabs_tb .le {
   float: left;
+  line-height: 19px;
+}
+
+.Tabs_BlankPage .Tabs_tb .le * {
+  vertical-align: middle;
+}
+
+.Tabs_BlankPage .Tabs_tb ul.simple_tabs {
+  position: relative;
+  margin-right: 150px;
+  bottom: -5px;
 }
 
 .Tabs_BlankPage .Tabs_tb ul.simple_tabs a {
@@ -21,12 +32,6 @@
 
 .Tabs_BlankPage .Tabs_tb .re {
   float: right;
-  margin-bottom: -7px;
-  margin-top: 3px;
-}
-
-.Tabs_BlankPage .Tabs_tb ul.simple_tabs {
-  margin-right: 120px;
 }
 
 .Tabs_BlankPage .Tabs_tb ul.simple_tabs a {
@@ -47,9 +52,9 @@
 }
 
 .Tabs_BlankPage .Tabs_cc .tbar .simple_tabs {
-  bottom: 0;
   position: absolute;
-  right: 10px;
+  bottom: 0;
+  right: 30px;
 }
 
 .Tabs_BlankPage .Tabs_cc .tbar .simple_tabs a {
