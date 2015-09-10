@@ -24,9 +24,9 @@ public abstract class FormTableRow_ListTemplatePage extends FormTableRowTemplate
 	protected TablePagerBean addTablePagerBean(final PageParameter pp, final String name,
 			final Class<? extends ITablePagerHandler> handlerClass) {
 		clearTableCache(pp);
-		return (TablePagerBean) addComponentBean(pp, name, TablePagerBean.class)
-				.setShowFilterBar(false).setShowLineNo(true).setPagerBarLayout(EPagerBarLayout.bottom)
-				.setNoResultDesc(null).setContainerId("tbl_" + hashId).setHandlerClass(handlerClass);
+		return (TablePagerBean) addComponentBean(pp, name, TablePagerBean.class).setFilter(false)
+				.setShowLineNo(true).setPagerBarLayout(EPagerBarLayout.bottom).setNoResultDesc(null)
+				.setContainerId("tbl_" + hashId).setHandlerClass(handlerClass);
 	}
 
 	protected ElementList getTableButtons(final PageParameter pp) {
