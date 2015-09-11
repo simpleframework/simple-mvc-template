@@ -273,7 +273,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 		pp.putParameter(IGroupTablePagerHandler.G, groupVal);
 	}
 
-	protected SpanElement createTabsElement(final PageParameter pp, final TabButtons tabs) {
+	protected static SpanElement createTabsElement(final PageParameter pp, final TabButtons tabs) {
 		return new SpanElement().setClassName("tabbtns").addHtml(tabs.toString(pp));
 	}
 }
