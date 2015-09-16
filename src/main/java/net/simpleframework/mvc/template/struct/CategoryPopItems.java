@@ -70,7 +70,7 @@ public class CategoryPopItems extends AbstractArrayListEx<CategoryPopItems, Cate
 		for (final CategoryItem c : item.getChildren()) {
 			c.setIndex(j++);
 			if (j > 1) {
-				sb.append(SpanElement.SEP);
+				sb.append(SpanElement.SEP());
 			}
 			sb.append(c.toTitleElement().setClassName("a2"));
 		}

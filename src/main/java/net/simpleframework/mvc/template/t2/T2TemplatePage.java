@@ -43,7 +43,7 @@ public abstract class T2TemplatePage extends RootTemplatePage {
 
 	@Override
 	public NavigationButtons getNavigationBar(final PageParameter pp) {
-		return NavigationButtons.of(getNavigationHome(pp)).setSeparator(SpanElement.NAV);
+		return NavigationButtons.of(getNavigationHome(pp)).setSeparator(SpanElement.NAV());
 	}
 
 	public String toInfoHTML(final PageParameter pp) {

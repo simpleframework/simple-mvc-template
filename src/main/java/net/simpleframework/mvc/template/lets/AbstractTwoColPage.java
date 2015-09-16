@@ -130,7 +130,7 @@ public class AbstractTwoColPage extends AbstractTemplatePage {
 			final StringBuilder sb = new StringBuilder();
 			sb.append(SpanElement.num(getDataProperty(cp, dataObject, OP_COMMENTS)))
 					.append(HtmlConst.NBSP).append($m("AbstractTwoColPage.1"));
-			sb.append(SpanElement.SEP);
+			sb.append(SpanElement.SEP());
 			sb.append(SpanElement.num(getDataProperty(cp, dataObject, OP_VIEWS)))
 					.append(HtmlConst.NBSP).append($m("AbstractTwoColPage.2"));
 			return sb.toString();
