@@ -2,6 +2,7 @@ package net.simpleframework.mvc.template;
 
 import static net.simpleframework.common.I18n.$m;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -76,8 +77,8 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 		return forward;
 	}
 
-	public static <T> T getCacheBean(final PageParameter pp, final IDbBeanService<T> beanService,
-			final String key) {
+	public static <T extends Serializable> T getCacheBean(final PageParameter pp,
+			final IDbBeanService<T> beanService, final String key) {
 		return pp.getRequestCache(key, new CacheV<T>() {
 			@Override
 			public T get() {
