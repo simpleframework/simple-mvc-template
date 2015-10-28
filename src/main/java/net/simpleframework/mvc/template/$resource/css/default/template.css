@@ -631,8 +631,8 @@
 
 .category_pop .p_txt,
 .category_pop .p_bg {
-  height: 30px;
-  line-height: 29px;
+  height: 36px;
+  line-height: 35px;
   display: block;
 }
 
@@ -678,7 +678,7 @@
 }
 
 .category_pop .p_sub_item {
-  line-height: 2.0;
+  line-height: 2.4;
 }
 
 .category_pop .p_il {
