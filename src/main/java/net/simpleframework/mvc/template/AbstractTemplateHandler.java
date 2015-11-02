@@ -24,7 +24,7 @@ import net.simpleframework.mvc.ctx.WebModuleFunction;
  *         http://www.simpleframework.net
  */
 public abstract class AbstractTemplateHandler extends ObjectEx implements ITemplateHandler,
-		IMVCContextVar {
+		IMVCContextVar, IMVCConst {
 
 	@Override
 	public Class<? extends AbstractMVCPage> getHeaderPage() {
@@ -37,7 +37,7 @@ public abstract class AbstractTemplateHandler extends ObjectEx implements ITempl
 	}
 
 	protected AbstractMVCPage getParentPage(final PageParameter pp) {
-		final String pageClass = pp.getParameter(IMVCConst.PARAM_PARENT_PAGE);
+		final String pageClass = pp.getParameter(PARAM_PARENT_PAGE);
 		return pageClass != null ? (AbstractMVCPage) singleton(pageClass) : null;
 	}
 
