@@ -100,11 +100,11 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	/*-------------------IPageToolbarAware--------------------*/
 
 	public ElementList getLeftElements(final PageParameter pp) {
-		return null;
+		return ElementList.of();
 	}
 
 	public ElementList getRightElements(final PageParameter pp) {
-		return null;
+		return ElementList.of();
 	}
 
 	public String toToolbarHTML(final PageParameter pp) {
