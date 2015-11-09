@@ -627,6 +627,7 @@
 .category_pop .p_txt {
   padding: 0px 10px;
   position: relative;
+  cursor: default;
 }
 
 .category_pop .p_txt,
@@ -685,6 +686,9 @@
   font-size: 9.5pt;
   font-weight: bold;
   float: left;
+  line-height: 1.6;
+  min-height: 32px;
+  width: 20%;
 }
 
 .category_pop .p_il a {
@@ -697,7 +701,7 @@
 
 .category_pop .p_ir {
   float: right;
-  width: 80%;
+  width: 75%;
 }
 
 .category_pop .p_sub_sep {
