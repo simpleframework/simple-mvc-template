@@ -19,7 +19,7 @@ public class CategoryPopItems extends AbstractArrayListEx<CategoryPopItems, Cate
 		return new CategoryPopItems().append(item);
 	}
 
-	private int width = 180, subWidth = 580;
+	private int width = 180, subWidth = 640;
 
 	public int getWidth() {
 		return width;
