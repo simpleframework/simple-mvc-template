@@ -68,11 +68,16 @@ public class CategoryPopItems extends AbstractArrayListEx<CategoryPopItems, Cate
 		final StringBuilder sb = new StringBuilder();
 		int j = 0;
 		for (final CategoryItem c : item.getChildren()) {
-			c.setIndex(j++);
-			if (j > 1) {
-				sb.append(SpanElement.SEP());
+			if ("-".equals(c.getTitle())) {
+				sb.append("<br>");
+				j = 0;
+			} else {
+				c.setIndex(j++);
+				if (j > 1) {
+					sb.append(SpanElement.SEP());
+				}
+				sb.append(c.toTitleElement().setClassName("a2"));
 			}
-			sb.append(c.toTitleElement().setClassName("a2"));
 		}
 		return sb.toString();
 	}
