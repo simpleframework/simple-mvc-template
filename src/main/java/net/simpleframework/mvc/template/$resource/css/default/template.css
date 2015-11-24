@@ -607,7 +607,7 @@
 /*                 CategoryPopItems                */
 /***************************************************/
 .category_pop {
-  background-color: #eef;
+  background-color: #eee;
   z-index: 100;
 }
 
@@ -684,7 +684,6 @@
 
 .category_pop .p_il {
   font-size: 9.5pt;
-  font-weight: bold;
   float: left;
   line-height: 1.6;
   min-height: 32px;
