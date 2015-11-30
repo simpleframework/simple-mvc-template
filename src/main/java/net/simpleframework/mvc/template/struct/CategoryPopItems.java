@@ -4,7 +4,6 @@ import java.util.Random;
 
 import net.simpleframework.common.coll.AbstractArrayListEx;
 import net.simpleframework.common.web.JavascriptUtils;
-import net.simpleframework.mvc.common.element.BlockElement;
 import net.simpleframework.mvc.common.element.SpanElement;
 
 /**
@@ -55,10 +54,9 @@ public class CategoryPopItems extends AbstractArrayListEx<CategoryPopItems, Cate
 			if (i > 1) {
 				sb.append("<div class='p_sub_sep'></div>");
 			}
-			sb.append("<div class='p_sub_item'>");
+			sb.append("<div class='p_sub_item clearfix'>");
 			sb.append(" <div class='p_il'>").append(c.toTitleElement()).append("</div>");
 			sb.append(" <div class='p_ir'>").append(toChildrenHTML_level2(c)).append(" </div>");
-			sb.append(BlockElement.CLEAR);
 			sb.append("</div>");
 		}
 		return sb.toString();

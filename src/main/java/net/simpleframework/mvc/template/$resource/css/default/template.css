@@ -673,15 +673,17 @@
   box-shadow: 3px 3px 6px #888;
 }
 
+.category_pop .p_sub {
+  line-height: 2;
+}
+
 .category_pop .p_sub .a2 {
   display: inline-block;
-  line-height: 2.1;
 }
 
 .category_pop .p_il {
   font-size: 9.5pt;
   float: left;
-  line-height: 1.6;
   min-height: 32px;
   width: 20%;
 }
