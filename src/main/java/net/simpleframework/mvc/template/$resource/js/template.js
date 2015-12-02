@@ -4,10 +4,10 @@
  */
 Object.extend($UI, {
 
-  doCategoryPopItems : function(btn, ele, e) {
+  doCategoryPopItems : function(btn, ele, delta) {
     if (!(btn = $(btn)))
       return;
-    btn.observe(e || "mouseover", function(ev) {
+    btn.observe("mouseover", function(ev) {
       if (btn._pop) {
         $Effect.show(btn._pop);
         return;
@@ -17,7 +17,10 @@ Object.extend($UI, {
         document.body.appendChild(btn._pop = ele);
 
       var pos = $UI.getPopupOffsets(ele, btn);
-      ele.setStyle("top: " + (pos[1]) + "px; left: " + (pos[0]) + "px");
+      delta = delta || [0, 0];
+      var left = pos[0] + delta[0];
+      var top = pos[1] + delta[1];
+      ele.setStyle("top: " + top + "px; left: " + left + "px");
       $UI.CategoryPopItems_init(ele);
       $Effect.show(ele);
 

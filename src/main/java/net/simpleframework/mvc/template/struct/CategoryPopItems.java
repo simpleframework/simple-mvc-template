@@ -114,12 +114,17 @@ public class CategoryPopItems extends AbstractArrayListEx<CategoryPopItems, Cate
 	}
 
 	public String bindElement(final String eleId) {
+		return bindElement(eleId, 0, 0);
+	}
+
+	public String bindElement(final String eleId, final int left, final int top) {
 		final StringBuilder js = new StringBuilder();
 		js.append("(function() {");
 		js.append("var btn = $('").append(eleId).append("');");
 		js.append("var ele = \"").append(JavascriptUtils.escape(toString()))
 				.append("\".makeElement();");
-		js.append("$UI.doCategoryPopItems(btn, ele);");
+		js.append("$UI.doCategoryPopItems(btn, ele, [").append(left).append(", ").append(top)
+				.append("]);");
 		js.append("})();");
 		return js.toString();
 	}
