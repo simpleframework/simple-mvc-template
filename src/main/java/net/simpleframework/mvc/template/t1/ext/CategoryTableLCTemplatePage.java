@@ -16,6 +16,7 @@ import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ui.pager.EPagerBarLayout;
 import net.simpleframework.mvc.component.ui.pager.ITablePagerHandler;
 import net.simpleframework.mvc.component.ui.pager.TablePagerBean;
+import net.simpleframework.mvc.component.ui.pager.TablePagerUtils;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -91,32 +92,20 @@ public abstract class CategoryTableLCTemplatePage extends CategoryLCTemplatePage
 		return super.toHtml(pp, pageClass, variables, currentVariable);
 	}
 
-	protected LinkButton delete_btn(final String act) {
+	protected static LinkButton delete_btn(final String act) {
 		return act_btn(act, $m("Delete")).setIconClass(Icon.trash);
 	}
 
-	protected LinkButton delete_btn(final String act, final String idKey, final String params) {
+	protected static LinkButton delete_btn(final String act, final String idKey, final String params) {
 		return act_btn(act, $m("Delete"), idKey, params).setIconClass(Icon.trash);
 	}
 
-	protected LinkButton act_btn(final String act, final String title) {
+	protected static LinkButton act_btn(final String act, final String title) {
 		return act_btn(act, title, null, null);
 	}
 
-	protected LinkButton act_btn(final String act, final String title, final String idKey,
+	protected static LinkButton act_btn(final String act, final String title, final String idKey,
 			final String params) {
-		final StringBuilder click = new StringBuilder();
-		click.append("$Actions['").append(COMPONENT_TABLE).append("'].doAct('").append(act)
-				.append("', ");
-		if (StringUtils.hasText(idKey)) {
-			click.append("'").append(idKey).append("'");
-		} else {
-			click.append("undefined");
-		}
-		if (StringUtils.hasText(params)) {
-			click.append(", '").append(params).append("'");
-		}
-		click.append(");");
-		return new LinkButton(title).setOnclick(click.toString());
+		return TablePagerUtils.act_btn(COMPONENT_TABLE, act, title, idKey, params);
 	}
 }
