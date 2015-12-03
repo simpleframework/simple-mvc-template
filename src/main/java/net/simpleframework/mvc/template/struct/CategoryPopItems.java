@@ -99,7 +99,7 @@ public class CategoryPopItems extends AbstractArrayListEx<CategoryPopItems, Cate
 			item.setIndex(i);
 			sb.append("<div class='p_item'>");
 			sb.append(" <span class='p_txt'>").append(toTitleHTML(item));
-			sb.append("  <span class='p_bg' style='display: none;'></span>");
+			sb.append("   <span class='p_bg' style='display: none;'></span>");
 			sb.append(" </span>");
 			sb.append(" <div class='p_sub' style='");
 			if (subWidth > 0) {

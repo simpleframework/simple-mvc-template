@@ -124,26 +124,30 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 		return titleEle;
 	}
 
-	public BlockElement toItemElement(final String itemClass) {
-		final BlockElement ele = new BlockElement().setClassName(itemClass);
+	public AbstractElement<?> toItemElement(final String itemClass) {
+		final String iconClass = getIconClass();
+		final SpanElement span = new SpanElement();
+		if (StringUtils.hasText(iconClass)) {
+			span.setClassName("icon " + iconClass);
+		}
 		final AbstractElement<?> titleEle = toTitleElement();
 		final String href = getHref();
-		if (StringUtils.hasText(href)) {
-			ele.setOnclick(JS.loc(href));
-			if (titleEle instanceof LinkElement) {
-				((LinkElement) titleEle).setHref("javascript:void(0);");
-			}
+		if (StringUtils.hasText(href) && titleEle instanceof LinkElement) {
+			((LinkElement) titleEle).setHref("javascript:void(0);");
 		}
+		span.addElements(titleEle);
+		if (itemClass == null) {
+			return span;
+		}
+
+		final BlockElement ele = new BlockElement().setClassName(itemClass);
 		if (isSelected()) {
 			ele.addClassName("selected");
 		}
-
-		final String iconClass = getIconClass();
-		final SpanElement span = new SpanElement().setClassName("icon");
-		if (StringUtils.hasText(iconClass)) {
-			span.addClassName(iconClass);
+		if (StringUtils.hasText(href)) {
+			ele.setOnclick(JS.loc(href));
 		}
-		ele.addElements(span.addElements(titleEle));
+		ele.addElements(span);
 		final SupElement num = getNum();
 		if (num != null) {
 			ele.addElements(num.addStyle("margin-left: 4px;"));
