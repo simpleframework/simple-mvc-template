@@ -627,6 +627,10 @@
   height: 1px;
 }
 
+.category_pop .p_sep2 {
+  background-color: #666;
+}
+
 .category_pop .p_txt {
   padding: 0px 10px;
   position: relative;
@@ -657,10 +661,6 @@
 .category_pop .p_sub {
   position: absolute;
   border: 1px solid #666;
-}
-
-.category_pop .p_sep2 {
-  background-color: #666;
 }
 
 .category_pop .p_bg,
@@ -705,7 +705,7 @@
 }
 
 .category_pop .p_sub_sep {
-  background-color: #ccc;
+  border-bottom: 1px dashed #bbb;
   height: 1px;
   margin: 4px 0;
 }
