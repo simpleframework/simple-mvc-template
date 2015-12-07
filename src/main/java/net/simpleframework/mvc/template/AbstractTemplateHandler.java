@@ -66,7 +66,7 @@ public abstract class AbstractTemplateHandler extends ObjectEx implements ITempl
 		for (final IModuleContext ctx : ModuleContextFactory.allModules()) {
 			final Module module = ctx.getModule();
 			MenuItem moduleItem = null;
-			final ModuleFunction defaultFunction = ModuleFunctions.getFunctionByName(module
+			final ModuleFunction defaultFunction = ModuleFunction.getFunctionByName(module
 					.getDefaultFunction());
 			if (defaultFunction instanceof WebModuleFunction) {
 				if (!defaultFunction.isDisabled()) {
