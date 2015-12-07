@@ -28,21 +28,24 @@ Object.extend($UI, {
         ele._active = true;
       });
       ele.observe("mouseleave", function(ev) {
-        ele.hide();
         ele._active = false;
+        (function() {
+          if (!ele._active)
+            ele.hide();
+        }).delay(0.3);
       });
     });
 
     btn.observe("mouseleave", function(ev) {
+      if (!ele)
+        return;
       (function() {
-        if (ele) {
-          if (ele._active) {
-            return;
-          }
-          ele.hide();
-          ele._active = false;
+        if (ele._active) {
+          return;
         }
-      }).delay(0.1)
+        ele.hide();
+        ele._active = false;
+      }).delay(0.1);
     });
   },
 
