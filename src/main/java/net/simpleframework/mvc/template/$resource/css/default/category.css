@@ -10,7 +10,7 @@
 
 .Category_BlankPage .category {
   vertical-align: top;
-  background: #def;
+  background-color: #def;
   -moz-user-select: none;  
 	-webkit-user-select: none;  
 	-ms-user-select: none;
