@@ -8,6 +8,7 @@ import net.simpleframework.common.object.DescriptionObject;
 import net.simpleframework.ctx.ModuleFunction;
 import net.simpleframework.mvc.common.element.AbstractElement;
 import net.simpleframework.mvc.common.element.BlockElement;
+import net.simpleframework.mvc.common.element.ImageElement;
 import net.simpleframework.mvc.common.element.JS;
 import net.simpleframework.mvc.common.element.LinkElement;
 import net.simpleframework.mvc.common.element.SpanElement;
@@ -125,11 +126,16 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 	}
 
 	public AbstractElement<?> toItemElement(final String itemClass) {
+		final SpanElement span = new SpanElement().setClassName("icon");
 		final String iconClass = getIconClass();
-		final SpanElement span = new SpanElement();
 		if (StringUtils.hasText(iconClass)) {
-			span.setClassName("icon " + iconClass);
+			if (iconClass.startsWith("/")) {
+				span.addElements(new ImageElement(iconClass));
+			} else {
+				span.addClassName(iconClass);
+			}
 		}
+
 		final AbstractElement<?> titleEle = toTitleElement();
 		final String href = getHref();
 		if (StringUtils.hasText(href) && titleEle instanceof LinkElement) {

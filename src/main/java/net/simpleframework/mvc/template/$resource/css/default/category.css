@@ -83,7 +83,8 @@
 
 .Category_BlankPage .c_item span.icon,
 .Category_BlankPage .c_child_item span.icon {
-  padding-left: 30px;
+  position: relative;
+  padding-left: 32px;
   background-repeat: no-repeat;
   background-position: 0px 50%;
   display: inline-block;
@@ -92,7 +93,25 @@
 }
 
 .Category_BlankPage .c_child_item span.icon {
-  padding-left: 20px;
+  padding-left: 22px;
+}
+
+.Category_BlankPage .c_item span.icon img,
+.Category_BlankPage .c_child_item span.icon img {
+  position: absolute;
+  left: 0;
+}
+
+.Category_BlankPage .c_item span.icon img {
+  height: 24px; 
+  width: 24px; 
+  top: 4px;
+}
+
+.Category_BlankPage .c_child_item span.icon img {
+  height: 16px;
+  width: 16px;
+  top: 6px;
 }
 
 .Category_ListPage {
