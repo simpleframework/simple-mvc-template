@@ -93,25 +93,24 @@
 }
 
 .Category_BlankPage .c_child_item span.icon {
-  padding-left: 22px;
+  padding-left: 24px;
 }
 
 .Category_BlankPage .c_item span.icon img,
 .Category_BlankPage .c_child_item span.icon img {
   position: absolute;
   left: 0;
+  top: 4px;
 }
 
 .Category_BlankPage .c_item span.icon img {
   height: 24px; 
-  width: 24px; 
-  top: 4px;
+  width: 24px;
 }
 
 .Category_BlankPage .c_child_item span.icon img {
-  height: 16px;
-  width: 16px;
-  top: 6px;
+  height: 18px;
+  width: 18px;
 }
 
 .Category_ListPage {
