@@ -178,7 +178,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 
 	protected void addComponent_logout(final PageParameter pp) {
 		addAjaxRequest(pp, "AbstractTemplatePage_logout").setHandlerMethod("logout").setRole(
-				PermissionConst.ROLE_ALL_ACCOUNT);
+				PermissionConst.ROLE_ANONYMOUS);
 	}
 
 	/**
