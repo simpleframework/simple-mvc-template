@@ -72,7 +72,7 @@ public class CategoryPopItems extends AbstractArrayListEx<CategoryPopItems, Cate
 			} else {
 				c.setIndex(j++);
 				if (j > 1) {
-					sb.append(SpanElement.SEP());
+					sb.append(SpanElement.SEP(6).setColor("#999"));
 				}
 				sb.append(c.toTitleElement().setClassName("a2"));
 			}
