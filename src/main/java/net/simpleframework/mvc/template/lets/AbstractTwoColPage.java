@@ -45,6 +45,7 @@ public class AbstractTwoColPage extends AbstractTemplatePage {
 	public static TablePagerColumn COLUMN_TOPIC = new TablePagerColumn("topic",
 			$m("AbstractTwoColPage.0")).setSort(false).setNowrap(false);
 
+	@Override
 	protected TablePagerBean addTablePagerBean(final PageParameter pp, final String name,
 			final Class<? extends ITablePagerHandler> handlerClass) {
 		return addTablePagerBean(pp, name, handlerClass, true);

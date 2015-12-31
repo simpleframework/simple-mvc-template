@@ -21,6 +21,7 @@ import net.simpleframework.mvc.component.ui.pager.TablePagerBean;
  */
 public abstract class FormTableRow_ListTemplatePage extends FormTableRowTemplatePage {
 
+	@Override
 	protected TablePagerBean addTablePagerBean(final PageParameter pp, final String name,
 			final Class<? extends ITablePagerHandler> handlerClass) {
 		clearTableCache(pp);

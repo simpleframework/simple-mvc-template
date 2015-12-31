@@ -25,6 +25,7 @@ public abstract class OneTableTemplatePage extends BlockTemplatePage implements 
 		addHtmlViewVariable(pp, OneTableTemplatePage.class, "_block");
 	}
 
+	@Override
 	protected TablePagerBean addTablePagerBean(final PageParameter pp, final String name,
 			final Class<? extends ITablePagerHandler> tHdl) {
 		return (TablePagerBean) addComponentBean(pp, name, TablePagerBean.class)
