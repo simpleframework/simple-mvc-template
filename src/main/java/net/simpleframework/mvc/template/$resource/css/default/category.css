@@ -23,8 +23,6 @@
 }
 
 .Category_BlankPage .col2 {
-  border-left: 1px solid #aaa;
-  margin-left: -1px;
   background-color: #fff;
   min-height: 640px;
   overflow: auto;
@@ -44,7 +42,6 @@
   border: 1px solid transparent;
   text-align: left;
   font-size: 10.5pt;
-  margin: 0 1px 0 -1px;
   border-right: 0;
 }
 
@@ -72,9 +69,7 @@
 
 .Category_BlankPage .category .selected,
 .Category_BlankPage .category .selected:hover {
-  background-color: #fff; 
-  border-color: #aaa;
-  margin-right: 0;
+  background-color: #fff;
 }
 
 .Category_BlankPage .category .selected {
