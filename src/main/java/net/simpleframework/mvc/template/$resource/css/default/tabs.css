@@ -2,12 +2,11 @@
   border: 1px solid #aaa;
   border-bottom: 0;
   background-color: #fff;
-  padding: 6px 10px;
+  padding: 10px;
 }
 
 .Tabs_BlankPage .Tabs_tb .le {
   float: left;
-  line-height: 19px;
 }
 
 .Tabs_BlankPage .Tabs_tb .le * {
@@ -17,7 +16,7 @@
 .Tabs_BlankPage .Tabs_tb ul.simple_tabs {
   position: relative;
   margin-right: 120px;
-  bottom: -6px;
+  bottom: -10px;
 }
 
 .Tabs_BlankPage .Tabs_tb ul.simple_tabs a {
