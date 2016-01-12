@@ -28,9 +28,9 @@ public abstract class OneTableTemplatePage extends BlockTemplatePage implements 
 	@Override
 	protected TablePagerBean addTablePagerBean(final PageParameter pp, final String name,
 			final Class<? extends ITablePagerHandler> tHdl) {
-		return (TablePagerBean) addComponentBean(pp, name, TablePagerBean.class)
-				.setShowCheckbox(true).setPagerBarLayout(EPagerBarLayout.bottom)
-				.setContainerId("table_" + hashId).setHandlerClass(tHdl);
+		return (TablePagerBean) super.addTablePagerBean(pp, name, tHdl).setShowCheckbox(true)
+				.setPagerBarLayout(EPagerBarLayout.bottom).setContainerId("table_" + hashId)
+				.setHandlerClass(tHdl);
 	}
 
 	@Override
