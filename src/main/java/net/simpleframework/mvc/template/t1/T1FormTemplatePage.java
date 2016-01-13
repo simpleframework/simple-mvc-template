@@ -45,7 +45,7 @@ public class T1FormTemplatePage extends T1TemplatePage {
 			el.append(new SpanElement().addHtml(tabs.toString(pp)));
 		}
 		final PermissionUser login = pp.getLogin();
-		if (login.getId() != null) {
+		if (login.exists()) {
 			el.append(new SpanElement(login).setClassName("login"));
 		}
 		return el;
