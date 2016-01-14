@@ -36,8 +36,8 @@ public abstract class FormTableRowTemplatePage extends FormExTemplatePage implem
 	 * @param pParameter
 	 * @return
 	 */
-	public int getLabelWidth(final PageParameter pp) {
-		return 100;
+	public String getLabelWidth(final PageParameter pp) {
+		return "100px";
 	}
 
 	public boolean isButtonsOnTop(final PageParameter pp) {
@@ -110,11 +110,23 @@ public abstract class FormTableRowTemplatePage extends FormExTemplatePage implem
 				sb.append(toToolbarHTML(pp));
 			}
 			sb.append("</div>");
-			sb.append("<style type='text/css'>");
-			sb.append("#").append(getBlockId()).append(" .form_tbl .l {");
-			sb.append("width: ").append(getLabelWidth(pp)).append("px;");
-			sb.append("}");
-			sb.append("</style>");
+			String lwidth = getLabelWidth(pp);
+			if (StringUtils.hasText(lwidth)) {
+				lwidth = lwidth.trim();
+				sb.append("<style type='text/css'>");
+				sb.append("#").append(getBlockId()).append(" .form_tbl .l {");
+				sb.append("width: ");
+				try {
+					sb.append(Integer.parseInt(lwidth)).append("px;");
+				} catch (final NumberFormatException e) {
+					sb.append(lwidth);
+					if (!lwidth.endsWith(";")) {
+						sb.append(";");
+					}
+				}
+				sb.append("}");
+				sb.append("</style>");
+			}
 			return sb.toString();
 		}
 		return super.toHtml(pp, pageClass, variables, currentVariable);
