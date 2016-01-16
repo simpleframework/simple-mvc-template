@@ -8,8 +8,8 @@ import net.simpleframework.ctx.ModuleContextFactory;
 import net.simpleframework.ctx.ModuleFunction;
 import net.simpleframework.ctx.ModuleFunctions;
 import net.simpleframework.mvc.AbstractMVCPage;
-import net.simpleframework.mvc.IMVCConst;
-import net.simpleframework.mvc.IMVCContextVar;
+import net.simpleframework.mvc.IMVCSettingsAware;
+import net.simpleframework.mvc.MVCConst;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.LinkElement;
 import net.simpleframework.mvc.component.ComponentParameter;
@@ -24,8 +24,7 @@ import net.simpleframework.mvc.ctx.WebModuleFunction;
  *         http://www.simpleframework.net
  */
 public abstract class AbstractTemplateHandler extends ObjectEx implements ITemplateHandler,
-		IMVCContextVar, IMVCConst {
-
+		IMVCSettingsAware {
 	@Override
 	public Class<? extends AbstractMVCPage> getHeaderPage() {
 		return HeaderPage.class;
@@ -37,7 +36,7 @@ public abstract class AbstractTemplateHandler extends ObjectEx implements ITempl
 	}
 
 	protected AbstractMVCPage getParentPage(final PageParameter pp) {
-		final String pageClass = pp.getParameter(PARAM_PARENT_PAGE);
+		final String pageClass = pp.getParameter(MVCConst.PARAM_PARENT_PAGE);
 		return pageClass != null ? (AbstractMVCPage) singleton(pageClass) : null;
 	}
 

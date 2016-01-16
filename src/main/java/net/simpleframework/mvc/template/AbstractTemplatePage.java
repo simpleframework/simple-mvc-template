@@ -189,7 +189,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	 */
 	public IForward logout(final ComponentParameter cp) {
 		cp.getPermission().logout(cp);
-		return new JavascriptForward(JS.loc(settings.getLoginPath(cp)));
+		return new JavascriptForward(JS.loc(mvcSettings.getLoginPath(cp)));
 	}
 
 	// 表格过滤用到的用户选择
