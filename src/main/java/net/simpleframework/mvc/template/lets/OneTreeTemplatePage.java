@@ -44,12 +44,12 @@ public abstract class OneTreeTemplatePage extends BlockTemplatePage {
 	}
 
 	public String toTopicHTML(final PageParameter pp) {
-		return "";
+		return null;
 	}
 
 	public String toBottomHTML(final PageParameter pp) {
 		final StringBuilder sb = new StringBuilder();
-		sb.append(LinkButton.closeBtn());
+		sb.append(LinkButton.closeBtn().corner());
 		return sb.toString();
 	}
 }

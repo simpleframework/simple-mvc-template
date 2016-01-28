@@ -1,7 +1,9 @@
 <div class="OneTreeTemplatePage">
+  $if{(topic = page.toTopicHTML(parameter)) != ''}
   <div class="t">
-    ${page.toTopicHTML(parameter)}
+    ${topic}
   </div>
+  $end{}
   <div id="${treeId}" class="c"></div>
   <div class="b">
     ${page.toBottomHTML(parameter)}
