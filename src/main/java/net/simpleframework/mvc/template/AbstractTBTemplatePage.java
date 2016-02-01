@@ -18,16 +18,19 @@ public abstract class AbstractTBTemplatePage extends AbstractTemplatePage implem
 	protected abstract String toContentHTML(PageParameter pp);
 
 	@Override
+	protected String getPageCSS(final PageParameter pp) {
+		return getOriginalClass().getSimpleName();
+	}
+
+	@Override
 	protected String toHtml(final PageParameter pp, final Map<String, Object> variables,
 			final String currentVariable) throws IOException {
 		final StringBuilder sb = new StringBuilder();
-		sb.append("<div class='").append(getOriginalClass().getSimpleName()).append("'>");
 		sb.append(toToolbarHTML(pp));
 		final String cc = toContentHTML(pp);
 		if (cc != null) {
 			sb.append(cc);
 		}
-		sb.append("</div>");
 		return sb.toString();
 	}
 }
