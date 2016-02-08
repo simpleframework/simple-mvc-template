@@ -2,6 +2,7 @@ package net.simpleframework.mvc.template;
 
 import net.simpleframework.mvc.AbstractMVCPage;
 import net.simpleframework.mvc.PageParameter;
+import net.simpleframework.mvc.common.element.LinkElement;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ui.menu.AbstractMenuHandler;
 import net.simpleframework.mvc.component.ui.menu.MenuItem;
@@ -70,4 +71,10 @@ public abstract class RootTemplatePage extends AbstractTemplatePage {
 			return null;
 		}
 	}
+
+	public static LinkElement CHROME_LINK = LinkElement.BLANK("Chrome").setHref(
+			"http://www.google.com/chrome/");
+	public static LinkElement FIREFOX_LINK = LinkElement.BLANK("Firefox").setHref(
+			"http://firefox.com.cn/");
+
 }
