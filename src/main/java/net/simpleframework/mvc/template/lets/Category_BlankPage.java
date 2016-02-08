@@ -4,8 +4,6 @@ import java.util.Map;
 
 import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.mvc.PageParameter;
-import net.simpleframework.mvc.common.element.ElementList;
-import net.simpleframework.mvc.common.element.TabButtons;
 import net.simpleframework.mvc.template.AbstractTemplatePage;
 import net.simpleframework.mvc.template.struct.CategoryItems;
 
@@ -22,7 +20,6 @@ public abstract class Category_BlankPage extends AbstractTwoColPage {
 		super.onForward(pp);
 
 		pp.addImportCSS(AbstractTemplatePage.class, "/category.css");
-		pp.addImportCSS(AbstractTemplatePage.class, "/tabbuttons.css");
 
 		addHtmlViewVariable(pp, getClass(), "col2");
 	}
@@ -43,41 +40,9 @@ public abstract class Category_BlankPage extends AbstractTwoColPage {
 		return 160;
 	}
 
-	protected boolean isShowCategory(final PageParameter pp) {
-		return true;
-	}
-
 	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
-		// ${page.toTabButtonsHTML(parameter)}
-
-		final String tabs = toTabButtonsHTML(pp);
-
-		String titleEle = "";
-		final ElementList t = getTitleElement(pp);
-		if (null != t && t.size() > 0) {
-			titleEle = t.toString();
-		}
-		return ((KVMap) super.createVariables(pp)).add("w", getCategoryWidth(pp))
-				.add("categoryHTML", toCategoryHTML(pp)).add("tabbuttons", tabs)
-				.add("isShowCategory", isShowCategory(pp))
-				.add("isShowTitle", !("".equals(tabs) && "".equals(titleEle)))
-				.add("titleEles", titleEle);
-	}
-
-	public String toTabButtonsHTML(final PageParameter pp) {
-		final TabButtons tabs = getTabButtons(pp);
-		if (null != tabs && tabs.size() > 0) {
-			return createTabsElement(pp, tabs).setClassName("Category_BlankPageTabs").toString();
-		}
-		return "";
-	}
-
-	public TabButtons getTabButtons(final PageParameter pp) {
-		return null;
-	}
-
-	public ElementList getTitleElement(final PageParameter pp) {
-		return null;
+		return ((KVMap) super.createVariables(pp)).add("w", getCategoryWidth(pp)).add("categoryHTML",
+				toCategoryHTML(pp));
 	}
 }

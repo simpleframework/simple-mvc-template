@@ -1,17 +1,9 @@
-$if{isShowTitle}
-<div class="Category_BlankPage_title clearfix">
-  ${titleEles} 
-  ${tabbuttons}
-</div>
-$end{}
 <div class="Category_BlankPage">
   <table>
     <tr>
-      $if{isShowCategory}
       <td width="${w}" class="category">
         <div class="col1">${categoryHTML}</div>
       </td>
-      $end{}
       <td valign="top">
         <div class="col2">${col2}</div>
       </td>
@@ -19,7 +11,7 @@ $end{}
   </table>
 </div>
 <script type="text/javascript">
-	$ready(function() {
+  $ready(function() {
     var col1 = $(".Category_BlankPage .col1");
     var col2 = $(".Category_BlankPage .col2");
     var h1 = col1.getHeight() + 40;
