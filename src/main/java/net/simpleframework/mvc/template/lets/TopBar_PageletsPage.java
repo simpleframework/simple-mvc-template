@@ -52,10 +52,10 @@ public abstract class TopBar_PageletsPage extends Blank_PageletsPage implements 
 		final StringBuilder sb = new StringBuilder();
 		final ElementList le = getLeftElements(pp);
 		final ElementList re = getRightElements(pp);
-		if (le != null) {
+		if (le != null && le.size() > 0) {
 			sb.append("<div class='le'>").append(le).append("</div>");
 		}
-		if (re != null) {
+		if (re != null && re.size() > 0) {
 			sb.append("<div class='re'>").append(re).append("</div>");
 		}
 		if (sb.length() > 0) {
@@ -77,7 +77,7 @@ public abstract class TopBar_PageletsPage extends Blank_PageletsPage implements 
 			sb.append("<div class='TopBar_PageletsPage'>");
 			String html = toToolbarHTML(pp);
 			if (StringUtils.hasText(html)) {
-				sb.append("<div class='tool_bar'>").append(html).append("</div>");
+				sb.append("<div class='tool_bar clearfix'>").append(html).append("</div>");
 			}
 			html = toFilterBarHTML(pp);
 			if (StringUtils.hasText(html)) {
