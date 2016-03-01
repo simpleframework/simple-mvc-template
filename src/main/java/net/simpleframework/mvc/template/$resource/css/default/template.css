@@ -665,7 +665,7 @@
 
 .category_pop .p_bg,
 .category_pop .p_sub,
-.category_pop .p_item:hover {
+.category_pop .p_item.active {
   background-color: #fff;
 }
 

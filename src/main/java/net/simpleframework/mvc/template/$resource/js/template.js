@@ -7,7 +7,7 @@ Object.extend($UI, {
   doCategoryPopItems : function(btn, ele, delta) {
     if (!(btn = $(btn)))
       return;
-    btn.observe("mouseover", function(ev) {
+    btn.observe("mouseenter", function(ev) {
       if (btn._pop) {
         $Effect.show(btn._pop);
         return;
@@ -17,49 +17,37 @@ Object.extend($UI, {
         document.body.appendChild(btn._pop = ele);
 
       var pos = $UI.getPopupOffsets(ele, btn);
-      delta = delta || [0, 0];
+      delta = delta || [ 0, 0 ];
       var left = pos[0] + delta[0];
       var top = pos[1] + delta[1];
       ele.setStyle("top: " + top + "px; left: " + left + "px");
       $UI.CategoryPopItems_init(ele);
       $Effect.show(ele);
-
-      ele.observe("mouseover", function(ev) {
-        ele._active = true;
-      });
-      ele.observe("mouseleave", function(ev) {
-        ele._active = false;
-        (function() {
-          if (!ele._active)
-            ele.hide();
-        }).delay(0.3);
-      });
-    });
-
-    btn.observe("mouseleave", function(ev) {
-      if (!ele)
-        return;
-      (function() {
-        if (ele._active) {
-          return;
-        }
-        ele.hide();
-        ele._active = false;
-      }).delay(0.1);
     });
   },
 
   CategoryPopItems_init : function(ele) {
     var items = ele.select(".p_item");
 
+    var doActive = function(item, remove) {
+      var ope = remove ? "removeClassName" : "addClassName";
+      item[ope]("active");
+      var p = item.previous();
+      if (p)
+        p[ope]("p_sep2");
+      var n = item.next();
+      if (n)
+        n[ope]("p_sep2");
+    };
+
     var ele_h = ele.getHeight();
     var ele_top = parseInt(ele.style.top);
-    items.invoke("observe", "mouseover", function(ev) {
-      var sub = this.down(".p_sub");
 
-      var w = this.getWidth();
+    var setTop = function(item) {
+      var sub = item.down(".p_sub");
       var sub_h = sub.getHeight();
-      var top = this.cumulativeOffset()[1];
+      var top = item.cumulativeOffset()[1];
+
       if (top + sub_h > ele_h + ele_top)
         top = ele_h + ele_top - sub_h;
       top = Math.max(top - ele_top, 0);
@@ -68,28 +56,59 @@ Object.extend($UI, {
       if (Browser.IEVersion <= 8) {
         delta = 2;
       }
-      sub.setStyle("top: " + (top - delta) + "px; left:" + (w) + "px");
+      sub.setStyle("top: " + (top - delta) + "px;left: " + item.getWidth()
+          + "px");
+    };
 
-      var p = this.previous();
-      if (p)
-        p.addClassName("p_sep2");
-      var n = this.next();
-      if (n)
-        n.addClassName("p_sep2");
+    var _show = function(item) {
+      doActive(item);
+      item.down(".p_bg").show();
+      item.down(".p_sub").show();
+    };
+    var _hide = function(item) {
+      doActive(item, true);
+      item.down(".p_bg").hide();
+      item.down(".p_sub").hide();
+    };
 
-      this.down(".p_bg").show();
-      sub.show();
+    items.each(function(item) {
+      item.observe("mouseenter", function(ev) {
+        item._enter = true;
+        (function() {
+          if (!item._enter)
+            return;
+
+          var last = ele._last;
+          if (last) {
+            _hide(last);
+          }
+          // 设置位置
+          setTop(item);
+          _show(item);
+          ele._last = item;
+        }).delay(0.1);
+      }).observe("mouseleave", function(ev) {
+        item._enter = false;
+      });
     });
-    items.invoke("observe", "mouseleave", function(ev) {
-      var p = this.previous();
-      if (p)
-        p.removeClassName("p_sep2");
-      var n = this.next();
-      if (n)
-        n.removeClassName("p_sep2");
 
-      this.down(".p_bg").hide();
-      this.down(".p_sub").hide();
+    var hideEle = function() {
+      if (!ele._active) {
+        ele.hide();
+        var last = ele._last;
+        if (last) {
+          _hide(last);
+        }
+      }
+    };
+    ele.observe("mouseenter", function(ev) {
+      ele._active = true;
+    }).observe("mouseleave", function(ev) {
+      ele._active = false;
+      hideEle.delay(0.1);
+    });
+    document.observe("click", function(ev) {
+      hideEle();
     });
   },
 
