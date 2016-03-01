@@ -105,7 +105,7 @@ Object.extend($UI, {
       ele._active = true;
     }).observe("mouseleave", function(ev) {
       ele._active = false;
-      hideEle.delay(0.1);
+      hideEle.delay(0.2);
     });
     document.observe("click", function(ev) {
       hideEle();
