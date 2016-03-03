@@ -21,12 +21,12 @@ Object.extend($UI, {
       var left = pos[0] + delta[0];
       var top = pos[1] + delta[1];
       ele.setStyle("top: " + top + "px; left: " + left + "px");
-      $UI.CategoryPopItems_init(ele);
+      $UI.CategoryPopItems_init(btn, ele);
       $Effect.show(ele);
     });
   },
 
-  CategoryPopItems_init : function(ele) {
+  CategoryPopItems_init : function(btn, ele) {
     var items = ele.select(".p_item");
 
     var doActive = function(item, remove) {
@@ -92,24 +92,24 @@ Object.extend($UI, {
       });
     });
 
-    var hideEle = function() {
-      if (!ele._active) {
-        ele.hide();
-        var last = ele._last;
-        if (last) {
-          _hide(last);
-        }
+    var hideEle = function(ev) {
+      if (Event.element(ev) == btn || ele._active)
+        return;
+      
+      ele.hide();
+      var last = ele._last;
+      if (last) {
+        _hide(last);
       }
     };
+    
     ele.observe("mouseenter", function(ev) {
       ele._active = true;
     }).observe("mouseleave", function(ev) {
       ele._active = false;
-      hideEle.delay(0.2);
+      hideEle.delay(0.2, ev);
     });
-    document.observe("click", function(ev) {
-      hideEle();
-    });
+    document.observe("click", hideEle);
   },
 
   // Pagelet Tab

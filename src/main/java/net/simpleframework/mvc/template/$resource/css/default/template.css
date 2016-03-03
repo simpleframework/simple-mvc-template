@@ -663,8 +663,13 @@
   border: 1px solid #666;
 }
 
+.category_pop .p_item:HOVER {
+  background-color: #f9f9f9;  
+}
+
 .category_pop .p_bg,
 .category_pop .p_sub,
+.category_pop .p_item.active:HOVER,
 .category_pop .p_item.active {
   background-color: #fff;
 }
