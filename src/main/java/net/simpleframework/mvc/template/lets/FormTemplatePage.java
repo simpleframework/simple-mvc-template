@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import net.simpleframework.common.StringUtils;
-import net.simpleframework.common.web.html.HtmlConst;
+import net.simpleframework.common.web.JavascriptUtils;
 import net.simpleframework.mvc.AbstractMVCPage;
 import net.simpleframework.mvc.IPageHandler.PageSelector;
 import net.simpleframework.mvc.PageParameter;
@@ -53,20 +53,34 @@ public abstract class FormTemplatePage extends BlockTemplatePage {
 			sb.append("<div class='FormTemplatePage'>");
 			sb.append(variables.get("_form"));
 			sb.append("</div>");
-			sb.append(HtmlConst.TAG_SCRIPT_START);
-			sb.append("(function() {");
-			sb.append("  var ele;");
-			final String focusElement = getFocusElement(pp);
-			if (StringUtils.hasText(focusElement)) {
-				sb.append("ele = $('").append(focusElement).append("');");
-			}
-			sb.append("  if (!ele) { var _form = $('#").append(getBlockId())
-					.append(" form'); if (_form) ele = Form.findFirstElement(_form); }");
-			sb.append("  if (ele) ele.focus();");
-			sb.append("}).defer();");
-			sb.append(HtmlConst.TAG_SCRIPT_END);
+			sb.append(JavascriptUtils.wrapScriptTag(toFormJS(pp), true));
 			return sb.toString();
 		}
 		return super.toHtml(pp, pageClass, variables, currentVariable);
+	}
+
+	private String toFormJS(final PageParameter pp) {
+		final StringBuilder sb = new StringBuilder();
+		sb.append("var _form = $('#").append(getBlockId()).append(" form');");
+		sb.append("var _focus;");
+		final String focusElement = getFocusElement(pp);
+		if (StringUtils.hasText(focusElement)) {
+			sb.append("_focus = $('").append(focusElement).append("');");
+		}
+
+		sb.append("if (_form) {");
+		sb.append(" if (!_focus) { _focus = Form.findFirstElement(_form); }");
+		// select只读
+		sb.append(" _form.select('select').each(function(_select) {");
+		sb.append("  if (_select.hasAttribute('readonly')) {");
+		sb.append("   var r = new Element('span', { 'className' : 'readonly' });");
+		sb.append("   r.innerHTML = _select.options[_select.selectedIndex].text;");
+		sb.append("   _select.replace(r)");
+		sb.append("  }");
+		sb.append(" });");
+		sb.append("}");
+
+		sb.append("if (_focus) { _focus.focus(); }");
+		return sb.toString();
 	}
 }
