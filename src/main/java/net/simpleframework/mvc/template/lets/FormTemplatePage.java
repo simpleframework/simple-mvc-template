@@ -70,14 +70,6 @@ public abstract class FormTemplatePage extends BlockTemplatePage {
 
 		sb.append("if (_form) {");
 		sb.append(" if (!_focus) { _focus = Form.findFirstElement(_form); }");
-		// select只读
-		sb.append(" _form.select('select').each(function(_select) {");
-		sb.append("  if (_select.hasAttribute('readonly')) {");
-		sb.append("   var r = new Element('span', { 'className' : 'readonly' });");
-		sb.append("   r.innerHTML = _select.options[_select.selectedIndex].text;");
-		sb.append("   _select.replace(r)");
-		sb.append("  }");
-		sb.append(" });");
 		sb.append("}");
 
 		sb.append("if (_focus) { _focus.focus(); }");
