@@ -97,11 +97,6 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 		return NavigationButtons.of();
 	}
 
-	protected void addPerfectScrollbarJSAndCSS(final PageParameter pp) {
-		pp.addImportCSS(AbstractTemplatePage.class, "/perfect-scrollbar.css");
-		pp.addImportJavascript(AbstractTemplatePage.class, "/js/perfect-scrollbar.js");
-	}
-
 	/*-------------------IPageToolbarAware--------------------*/
 
 	public ElementList getLeftElements(final PageParameter pp) {
