@@ -98,11 +98,8 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	}
 
 	protected void addPerfectScrollbarJSAndCSS(final PageParameter pp) {
-		final Float ie = pp.getIEVersion();
-		if (ie == null || ie > 8) {
-			pp.addImportCSS(AbstractTemplatePage.class, "/perfect-scrollbar.css");
-			pp.addImportJavascript(AbstractTemplatePage.class, "/js/perfect-scrollbar.js");
-		}
+		pp.addImportCSS(AbstractTemplatePage.class, "/perfect-scrollbar.css");
+		pp.addImportJavascript(AbstractTemplatePage.class, "/js/perfect-scrollbar.js");
 	}
 
 	/*-------------------IPageToolbarAware--------------------*/
