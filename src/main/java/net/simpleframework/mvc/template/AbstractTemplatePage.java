@@ -23,6 +23,7 @@ import net.simpleframework.mvc.UrlForward;
 import net.simpleframework.mvc.common.element.ElementList;
 import net.simpleframework.mvc.common.element.InputElement;
 import net.simpleframework.mvc.common.element.JS;
+import net.simpleframework.mvc.common.element.LinkElement;
 import net.simpleframework.mvc.common.element.Option;
 import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.common.element.TabButtons;
@@ -96,6 +97,8 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	public NavigationButtons getNavigationBar(final PageParameter pp) {
 		return NavigationButtons.of();
 	}
+
+	public static LinkElement HOME = new LinkElement("#(AbstractTemplateHandler.0)").setHref("/");
 
 	/*-------------------IPageToolbarAware--------------------*/
 

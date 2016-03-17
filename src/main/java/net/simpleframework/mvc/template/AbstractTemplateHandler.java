@@ -46,7 +46,7 @@ public abstract class AbstractTemplateHandler extends ObjectEx implements ITempl
 	}
 
 	public LinkElement getNavigationHome(final PageParameter pp) {
-		return new LinkElement("#(AbstractTemplateHandler.0)").setHref("/");
+		return AbstractTemplatePage.HOME;
 	}
 
 	@Override
