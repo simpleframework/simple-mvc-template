@@ -56,7 +56,7 @@ public class AbstractTwoColPage extends AbstractTemplatePage {
 			final Class<? extends ITablePagerHandler> handlerClass, final boolean addTopicColumn) {
 		final TablePagerBean tablePager = (TablePagerBean) pp
 				.addComponentBean(name, TablePagerBean.class).setFilter(false).setShowHead(false)
-				.setShowLineNo(true).setShowCheckbox(false).setExportAction("false")
+				.setShowCheckbox(false).setExportAction("false")
 				.setPagerBarLayout(EPagerBarLayout.bottom).setPageItems(30)
 				.setContainerId("list_" + hashId).setHandlerClass(handlerClass);
 		if (addTopicColumn) {
