@@ -40,8 +40,8 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 	private int index;
 
 	public CategoryItem(final String title, final String iconClass) {
-		this.title = title;
-		this.iconClass = iconClass;
+		setTitle(title);
+		setIconClass(iconClass);
 	}
 
 	public CategoryItem(final String title) {
@@ -53,7 +53,7 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 	}
 
 	public CategoryItem setTitle(final String title) {
-		this.title = title;
+		this.title = title != null ? title.trim() : title;
 		return this;
 	}
 
@@ -125,7 +125,7 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 		return titleEle;
 	}
 
-	public AbstractElement<?> toItemElement(final String itemClass) {
+	protected SpanElement toIconElement() {
 		final SpanElement span = new SpanElement().setClassName("icon");
 		final String iconClass = getIconClass();
 		if (StringUtils.hasText(iconClass)) {
@@ -135,12 +135,17 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 				span.addClassName(iconClass);
 			}
 		}
+		return span;
+	}
 
+	public AbstractElement<?> toItemElement(final String itemClass) {
 		final AbstractElement<?> titleEle = toTitleElement();
 		final String href = getHref();
 		if (StringUtils.hasText(href) && titleEle instanceof LinkElement) {
 			((LinkElement) titleEle).setHref("javascript:void(0);");
 		}
+
+		final SpanElement span = toIconElement();
 		span.addElements(titleEle);
 		if (itemClass == null) {
 			return span;
