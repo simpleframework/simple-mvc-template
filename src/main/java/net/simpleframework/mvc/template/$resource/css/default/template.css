@@ -548,7 +548,7 @@
 .wizard_btns .wizard_btn.ready {
   border-bottom: 2px solid #888;
   border-top: 2px solid #888;
-  color: #888;
+  color: #999;
 }
 
 .wizard_btns .wizard_btn.running {
@@ -558,9 +558,9 @@
 }
 
 .wizard_btns .wizard_btn.complete {
-  border-bottom: 2px solid #090;
-  border-top: 2px solid #090;
-  color: #090;
+  border-bottom: 2px solid #888;
+  border-top: 2px solid #888;
+  color: #666;
 }
 
 .wizard_btns .arrow {
