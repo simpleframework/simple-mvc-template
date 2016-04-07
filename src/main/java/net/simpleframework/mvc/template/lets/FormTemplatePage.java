@@ -70,16 +70,16 @@ public abstract class FormTemplatePage extends BlockTemplatePage {
 
 		sb.append("if (_form) {");
 		sb.append(" if (!_focus) { _focus = Form.findFirstElement(_form); }");
+		// 设置autorows
+		sb.append(" _form.select('textarea').each(function(ele) {");
+		sb.append("  if (ele.getAttribute('autorows') == 'true') {");
+		sb.append("   ele.style.height = '0px';");
+		sb.append("   ele.style.height = ele.scrollHeight + 'px';");
+		sb.append("  }");
+		sb.append(" });");
 		sb.append("}");
 
 		sb.append("if (_focus) { _focus.focus(); }");
-
-		sb.append("_form.select('textarea').each(function(ele) {");
-		sb.append(" if (ele.getAttribute('autorows') == 'true') {");
-		sb.append("  ele.style.height = '0px';");
-		sb.append("  ele.style.height = ele.scrollHeight + 'px';");
-		sb.append(" }");
-		sb.append("});");
 		return sb.toString();
 	}
 }
