@@ -110,26 +110,31 @@ public abstract class FormTableRowTemplatePage extends FormExTemplatePage implem
 				sb.append(toToolbarHTML(pp));
 			}
 			sb.append("</div>");
-			String lwidth = getLabelWidth(pp);
-			if (StringUtils.hasText(lwidth)) {
-				lwidth = lwidth.trim();
-				sb.append("<style type='text/css'>");
-				sb.append("#").append(getBlockId()).append(" .form_tbl .l {");
-				sb.append("width: ");
-				try {
-					sb.append(Integer.parseInt(lwidth)).append("px;");
-				} catch (final NumberFormatException e) {
-					sb.append(lwidth);
-					if (!lwidth.endsWith(";")) {
-						sb.append(";");
-					}
-				}
-				sb.append("}");
-				sb.append("</style>");
-			}
-			return sb.toString();
+			return sb.append(toCSS(pp)).toString();
 		}
 		return super.toHtml(pp, pageClass, variables, currentVariable);
+	}
+
+	protected String toCSS(final PageParameter pp) {
+		final StringBuilder sb = new StringBuilder();
+		String lwidth = getLabelWidth(pp);
+		if (StringUtils.hasText(lwidth)) {
+			lwidth = lwidth.trim();
+			sb.append("<style type='text/css'>");
+			sb.append("#").append(getBlockId()).append(" .form_tbl .l {");
+			sb.append("width: ");
+			try {
+				sb.append(Integer.parseInt(lwidth)).append("px;");
+			} catch (final NumberFormatException e) {
+				sb.append(lwidth);
+				if (!lwidth.endsWith(";")) {
+					sb.append(";");
+				}
+			}
+			sb.append("}");
+			sb.append("</style>");
+		}
+		return sb.toString();
 	}
 
 	protected String _toFormBottomHTML(final PageParameter pp) {
