@@ -80,6 +80,8 @@ public abstract class FormTemplatePage extends BlockTemplatePage {
 		sb.append("}");
 
 		sb.append("if (_focus) { _focus.focus(); }");
+
+		sb.append("$UI.disableBackspace();");
 		return sb.toString();
 	}
 }
