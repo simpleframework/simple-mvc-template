@@ -1,31 +1,28 @@
-.Category_BlankPage>table {
-  table-layout: fixed;
+.Category_BlankPage {
+  display: table;
   width: 100%;
-  border-spacing: 0;
-}
-
-.Category_BlankPage>table td {
-  padding: 0;
+  background-color: #fff;
 }
 
 .Category_BlankPage .category {
+  display: table-cell;
   vertical-align: top;
   background-color: #def;
-  -moz-user-select: none;  
-	-webkit-user-select: none;  
-	-ms-user-select: none;
-	user-select: none;
-	padding: 25px 0;
+  padding: 25px 0;
 }
 
 .Category_BlankPage .col1 {
   overflow: hidden;
   position: relative;
+  min-height: 640px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .Category_BlankPage .col2 {
-  background-color: #fff;
-  min-height: 640px;
+  display: table-cell;
   overflow: auto;
   *position: relative;
 }

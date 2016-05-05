@@ -1,8 +1,9 @@
 package net.simpleframework.mvc.template.lets;
 
+import java.io.IOException;
 import java.util.Map;
 
-import net.simpleframework.common.coll.KVMap;
+import net.simpleframework.mvc.AbstractMVCPage;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.template.AbstractTemplatePage;
 import net.simpleframework.mvc.template.struct.CategoryItems;
@@ -28,7 +29,11 @@ public abstract class Category_BlankPage extends AbstractTwoColPage {
 		return null;
 	}
 
-	public String toCategoryHTML(final PageParameter pp) {
+	protected int getCategoryWidth(final PageParameter pp) {
+		return 160;
+	}
+
+	protected String toCategoryHTML(final PageParameter pp) {
 		final CategoryItems categories = getCategoryList(pp);
 		if (categories != null) {
 			return categories.toString();
@@ -36,13 +41,21 @@ public abstract class Category_BlankPage extends AbstractTwoColPage {
 		return "";
 	}
 
-	protected int getCategoryWidth(final PageParameter pp) {
-		return 160;
-	}
-
 	@Override
-	public Map<String, Object> createVariables(final PageParameter pp) {
-		return ((KVMap) super.createVariables(pp)).add("w", getCategoryWidth(pp)).add("categoryHTML",
-				toCategoryHTML(pp));
+	protected String toHtml(final PageParameter pp,
+			final Class<? extends AbstractMVCPage> pageClass, final Map<String, Object> variables,
+			final String currentVariable) throws IOException {
+		if (Category_BlankPage.class.equals(pageClass)) {
+			final StringBuilder sb = new StringBuilder();
+			sb.append("<div class='Category_BlankPage'>");
+			sb.append(" <div style='width: ").append(getCategoryWidth(pp))
+					.append("px;' class='category'>");
+			sb.append("  <div class='col1'>").append(toCategoryHTML(pp)).append("</div>");
+			sb.append(" </div>");
+			sb.append(" <div class='col2'>").append(variables.get("col2")).append("</div>");
+			sb.append("</div>");
+			return sb.toString();
+		}
+		return super.toHtml(pp, pageClass, variables, currentVariable);
 	}
 }
