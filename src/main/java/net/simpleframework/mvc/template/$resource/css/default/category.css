@@ -112,7 +112,7 @@
 
 .Category_ListPage .tool_bar {
   border: 1px solid #bbb;
-  margin-bottom: -1px;
+  border-bottom: 0;
 }
 
 .Category_ListPage .tool_bar .le {
