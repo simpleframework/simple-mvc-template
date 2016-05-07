@@ -348,7 +348,7 @@
 
 .FormTableRowTemplatePage ul.simple_tabs {
   margin-top: 6px;
-  margin-left: 6px;
+  padding-top: 8px;
 }
 
 .FormTableRowTemplatePage ul.simple_tabs a {
