@@ -73,7 +73,7 @@ public abstract class RootTemplatePage extends AbstractTemplatePage {
 	}
 
 	public static LinkElement CHROME_LINK = LinkElement.BLANK("Chrome").setHref(
-			"http://www.google.com/chrome/");
+			"http://www.google.cn/chrome/browser/");
 	public static LinkElement FIREFOX_LINK = LinkElement.BLANK("Firefox").setHref(
 			"http://firefox.com.cn/");
 
