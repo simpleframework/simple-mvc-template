@@ -61,7 +61,7 @@ body {
 
 .form_content .FormTableRowTemplatePage {
   padding: 0;
-  -webkit-box-shadow: 5px 5px 5px #aaa;
-	-moz-box-shadow: 5px 5px 5px #aaa;
-  box-shadow: 5px 5px 5px #aaa;
+  -webkit-box-shadow: 5px 5px 5px #bbb;
+	-moz-box-shadow: 5px 5px 5px #bbb;
+  box-shadow: 5px 5px 5px #bbb;
 }
