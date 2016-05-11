@@ -32,6 +32,9 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 	/* 链接 */
 	private String href;
 
+	/* 空白页发方式打开 */
+	private boolean openBlank;
+
 	private boolean selected;
 
 	// 仅支持2级
@@ -63,6 +66,15 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 
 	public CategoryItem setHref(final String href) {
 		this.href = href;
+		return this;
+	}
+
+	public boolean isOpenBlank() {
+		return openBlank;
+	}
+
+	public CategoryItem setOpenBlank(final boolean openBlank) {
+		this.openBlank = openBlank;
 		return this;
 	}
 
@@ -119,6 +131,9 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 		final String href = getHref();
 		if (StringUtils.hasText(href)) {
 			titleEle = new LinkElement(getTitle()).setHref(href);
+			if (isOpenBlank()) {
+				((LinkElement) titleEle).setTarget("_blank");
+			}
 		} else {
 			titleEle = new SpanElement(getTitle());
 		}
@@ -156,7 +171,7 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 			ele.addClassName("selected");
 		}
 		if (StringUtils.hasText(href)) {
-			ele.setOnclick(JS.loc(href));
+			ele.setOnclick(JS.loc(href, isOpenBlank()));
 		}
 		ele.addElements(span);
 		final SupElement num = getNum();
