@@ -157,7 +157,7 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 		final AbstractElement<?> titleEle = toTitleElement();
 		final String href = getHref();
 		if (StringUtils.hasText(href) && titleEle instanceof LinkElement) {
-			((LinkElement) titleEle).setHref("javascript:void(0);");
+			((LinkElement) titleEle).setTarget(null).setHref("javascript:void(0);");
 		}
 
 		final SpanElement span = toIconElement();
