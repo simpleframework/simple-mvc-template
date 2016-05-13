@@ -6,6 +6,7 @@ import java.util.Map;
 import net.simpleframework.ctx.permission.PermissionUser;
 import net.simpleframework.mvc.AbstractMVCPage;
 import net.simpleframework.mvc.PageParameter;
+import net.simpleframework.mvc.common.element.AbstractElement;
 import net.simpleframework.mvc.common.element.ElementList;
 import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.common.element.TabButtons;
@@ -44,11 +45,20 @@ public class T1FormTemplatePage extends T1TemplatePage {
 		if (tabs != null && tabs.size() > 0) {
 			el.append(new SpanElement().addHtml(tabs.toString(pp)));
 		}
-		final PermissionUser login = pp.getLogin();
-		if (login.exists()) {
-			el.append(new SpanElement(login).setClassName("login"));
+
+		final AbstractElement<?> loginEle = getLoginElement(pp);
+		if (loginEle != null) {
+			el.append(loginEle);
 		}
 		return el;
+	}
+
+	protected AbstractElement<?> getLoginElement(final PageParameter pp) {
+		final PermissionUser login = pp.getLogin();
+		if (login.exists()) {
+			return new SpanElement(login + " (" + pp.getLdept() + ")", "login");
+		}
+		return null;
 	}
 
 	@Override
