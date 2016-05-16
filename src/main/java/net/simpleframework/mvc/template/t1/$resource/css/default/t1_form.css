@@ -59,6 +59,10 @@ body {
   padding: 10px 10px 100px;
 }
 
+.form_content>div {
+  margin: 0 auto;
+}
+
 .form_content .FormTableRowTemplatePage {
   padding: 0;
   -webkit-box-shadow: 5px 5px 5px #bbb;
