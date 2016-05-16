@@ -613,6 +613,7 @@
 /*                 CategoryPopItems                */
 /***************************************************/
 .category_pop {
+  text-align: left;
   background-color: #f1f1f1;
   z-index: 100;
 }
