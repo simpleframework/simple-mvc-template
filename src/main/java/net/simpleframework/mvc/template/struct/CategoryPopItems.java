@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.simpleframework.common.coll.AbstractArrayListEx;
 import net.simpleframework.common.web.JavascriptUtils;
+import net.simpleframework.mvc.common.element.EElementEvent;
 import net.simpleframework.mvc.common.element.SpanElement;
 
 /**
@@ -114,17 +115,22 @@ public class CategoryPopItems extends AbstractArrayListEx<CategoryPopItems, Cate
 	}
 
 	public String bindElement(final String eleId) {
-		return bindElement(eleId, 0, 0);
+		return bindElement(eleId, 0, 0, null);
 	}
 
-	public String bindElement(final String eleId, final int left, final int top) {
+	public String bindElement(final String eleId, final int left, final int top,
+			final EElementEvent event) {
 		final StringBuilder js = new StringBuilder();
 		js.append("(function() {");
 		js.append("var btn = $('").append(eleId).append("');");
 		js.append("var ele = \"").append(JavascriptUtils.escape(toString()))
 				.append("\".makeElement();");
 		js.append("$UI.doCategoryPopItems(btn, ele, [").append(left).append(", ").append(top)
-				.append("]);");
+				.append("]");
+		if (event != null) {
+			js.append(", '").append(event.name()).append("'");
+		}
+		js.append(");");
 		js.append("})();");
 		return js.toString();
 	}

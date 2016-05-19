@@ -4,10 +4,10 @@
  */
 Object.extend($UI, {
 
-  doCategoryPopItems : function(btn, ele, delta) {
+  doCategoryPopItems : function(btn, ele, delta, ev) {
     if (!(btn = $(btn)))
       return;
-    btn.observe("mouseenter", function(ev) {
+    btn.observe(ev || "mouseenter", function(ev) {
       if (btn._pop) {
         $Effect.show(btn._pop);
         return;
