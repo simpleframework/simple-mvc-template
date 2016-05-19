@@ -115,7 +115,11 @@ public class CategoryPopItems extends AbstractArrayListEx<CategoryPopItems, Cate
 	}
 
 	public String bindElement(final String eleId) {
-		return bindElement(eleId, 0, 0, null);
+		return bindElement(eleId, 0, 0);
+	}
+
+	public String bindElement(final String eleId, final int left, final int top) {
+		return bindElement(eleId, left, top, null);
 	}
 
 	public String bindElement(final String eleId, final int left, final int top,
