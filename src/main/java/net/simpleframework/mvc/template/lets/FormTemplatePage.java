@@ -61,24 +61,21 @@ public abstract class FormTemplatePage extends BlockTemplatePage {
 
 	private String toFormJS(final PageParameter pp) {
 		final StringBuilder sb = new StringBuilder();
-		sb.append("var _form = $('#").append(getBlockId()).append(" form');");
+		sb.append("var _block = $('#").append(getBlockId()).append("');");
+		// 设置autorows
+		sb.append("_block.select('textarea').each(function(ele) {");
+		sb.append(" if (ele.getAttribute('autorows') == 'true') {");
+		sb.append("  ele.style.height = '0px';");
+		sb.append("  ele.style.height = ele.scrollHeight + 'px';");
+		sb.append(" }");
+		sb.append("});");
+
 		sb.append("var _focus;");
 		final String focusElement = getFocusElement(pp);
 		if (StringUtils.hasText(focusElement)) {
 			sb.append("_focus = $('").append(focusElement).append("');");
 		}
-
-		sb.append("if (_form) {");
-		sb.append(" if (!_focus) { _focus = Form.findFirstElement(_form); }");
-		// 设置autorows
-		sb.append(" _form.select('textarea').each(function(ele) {");
-		sb.append("  if (ele.getAttribute('autorows') == 'true') {");
-		sb.append("   ele.style.height = '0px';");
-		sb.append("   ele.style.height = ele.scrollHeight + 'px';");
-		sb.append("  }");
-		sb.append(" });");
-		sb.append("}");
-
+		sb.append("if (!_focus) { var _form = _block.down('form'); if (_form) _focus = _form.findFirstElement(); }");
 		sb.append("if (_focus) { _focus.focus(); }");
 
 		sb.append("$UI.disableBackspace();");
