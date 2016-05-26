@@ -69,3 +69,7 @@ body {
 	-moz-box-shadow: 5px 5px 5px #bbb;
   box-shadow: 5px 5px 5px #bbb;
 }
+
+.form_content .form_tbl {
+  background-color: #cfcfcf;
+}
