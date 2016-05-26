@@ -94,7 +94,7 @@ public abstract class T1ResizedTemplatePage extends T1TemplatePage implements IP
 		if (Convert.toBool(getVariables(pp).get("headerHidden"))) {
 			sb.append(" style='display:none;'");
 		}
-		sb.append(">").append(getMVELNamedTemplate("header")).append("</div>");
+		sb.append(">").append(getMVELNamedTemplate(pp, "header")).append("</div>");
 		return sb.toString();
 	}
 
