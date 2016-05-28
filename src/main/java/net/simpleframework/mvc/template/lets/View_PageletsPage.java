@@ -50,19 +50,27 @@ public abstract class View_PageletsPage extends Blank_PageletsPage {
 		kv.add("vp_form", sb.toString());
 
 		sb.setLength(0);
+		appendAttachmentCC(pp, sb);
+		appendCommentCC(pp, sb);
+		kv.add("vp_ext", sb.toString());
+		return kv;
+	}
+
+	protected void appendAttachmentCC(final PageParameter pp, final StringBuilder sb) {
 		if (pp.hasComponentType(AttachmentBean.class)) {
 			sb.append("<div class='attach'>");
 			sb.append("  <div id='attachment_").append(hashId).append("'></div>");
 			sb.append("  <span class='attach_img'></span>");
 			sb.append("</div>");
 		}
+	}
+
+	protected void appendCommentCC(final PageParameter pp, final StringBuilder sb) {
 		if (pp.hasComponentType(CommentBean.class)) {
 			sb.append("<div class='comment'>");
 			sb.append("  <div id='comment_").append(hashId).append("'></div>");
 			sb.append("</div>");
 		}
-		kv.add("vp_ext", sb.toString());
-		return kv;
 	}
 
 	protected CommentBean addCommentBean(final PageParameter pp,
