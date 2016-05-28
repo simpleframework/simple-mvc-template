@@ -8,7 +8,7 @@ body {
   background-image: -moz-linear-gradient(top, #fff, #def);
   background-image: -ms-linear-gradient(top, #fff, #def);
   background-image: linear-gradient(to bottom, #fff, #def);
-  border: 1px solid #aaa;
+  border: 1px solid #999;
   border-top: 0;
   height: 36px;
   text-align: left;
@@ -23,7 +23,7 @@ body {
 }
 
 .form_tb_bar .simple_tabs a {
-  border: 1px solid #aaa;
+  border: 1px solid #999;
 }
 
 .form_tb_bar .simple_tabs a.active {
@@ -65,9 +65,9 @@ body {
 
 .form_content .FormTableRowTemplatePage {
   padding: 0;
-  -webkit-box-shadow: 5px 5px 5px #bbb;
-	-moz-box-shadow: 5px 5px 5px #bbb;
-  box-shadow: 5px 5px 5px #bbb;
+  -webkit-box-shadow: 0 4px 8px #ccc;
+	-moz-box-shadow: 0 4px 8px #ccc;
+  box-shadow: 0 4px 8px #ccc;
 }
 
 .form_content .form_tbl {
