@@ -132,7 +132,7 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 		if (StringUtils.hasText(href)) {
 			titleEle = new LinkElement(getTitle()).setHref(href);
 			if (isOpenBlank()) {
-				((LinkElement) titleEle).setTarget("_blank");
+				((LinkElement) titleEle).blank();
 			}
 		} else {
 			titleEle = new SpanElement(getTitle());
