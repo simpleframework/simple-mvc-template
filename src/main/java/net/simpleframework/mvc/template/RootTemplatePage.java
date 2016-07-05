@@ -1,8 +1,11 @@
 package net.simpleframework.mvc.template;
 
+import java.util.Collection;
+
 import net.simpleframework.mvc.AbstractMVCPage;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.LinkElement;
+import net.simpleframework.mvc.common.element.Meta;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ui.menu.AbstractMenuHandler;
 import net.simpleframework.mvc.component.ui.menu.MenuItem;
@@ -23,6 +26,14 @@ public abstract class RootTemplatePage extends AbstractTemplatePage {
 		pp.addImportCSS(AbstractTemplatePage.class, "/template.css");
 
 		pp.addImportJavascript(AbstractTemplatePage.class, "/js/template.js");
+	}
+
+	@Override
+	public void onHttpRequestMeta(final PageParameter pp, final Collection<Meta> coll) {
+		super.onHttpRequestMeta(pp, coll);
+		if (pp.isMobile()) {
+			coll.add(Meta.DEFAULT_VIEWPORT);
+		}
 	}
 
 	/**
