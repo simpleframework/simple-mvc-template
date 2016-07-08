@@ -15,6 +15,7 @@ import net.simpleframework.ctx.permission.PermissionConst;
 import net.simpleframework.ctx.permission.PermissionUser;
 import net.simpleframework.ctx.service.ado.db.IDbBeanService;
 import net.simpleframework.mvc.AbstractBasePage;
+import net.simpleframework.mvc.AbstractMVCPage;
 import net.simpleframework.mvc.IForward;
 import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.PageParameter;
@@ -67,6 +68,12 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 		if (isPage404(pp)) {
 			return PAGE404;
 		}
+
+		final Class<? extends AbstractMVCPage> mpClass = getMobilePageClass(pp);
+		if (mpClass != null && pp.isMobile()) {
+			return UrlForward.redirect(url(mpClass, pp.getQueryString()));
+		}
+
 		final IForward forward = super.forward(pp);
 		String pageCss;
 		if (forward != null && TextForward.class.equals(forward.getClass())
