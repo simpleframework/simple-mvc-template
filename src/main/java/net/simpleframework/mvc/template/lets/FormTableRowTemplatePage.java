@@ -110,12 +110,12 @@ public abstract class FormTableRowTemplatePage extends FormExTemplatePage implem
 				sb.append(toToolbarHTML(pp));
 			}
 			sb.append("</div>");
-			return sb.append(toCSS(pp)).toString();
+			return sb.append(toFormHTML(pp)).toString();
 		}
 		return super.toHtml(pp, pageClass, variables, currentVariable);
 	}
 
-	protected String toCSS(final PageParameter pp) {
+	protected String toFormHTML(final PageParameter pp) {
 		final StringBuilder sb = new StringBuilder();
 		String lwidth = getLabelWidth(pp);
 		if (StringUtils.hasText(lwidth)) {
