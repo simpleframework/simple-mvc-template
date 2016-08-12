@@ -11,7 +11,6 @@ import net.simpleframework.mvc.AbstractMVCPage;
 import net.simpleframework.mvc.IMVCSettingsAware;
 import net.simpleframework.mvc.MVCConst;
 import net.simpleframework.mvc.PageParameter;
-import net.simpleframework.mvc.common.element.LinkElement;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ui.menu.MenuItem;
 import net.simpleframework.mvc.component.ui.menu.MenuItems;
@@ -20,22 +19,25 @@ import net.simpleframework.mvc.ctx.WebModuleFunction;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public abstract class AbstractTemplateHandler extends ObjectEx implements ITemplateHandler,
 		IMVCSettingsAware {
+
 	@Override
-	public void onForward(final PageParameter pp, final AbstractMVCPage page) throws Exception {
+	public void addPageResource(final PageParameter pp, final AbstractMVCPage templatePage)
+			throws Exception {
 	}
 
 	@Override
-	public Class<? extends AbstractMVCPage> getHeaderPage() {
+	public Class<? extends AbstractMVCPage> getHeaderPage(final AbstractMVCPage templatePage) {
 		return HeaderPage.class;
 	}
 
 	@Override
-	public Class<? extends AbstractMVCPage> getFooterPage() {
+	public Class<? extends AbstractMVCPage> getFooterPage(final AbstractMVCPage templatePage) {
 		return FooterPage.class;
 	}
 
@@ -45,26 +47,23 @@ public abstract class AbstractTemplateHandler extends ObjectEx implements ITempl
 	}
 
 	@Override
-	public String getFavicon(final PageParameter pp) {
+	public String getFavicon(final PageParameter pp, final AbstractMVCPage templatePage) {
 		return null;
 	}
 
-	public LinkElement getNavigationHome(final PageParameter pp) {
-		return AbstractTemplatePage.HOME;
-	}
-
 	@Override
-	public boolean isShowMenubar(final PageParameter pp) {
+	public boolean isShowMenubar(final PageParameter pp, final AbstractMVCPage templatePage) {
 		return true;
 	}
 
 	@Override
-	public boolean isShowFooter(final PageParameter pp) {
+	public boolean isShowFooter(final PageParameter pp, final AbstractMVCPage templatePage) {
 		return true;
 	}
 
 	@Override
-	public MenuItems getMainMenuItems(final ComponentParameter cp, final MenuItem menuItem) {
+	public MenuItems getMainMenuItems(final ComponentParameter cp, final MenuItem menuItem,
+			final AbstractMVCPage templatePage) {
 		final MenuItems al = MenuItems.of();
 		for (final IModuleContext ctx : ModuleContextFactory.allModules()) {
 			final Module module = ctx.getModule();

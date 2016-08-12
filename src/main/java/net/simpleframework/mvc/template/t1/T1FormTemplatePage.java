@@ -25,6 +25,7 @@ public class T1FormTemplatePage extends T1TemplatePage {
 		super.onForward(pp);
 
 		pp.addImportCSS(T1TemplatePage.class, "/t1_form.css");
+		getTemplate(pp).addPageResource(pp, this);
 
 		addHtmlViewVariable(pp, T1FormTemplatePage.class, "body");
 		addHtmlViewVariable(pp, getClass(), "content");

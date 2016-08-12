@@ -15,7 +15,8 @@ import net.simpleframework.mvc.template.IPageToolbarAware;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public abstract class T1ResizedTemplatePage extends T1TemplatePage implements IPageToolbarAware,
@@ -26,6 +27,7 @@ public abstract class T1ResizedTemplatePage extends T1TemplatePage implements IP
 		super.onForward(pp);
 
 		pp.addImportCSS(T1TemplatePage.class, "/t1_resized.css");
+		getTemplate(pp).addPageResource(pp, this);
 
 		addHtmlViewVariable(pp, T1ResizedTemplatePage.class, "body");
 		addHtmlViewVariable(pp, getClass(), "content");

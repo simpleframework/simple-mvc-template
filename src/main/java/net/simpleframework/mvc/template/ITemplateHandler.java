@@ -15,33 +15,42 @@ import net.simpleframework.mvc.component.ui.menu.MenuItems;
  */
 public interface ITemplateHandler {
 
-	void onForward(PageParameter pp, AbstractMVCPage page) throws Exception;
+	/**
+	 * @param pp
+	 * @param templatePage
+	 * @throws Exception
+	 */
+	void addPageResource(PageParameter pp, AbstractMVCPage templatePage) throws Exception;
 
 	/**
 	 * 获取模板头部页面
 	 * 
+	 * @param templatePage
 	 * @return
 	 */
-	Class<? extends AbstractMVCPage> getHeaderPage();
+	Class<? extends AbstractMVCPage> getHeaderPage(AbstractMVCPage templatePage);
 
 	/**
 	 * 获取模板尾部页面
 	 * 
+	 * @param templatePage
 	 * @return
 	 */
-	Class<? extends AbstractMVCPage> getFooterPage();
+	Class<? extends AbstractMVCPage> getFooterPage(AbstractMVCPage templatePage);
 
-	String getFavicon(PageParameter pp);
+	String getFavicon(PageParameter pp, AbstractMVCPage templatePage);
 
 	/**
 	 * 是否显示菜单栏
 	 * 
 	 * @param pp
+	 * @param templatePage
 	 * @return
 	 */
-	boolean isShowMenubar(PageParameter pp);
+	boolean isShowMenubar(PageParameter pp, AbstractMVCPage templatePage);
 
-	boolean isShowFooter(PageParameter pp);
+	boolean isShowFooter(PageParameter pp, AbstractMVCPage templatePage);
 
-	MenuItems getMainMenuItems(ComponentParameter cp, MenuItem menuItem);
+	MenuItems getMainMenuItems(final ComponentParameter cp, final MenuItem menuItem,
+			AbstractMVCPage templatePage);
 }

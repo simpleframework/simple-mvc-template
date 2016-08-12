@@ -2,7 +2,11 @@ package net.simpleframework.mvc.template.t2;
 
 import net.simpleframework.ctx.ApplicationContextFactory;
 import net.simpleframework.ctx.IApplicationContext;
+import net.simpleframework.mvc.AbstractMVCPage;
+import net.simpleframework.mvc.PageParameter;
+import net.simpleframework.mvc.common.element.LinkElement;
 import net.simpleframework.mvc.template.AbstractTemplateHandler;
+import net.simpleframework.mvc.template.AbstractTemplatePage;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -17,5 +21,10 @@ public abstract class AbstractTemplateHandlerT2 extends AbstractTemplateHandler 
 		final String t2 = ((IApplicationContext) ApplicationContextFactory.ctx())
 				.getContextSettings().getProperty("Template.T2");
 		return (ITemplateHandlerT2) (t2 != null ? singleton(t2) : null);
+	}
+
+	@Override
+	public LinkElement getNavigationHome(final PageParameter pp, final AbstractMVCPage templatePage) {
+		return AbstractTemplatePage.HOME;
 	}
 }

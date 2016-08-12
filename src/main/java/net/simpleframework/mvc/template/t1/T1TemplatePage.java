@@ -17,7 +17,8 @@ import net.simpleframework.mvc.template.struct.NavigationButtons;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public abstract class T1TemplatePage extends RootTemplatePage {
@@ -25,7 +26,6 @@ public abstract class T1TemplatePage extends RootTemplatePage {
 	@Override
 	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
-		getTemplate(pp).onForward(pp, this);
 
 		addComponentBean(pp, MenuBean.class, MainMenuHandler.class)
 				.setContainerId("resized_menu_bar");
@@ -46,7 +46,7 @@ public abstract class T1TemplatePage extends RootTemplatePage {
 
 	protected LinkElement getNavigationHome(final PageParameter pp) {
 		final ITemplateHandlerT1 t1 = getTemplate(pp);
-		return t1 != null ? t1.getNavigationHome(pp) : null;
+		return t1 != null ? t1.getNavigationHome(pp, this) : null;
 	}
 
 	@Override
@@ -62,12 +62,12 @@ public abstract class T1TemplatePage extends RootTemplatePage {
 	 */
 	protected boolean isShowMenubar(final PageParameter pp) {
 		final ITemplateHandlerT1 t1 = getTemplate(pp);
-		return t1 != null ? t1.isShowMenubar(pp) : true;
+		return t1 != null ? t1.isShowMenubar(pp, this) : true;
 	}
 
 	protected boolean isShowFooter(final PageParameter pp) {
 		final ITemplateHandlerT1 t1 = getTemplate(pp);
-		return t1 != null ? t1.isShowFooter(pp) : true;
+		return t1 != null ? t1.isShowFooter(pp, this) : true;
 	}
 
 	public TabButtons getTabButtons(final PageParameter pp) {

@@ -13,7 +13,8 @@ import net.simpleframework.mvc.template.struct.NavigationButtons;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public abstract class T2TemplatePage extends RootTemplatePage {
@@ -21,9 +22,9 @@ public abstract class T2TemplatePage extends RootTemplatePage {
 	@Override
 	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
-		getTemplate(pp).onForward(pp, this);
 
 		pp.addImportCSS(T2TemplatePage.class, "/t2.css");
+		getTemplate(pp).addPageResource(pp, this);
 
 		addHtmlViewVariable(pp, getClass(), "content");
 
@@ -39,7 +40,7 @@ public abstract class T2TemplatePage extends RootTemplatePage {
 
 	protected LinkElement getNavigationHome(final PageParameter pp) {
 		final ITemplateHandlerT2 t2 = getTemplate(pp);
-		return t2 != null ? t2.getNavigationHome(pp) : null;
+		return t2 != null ? t2.getNavigationHome(pp, this) : null;
 	}
 
 	@Override

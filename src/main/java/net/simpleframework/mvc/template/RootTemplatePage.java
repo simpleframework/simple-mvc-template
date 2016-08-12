@@ -47,12 +47,12 @@ public abstract class RootTemplatePage extends AbstractTemplatePage {
 		/* 创建头尾模板 */
 		final ITemplateHandler t = getTemplate(pp);
 		if (t != null) {
-			final Class<? extends AbstractMVCPage> header = t.getHeaderPage();
+			final Class<? extends AbstractMVCPage> header = t.getHeaderPage(this);
 			if (header != null) {
 				addMVELNamedTemplate(pp, "header", header);
 			}
 			Class<? extends AbstractMVCPage> footer;
-			if (t.isShowFooter(pp) && (footer = t.getFooterPage()) != null) {
+			if (t.isShowFooter(pp, this) && (footer = t.getFooterPage(this)) != null) {
 				addMVELNamedTemplate(pp, "footer", footer);
 			}
 		}
@@ -65,12 +65,12 @@ public abstract class RootTemplatePage extends AbstractTemplatePage {
 	@Override
 	public String getFavicon(final PageParameter pp) {
 		final ITemplateHandler tmp = getTemplate(pp);
-		return tmp != null ? tmp.getFavicon(pp) : super.getFavicon(pp);
+		return tmp != null ? tmp.getFavicon(pp, this) : super.getFavicon(pp);
 	}
 
 	protected MenuItems getMainMenuItems(final ComponentParameter cp, final MenuItem menuItem) {
 		final ITemplateHandler t = getTemplate(cp);
-		return t != null ? t.getMainMenuItems(cp, menuItem) : null;
+		return t != null ? t.getMainMenuItems(cp, menuItem, this) : null;
 	}
 
 	public static class MainMenuHandler extends AbstractMenuHandler {
