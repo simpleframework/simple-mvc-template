@@ -26,6 +26,10 @@ import net.simpleframework.mvc.ctx.WebModuleFunction;
 public abstract class AbstractTemplateHandler extends ObjectEx implements ITemplateHandler,
 		IMVCSettingsAware {
 	@Override
+	public void onForward(final PageParameter pp, final AbstractMVCPage page) throws Exception {
+	}
+
+	@Override
 	public Class<? extends AbstractMVCPage> getHeaderPage() {
 		return HeaderPage.class;
 	}

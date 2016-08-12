@@ -25,6 +25,7 @@ public abstract class T1TemplatePage extends RootTemplatePage {
 	@Override
 	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
+		getTemplate(pp).onForward(pp, this);
 
 		addComponentBean(pp, MenuBean.class, MainMenuHandler.class)
 				.setContainerId("resized_menu_bar");

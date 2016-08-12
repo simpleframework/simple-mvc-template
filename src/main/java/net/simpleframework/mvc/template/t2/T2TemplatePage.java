@@ -21,6 +21,7 @@ public abstract class T2TemplatePage extends RootTemplatePage {
 	@Override
 	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
+		getTemplate(pp).onForward(pp, this);
 
 		pp.addImportCSS(T2TemplatePage.class, "/t2.css");
 
