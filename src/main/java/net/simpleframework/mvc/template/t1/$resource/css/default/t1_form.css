@@ -2,6 +2,25 @@ body {
   background: url("images/page-background.png") 0 0 repeat-x #fdfdfd;
 }
 
+.form_content>div {
+  min-width: 1090px;
+  width: 1090px;
+}
+
+@media (min-width: 1024px) { /*>=1024的设备*/
+  .form_content>div {
+    min-width: 992px;
+    width: 992px;
+  }
+}
+
+@media (min-width: 1200px) { /*>=1200的设备*/
+  .form_content>div {
+    min-width: 1090px;
+    width: 1090px;
+  }
+}
+
 .form_tb_bar {
   background-color: #def;
   background-image: -webkit-linear-gradient(top, #fff, #def);
