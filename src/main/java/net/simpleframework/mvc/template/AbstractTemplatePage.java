@@ -107,6 +107,12 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 
 	public static LinkElement HOME = new LinkElement("#(AbstractTemplateHandler.0)").setHref("/");
 
+	protected String wrapInputElement(final InputElement iElement) {
+		final StringBuilder sb = new StringBuilder();
+		sb.append("<div class='txt-wrap'>").append(iElement).append("</div>");
+		return sb.toString();
+	}
+
 	/*-------------------IPageToolbarAware--------------------*/
 
 	public ElementList getLeftElements(final PageParameter pp) {
