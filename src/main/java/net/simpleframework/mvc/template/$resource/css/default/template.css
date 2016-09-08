@@ -720,12 +720,12 @@
 }
 
 .txt-wrap {
-  border: 1px solid #bbb;
+  border: 1px solid #ccc;
   padding: 6px;
 }
 
 .txt-wrap:hover {
-  border-color: #999;
+  border-color: #aaa;
   box-shadow: 0 0 4px #ddd;
 }
 
