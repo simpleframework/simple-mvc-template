@@ -38,6 +38,8 @@ public abstract class RootTemplatePage extends AbstractTemplatePage {
 		super.onHttpRequestMeta(pp, coll);
 		if (pp.isMobile()) {
 			coll.add(MOBILE_VIEWPORT);
+		} else {
+			coll.add(Meta.DEFAULT_VIEWPORT);
 		}
 	}
 
