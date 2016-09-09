@@ -15,9 +15,8 @@ import net.simpleframework.mvc.PageParameter;
 public class HeaderPage extends AbstractTemplatePage {
 
 	@Override
-	protected String toHtml(final PageParameter pp,
-			final Class<? extends AbstractMVCPage> pageClass, final Map<String, Object> variables,
-			final String variable) throws IOException {
+	protected String toHtml(final PageParameter pp, final Class<? extends AbstractMVCPage> pageClass,
+			final Map<String, Object> variables, final String variable) throws IOException {
 		if (HeaderPage.class.equals(pageClass)) {
 			return "<div>HeaderPage</div>";
 		}

@@ -24,8 +24,8 @@ public abstract class FormPropEditorTemplatePage extends FormExTemplatePage {
 		addHtmlViewVariable(pp, FormPropEditorTemplatePage.class, "_form");
 
 		final PropEditorBean propEditor = (PropEditorBean) addComponentBean(pp,
-				"FormPropEditorTemplatePage_propeditor", PropEditorBean.class).setContainerId(
-				"propeditor_" + hashId);
+				"FormPropEditorTemplatePage_propeditor", PropEditorBean.class)
+						.setContainerId("propeditor_" + hashId);
 		initPropEditor(pp, propEditor);
 	}
 
@@ -35,9 +35,8 @@ public abstract class FormPropEditorTemplatePage extends FormExTemplatePage {
 	}
 
 	@Override
-	protected String toHtml(final PageParameter pp,
-			final Class<? extends AbstractMVCPage> pageClass, final Map<String, Object> variables,
-			final String currentVariable) throws IOException {
+	protected String toHtml(final PageParameter pp, final Class<? extends AbstractMVCPage> pageClass,
+			final Map<String, Object> variables, final String currentVariable) throws IOException {
 		if (FormPropEditorTemplatePage.class.equals(pageClass)) {
 			final StringBuilder sb = new StringBuilder();
 			sb.append("<div class='FormPropEditorTemplatePage simple_window_tcb'>");

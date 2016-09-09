@@ -35,8 +35,8 @@ public abstract class T1TemplatePage extends RootTemplatePage {
 
 	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
-		return ((KVMap) super.createVariables(pp)).add("showMenubar", isShowMenubar(pp)).add(
-				"showFooter", isShowFooter(pp));
+		return ((KVMap) super.createVariables(pp)).add("showMenubar", isShowMenubar(pp))
+				.add("showFooter", isShowFooter(pp));
 	}
 
 	@Override
@@ -75,9 +75,8 @@ public abstract class T1TemplatePage extends RootTemplatePage {
 	}
 
 	@Override
-	protected String toHtml(final PageParameter pp,
-			final Class<? extends AbstractMVCPage> pageClass, final Map<String, Object> variables,
-			final String currentVariable) throws IOException {
+	protected String toHtml(final PageParameter pp, final Class<? extends AbstractMVCPage> pageClass,
+			final Map<String, Object> variables, final String currentVariable) throws IOException {
 		if (T1TemplatePage.class.equals(pageClass)) {
 			final StringBuilder sb = new StringBuilder();
 			sb.append("<html>");

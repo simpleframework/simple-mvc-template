@@ -73,8 +73,8 @@ public class Pagelet {
 			sb.append("<div class='tabs'>");
 			for (int i = 0; i < size; i++) {
 				final TabButton tab = tabs.get(i);
-				final SpanElement span = new SpanElement(tab.getText()).setClassName("tab").setOnclick(
-						tab.getOnclick());
+				final SpanElement span = new SpanElement(tab.getText()).setClassName("tab")
+						.setOnclick(tab.getOnclick());
 				if (i == tabs.getSelectedIndex()) {
 					span.addClassName("active");
 				}

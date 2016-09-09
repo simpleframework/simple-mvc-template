@@ -12,8 +12,8 @@ import net.simpleframework.mvc.PageParameter;
  *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class AbstractTBTemplatePage extends AbstractTemplatePage implements
-		IPageToolbarAware {
+public abstract class AbstractTBTemplatePage extends AbstractTemplatePage
+		implements IPageToolbarAware {
 
 	protected abstract String toContentHTML(PageParameter pp);
 

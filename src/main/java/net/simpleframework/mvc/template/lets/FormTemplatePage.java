@@ -46,9 +46,8 @@ public abstract class FormTemplatePage extends BlockTemplatePage {
 	}
 
 	@Override
-	protected String toHtml(final PageParameter pp,
-			final Class<? extends AbstractMVCPage> pageClass, final Map<String, Object> variables,
-			final String currentVariable) throws IOException {
+	protected String toHtml(final PageParameter pp, final Class<? extends AbstractMVCPage> pageClass,
+			final Map<String, Object> variables, final String currentVariable) throws IOException {
 		if (FormTemplatePage.class.equals(pageClass)) {
 			final StringBuilder sb = new StringBuilder();
 			sb.append("<div class='FormTemplatePage'>");
@@ -76,7 +75,8 @@ public abstract class FormTemplatePage extends BlockTemplatePage {
 		if (StringUtils.hasText(focusElement)) {
 			sb.append("_focus = $('").append(focusElement).append("');");
 		}
-		sb.append("if (!_focus) { var _form = _block.down('form'); if (_form) _focus = _form.findFirstElement(); }");
+		sb.append(
+				"if (!_focus) { var _form = _block.down('form'); if (_form) _focus = _form.findFirstElement(); }");
 		sb.append("if (_focus) { _focus.focus(); }");
 
 		sb.append("$UI.disableBackspace();");

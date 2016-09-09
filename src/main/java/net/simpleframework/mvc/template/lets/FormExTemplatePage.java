@@ -1,6 +1,7 @@
 package net.simpleframework.mvc.template.lets;
 
 import static net.simpleframework.common.I18n.$m;
+
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.PageParameter;
@@ -40,8 +41,9 @@ public abstract class FormExTemplatePage extends FormTemplatePage {
 	}
 
 	protected ValidationBean addFormValidationBean(final PageParameter pp) {
-		return addComponentBean(pp, "validation_" + hashId, ValidationBean.class).setWarnType(
-				EWarnType.insertAfter).setTriggerSelector("#" + getBlockId() + " .validation");
+		return addComponentBean(pp, "validation_" + hashId, ValidationBean.class)
+				.setWarnType(EWarnType.insertAfter)
+				.setTriggerSelector("#" + getBlockId() + " .validation");
 	}
 
 	/**
@@ -51,8 +53,8 @@ public abstract class FormExTemplatePage extends FormTemplatePage {
 	 * @return 返回浏览器端需要执行的javascript，缺省是关闭Dialog窗口，子类super得到后，然后重组自己的逻辑
 	 */
 	public JavascriptForward onSave(final ComponentParameter cp) throws Exception {
-		return new JavascriptForward("$win($Actions['").append(cp.getComponentName()).append(
-				"'].trigger).close();");
+		return new JavascriptForward("$win($Actions['").append(cp.getComponentName())
+				.append("'].trigger).close();");
 	}
 
 	protected String getSaveAction(final String params) {

@@ -34,9 +34,8 @@ public abstract class OneTableTemplatePage extends BlockTemplatePage implements 
 	}
 
 	@Override
-	protected String toHtml(final PageParameter pp,
-			final Class<? extends AbstractMVCPage> pageClass, final Map<String, Object> variables,
-			final String currentVariable) throws IOException {
+	protected String toHtml(final PageParameter pp, final Class<? extends AbstractMVCPage> pageClass,
+			final Map<String, Object> variables, final String currentVariable) throws IOException {
 		if (OneTableTemplatePage.class.equals(pageClass)) {
 			final StringBuilder sb = new StringBuilder();
 			sb.append("<div class='OneTableTemplatePage'>");

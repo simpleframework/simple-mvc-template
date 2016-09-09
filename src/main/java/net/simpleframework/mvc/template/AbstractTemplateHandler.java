@@ -23,8 +23,8 @@ import net.simpleframework.mvc.ctx.WebModuleFunction;
  *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class AbstractTemplateHandler extends ObjectEx implements ITemplateHandler,
-		IMVCSettingsAware {
+public abstract class AbstractTemplateHandler extends ObjectEx
+		implements ITemplateHandler, IMVCSettingsAware {
 
 	@Override
 	public void addPageResource(final PageParameter pp, final AbstractMVCPage templatePage)
@@ -68,12 +68,12 @@ public abstract class AbstractTemplateHandler extends ObjectEx implements ITempl
 		for (final IModuleContext ctx : ModuleContextFactory.allModules()) {
 			final Module module = ctx.getModule();
 			MenuItem moduleItem = null;
-			final ModuleFunction defaultFunction = ModuleFunction.getFunctionByName(module
-					.getDefaultFunction());
+			final ModuleFunction defaultFunction = ModuleFunction
+					.getFunctionByName(module.getDefaultFunction());
 			if (defaultFunction instanceof WebModuleFunction) {
 				if (!defaultFunction.isDisabled()) {
-					moduleItem = MenuItem.of(defaultFunction.getText()).setUrl(
-							((WebModuleFunction) defaultFunction).getUrl());
+					moduleItem = MenuItem.of(defaultFunction.getText())
+							.setUrl(((WebModuleFunction) defaultFunction).getUrl());
 				}
 			} else {
 				moduleItem = MenuItem.of(module.getText());
@@ -114,8 +114,8 @@ public abstract class AbstractTemplateHandler extends ObjectEx implements ITempl
 				if (defaultFunction != null && defaultFunction.equals(function)) {
 					continue;
 				}
-				final MenuItem item = MenuItem.of(function.getText()).setUrl(
-						((WebModuleFunction) function).getUrl());
+				final MenuItem item = MenuItem.of(function.getText())
+						.setUrl(((WebModuleFunction) function).getUrl());
 				children.add(item);
 				doSubItems(ctx, item.children(), function, defaultFunction);
 			}

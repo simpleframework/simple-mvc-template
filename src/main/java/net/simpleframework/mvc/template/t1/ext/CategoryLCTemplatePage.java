@@ -54,14 +54,13 @@ public abstract class CategoryLCTemplatePage extends T1ResizedLCTemplatePage {
 
 	protected TreeBean addTreeBean(final PageParameter pp, final String name,
 			final Class<? extends ITreeHandler> handlerClass) {
-		return (TreeBean) (categoryBean = addComponentBean(pp, name, TreeBean.class).setContainerId(
-				"category_" + hashId).setHandlerClass(handlerClass));
+		return (TreeBean) (categoryBean = addComponentBean(pp, name, TreeBean.class)
+				.setContainerId("category_" + hashId).setHandlerClass(handlerClass));
 	}
 
 	@Override
-	protected String toHtml(final PageParameter pp,
-			final Class<? extends AbstractMVCPage> pageClass, final Map<String, Object> variables,
-			final String currentVariable) throws IOException {
+	protected String toHtml(final PageParameter pp, final Class<? extends AbstractMVCPage> pageClass,
+			final Map<String, Object> variables, final String currentVariable) throws IOException {
 		if ("content_left".equals(currentVariable)) {
 			final StringBuilder sb = new StringBuilder();
 			sb.append("<div class='CategoryLCTemplatePage' id='category_").append(hashId)

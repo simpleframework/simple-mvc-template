@@ -33,7 +33,8 @@ public class Err404Page extends AbstractTemplatePage {
 		sb.append("<div class='err404'>");
 		sb.append("  <div class='img'></div>");
 		sb.append("  <div class='txt'>#(Err404Page.0)</div>");
-		sb.append("  <div><a class='simple_btn simple_btn_all' onclick=\"$Actions.loc('/');\">#(Err404Page.1)</a></div>");
+		sb.append(
+				"  <div><a class='simple_btn simple_btn_all' onclick=\"$Actions.loc('/');\">#(Err404Page.1)</a></div>");
 		sb.append("</div>");
 		sb.append("</div>");
 		return sb.toString();

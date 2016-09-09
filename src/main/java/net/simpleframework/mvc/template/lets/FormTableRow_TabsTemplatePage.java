@@ -23,8 +23,8 @@ public abstract class FormTableRow_TabsTemplatePage extends FormTableRowTemplate
 		if (items != null && items.size() > 0) {
 			final StringBuilder sb = new StringBuilder();
 			final String containerId = "tabs_" + hashId;
-			final TabsBean tabs = (TabsBean) addComponentBean(pp,
-					"FormTableRow_TabsTemplatePage_tabs", TabsBean.class).setContainerId(containerId);
+			final TabsBean tabs = (TabsBean) addComponentBean(pp, "FormTableRow_TabsTemplatePage_tabs",
+					TabsBean.class).setContainerId(containerId);
 			tabs.getTabItems().addAll(items);
 			sb.append("<div id='").append(containerId).append("'></div>");
 			return sb.toString();

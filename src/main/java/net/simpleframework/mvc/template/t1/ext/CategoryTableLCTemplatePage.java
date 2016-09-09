@@ -56,9 +56,8 @@ public abstract class CategoryTableLCTemplatePage extends CategoryLCTemplatePage
 	}
 
 	@Override
-	protected String toHtml(final PageParameter pp,
-			final Class<? extends AbstractMVCPage> pageClass, final Map<String, Object> variables,
-			final String currentVariable) throws IOException {
+	protected String toHtml(final PageParameter pp, final Class<? extends AbstractMVCPage> pageClass,
+			final Map<String, Object> variables, final String currentVariable) throws IOException {
 		if ("content_center".equals(currentVariable)) {
 			final StringBuilder sb = new StringBuilder();
 			sb.append("<div class='CategoryTableLCTemplatePage' id='table_").append(hashId)
@@ -96,7 +95,8 @@ public abstract class CategoryTableLCTemplatePage extends CategoryLCTemplatePage
 		return act_btn(act, $m("Delete")).setIconClass(Icon.trash);
 	}
 
-	protected static LinkButton delete_btn(final String act, final String idKey, final String params) {
+	protected static LinkButton delete_btn(final String act, final String idKey,
+			final String params) {
 		return act_btn(act, $m("Delete"), idKey, params).setIconClass(Icon.trash);
 	}
 

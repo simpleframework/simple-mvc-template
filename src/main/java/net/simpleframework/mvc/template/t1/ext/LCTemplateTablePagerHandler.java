@@ -23,8 +23,8 @@ public abstract class LCTemplateTablePagerHandler extends GroupDbTablePagerHandl
 		AbstractMVCPage p;
 		if (!cp.isHttpRequest()
 				&& (p = AbstractMVCPage.get(cp)) instanceof CategoryTableLCTemplatePage) {
-			final String bar = (String) ((CategoryTableLCTemplatePage) p).getVariables(cp).get(
-					"toolbar_center");
+			final String bar = (String) ((CategoryTableLCTemplatePage) p).getVariables(cp)
+					.get("toolbar_center");
 			if (StringUtils.hasText(bar)) {
 				json.add("bar", HtmlUtils.wrapContextPath(cp.request, bar));
 			}

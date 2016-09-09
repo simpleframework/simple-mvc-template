@@ -17,7 +17,8 @@ import net.simpleframework.mvc.template.IPageFilterbarAware;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class TopBar_PageletsPage extends Blank_PageletsPage implements IPageFilterbarAware {
+public abstract class TopBar_PageletsPage extends Blank_PageletsPage
+		implements IPageFilterbarAware {
 	@Override
 	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
@@ -69,9 +70,8 @@ public abstract class TopBar_PageletsPage extends Blank_PageletsPage implements 
 	}
 
 	@Override
-	protected String toHtml(final PageParameter pp,
-			final Class<? extends AbstractMVCPage> pageClass, final Map<String, Object> variables,
-			final String currentVariable) throws IOException {
+	protected String toHtml(final PageParameter pp, final Class<? extends AbstractMVCPage> pageClass,
+			final Map<String, Object> variables, final String currentVariable) throws IOException {
 		if (TopBar_PageletsPage.class.equals(pageClass)) {
 			final StringBuilder sb = new StringBuilder();
 			sb.append("<div class='TopBar_PageletsPage'>");

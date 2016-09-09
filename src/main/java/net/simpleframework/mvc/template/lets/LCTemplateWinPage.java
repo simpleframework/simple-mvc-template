@@ -22,13 +22,14 @@ public abstract class LCTemplateWinPage extends AbstractTemplatePage implements 
 		final Class<?> pageClass = getClass();
 
 		addHtmlViewVariable(pp, pageClass, "content_left", getClassName(pageClass) + "_Left.html");
-		addHtmlViewVariable(pp, pageClass, "content_center", getClassName(pageClass) + "_Center.html");
+		addHtmlViewVariable(pp, pageClass, "content_center",
+				getClassName(pageClass) + "_Center.html");
 	}
 
 	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
-		return ((KVMap) super.createVariables(pp)).add("winAct", getWindowAction(pp)).add(
-				"toolbar_center", StringUtils.blank(toToolbarHTML(pp)));
+		return ((KVMap) super.createVariables(pp)).add("winAct", getWindowAction(pp))
+				.add("toolbar_center", StringUtils.blank(toToolbarHTML(pp)));
 	}
 
 	protected abstract String getWindowAction(PageParameter pp);

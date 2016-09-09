@@ -64,9 +64,8 @@ public class T1FormTemplatePage extends T1TemplatePage {
 	}
 
 	@Override
-	protected String toHtml(final PageParameter pp,
-			final Class<? extends AbstractMVCPage> pageClass, final Map<String, Object> variables,
-			final String currentVariable) throws IOException {
+	protected String toHtml(final PageParameter pp, final Class<? extends AbstractMVCPage> pageClass,
+			final Map<String, Object> variables, final String currentVariable) throws IOException {
 		if (T1FormTemplatePage.class.equals(pageClass)) {
 			final StringBuilder sb = new StringBuilder();
 			final ElementList le = getLeftElements(pp);

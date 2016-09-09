@@ -1,6 +1,7 @@
 package net.simpleframework.mvc.template.struct;
 
 import static net.simpleframework.common.I18n.$m;
+
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.mvc.common.element.AbstractTagElement;
 

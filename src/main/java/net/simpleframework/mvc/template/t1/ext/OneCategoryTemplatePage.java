@@ -1,6 +1,7 @@
 package net.simpleframework.mvc.template.t1.ext;
 
 import static net.simpleframework.common.I18n.$m;
+
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.component.ext.category.CategoryBean;
 import net.simpleframework.mvc.component.ext.category.ICategoryHandler;
@@ -17,8 +18,8 @@ public abstract class OneCategoryTemplatePage extends OneTreeTemplatePage {
 	@Override
 	protected CategoryBean addCategoryBean(final PageParameter pp, final String name,
 			final Class<? extends ICategoryHandler> handlerClass) {
-		return (CategoryBean) addComponentBean(pp, name, CategoryBean.class).setContainerId(
-				"tree_" + hashId).setHandlerClass(handlerClass);
+		return (CategoryBean) addComponentBean(pp, name, CategoryBean.class)
+				.setContainerId("tree_" + hashId).setHandlerClass(handlerClass);
 	}
 
 	@Override

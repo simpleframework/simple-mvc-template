@@ -14,17 +14,18 @@ import net.simpleframework.mvc.template.AbstractTemplatePage;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class AbstractTemplateHandlerT2 extends AbstractTemplateHandler implements
-		ITemplateHandlerT2 {
+public abstract class AbstractTemplateHandlerT2 extends AbstractTemplateHandler
+		implements ITemplateHandlerT2 {
 
 	public static ITemplateHandlerT2 get() {
-		final String t2 = ((IApplicationContext) ApplicationContextFactory.ctx())
-				.getContextSettings().getProperty("Template.T2");
+		final String t2 = ((IApplicationContext) ApplicationContextFactory.ctx()).getContextSettings()
+				.getProperty("Template.T2");
 		return (ITemplateHandlerT2) (t2 != null ? singleton(t2) : null);
 	}
 
 	@Override
-	public LinkElement getNavigationHome(final PageParameter pp, final AbstractMVCPage templatePage) {
+	public LinkElement getNavigationHome(final PageParameter pp,
+			final AbstractMVCPage templatePage) {
 		return AbstractTemplatePage.HOME;
 	}
 }

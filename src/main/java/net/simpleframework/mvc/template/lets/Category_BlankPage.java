@@ -42,9 +42,8 @@ public abstract class Category_BlankPage extends AbstractTwoColPage {
 	}
 
 	@Override
-	protected String toHtml(final PageParameter pp,
-			final Class<? extends AbstractMVCPage> pageClass, final Map<String, Object> variables,
-			final String currentVariable) throws IOException {
+	protected String toHtml(final PageParameter pp, final Class<? extends AbstractMVCPage> pageClass,
+			final Map<String, Object> variables, final String currentVariable) throws IOException {
 		if (Category_BlankPage.class.equals(pageClass)) {
 			final StringBuilder sb = new StringBuilder();
 			sb.append("<div class='Category_BlankPage'>");

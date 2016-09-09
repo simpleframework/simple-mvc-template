@@ -16,16 +16,16 @@ import net.simpleframework.mvc.component.ext.category.ctx.CategoryBeanAwareHandl
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class LCTemplateCategoryHandler<T extends IIdBeanAware> extends
-		CategoryBeanAwareHandler<T> {
+public abstract class LCTemplateCategoryHandler<T extends IIdBeanAware>
+		extends CategoryBeanAwareHandler<T> {
 
 	@Override
 	public Map<String, Object> toJSON(final ComponentParameter cp) {
 		final KVMap json = (KVMap) super.toJSON(cp);
 		AbstractMVCPage p;
 		if (!cp.isHttpRequest() && (p = AbstractMVCPage.get(cp)) instanceof CategoryLCTemplatePage) {
-			final String bar = (String) ((CategoryLCTemplatePage) p).getVariables(cp).get(
-					"toolbar_left");
+			final String bar = (String) ((CategoryLCTemplatePage) p).getVariables(cp)
+					.get("toolbar_left");
 			if (StringUtils.hasText(bar)) {
 				json.add("bar", HtmlUtils.wrapContextPath(cp.request, bar));
 			}

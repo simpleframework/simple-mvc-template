@@ -23,8 +23,8 @@ public class HomeTemplatePage extends T2TemplatePage {
 	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 
-		addComponentBean(pp, ImageSlideBean.class, HomeImageSlideHandler.class).setContainerId(
-				"imageSlide_" + hashId);
+		addComponentBean(pp, ImageSlideBean.class, HomeImageSlideHandler.class)
+				.setContainerId("imageSlide_" + hashId);
 	}
 
 	@Override

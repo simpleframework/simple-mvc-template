@@ -39,8 +39,8 @@ public abstract class OneTreeTemplatePage extends BlockTemplatePage {
 
 	protected CategoryBean addCategoryBean(final PageParameter pp, final String name,
 			final Class<? extends ICategoryHandler> handlerClass) {
-		return (CategoryBean) addComponentBean(pp, name, CategoryBean.class).setContainerId(
-				"tree_" + hashId).setHandlerClass(handlerClass);
+		return (CategoryBean) addComponentBean(pp, name, CategoryBean.class)
+				.setContainerId("tree_" + hashId).setHandlerClass(handlerClass);
 	}
 
 	public String toTopicHTML(final PageParameter pp) {

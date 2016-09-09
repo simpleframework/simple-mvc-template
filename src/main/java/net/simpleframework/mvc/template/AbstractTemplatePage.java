@@ -177,7 +177,8 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 				"net.simpleframework.organization.web.component.autocomplete.UserAutocompleteHandler");
 	}
 
-	protected AutocompleteBean addUserRoleAutocompleteBean(final PageParameter pp, final String name) {
+	protected AutocompleteBean addUserRoleAutocompleteBean(final PageParameter pp,
+			final String name) {
 		return addAutocompleteBean(pp, name,
 				"net.simpleframework.organization.web.component.autocomplete.UserRoleAutocompleteHandler");
 	}
@@ -194,8 +195,8 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	}
 
 	protected void addComponent_logout(final PageParameter pp) {
-		addAjaxRequest(pp, "AbstractTemplatePage_logout").setHandlerMethod("logout").setRole(
-				PermissionConst.ROLE_ANONYMOUS);
+		addAjaxRequest(pp, "AbstractTemplatePage_logout").setHandlerMethod("logout")
+				.setRole(PermissionConst.ROLE_ANONYMOUS);
 	}
 
 	/**
@@ -216,9 +217,9 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 			columnName = "userId";
 		}
 		return (UserSelectBean) addComponentBean(pp, tblComponentName + "_userselect_" + columnName,
-				UserSelectBean.class).setMultiple(false).setJsSelectCallback(
-				"$Actions['" + tblComponentName + "']('filter_cur_col=" + columnName
-						+ "&filter=%3D;' + selects[0].id);return true;");
+				UserSelectBean.class).setMultiple(false)
+						.setJsSelectCallback("$Actions['" + tblComponentName + "']('filter_cur_col="
+								+ columnName + "&filter=%3D;' + selects[0].id);return true;");
 	}
 
 	protected UserSelectBean addUserSelectForTbl(final PageParameter pp,
@@ -267,10 +268,10 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 
 		final StringBuilder sb = new StringBuilder();
 		sb.append("var val = $F(this); $Actions['").append(tblAction)
-				.append("']('g=' + val); document.setCookie('group_")
-				.append(getClass().getSimpleName()).append("', val);");
-		final InputElement select = InputElement.select("InputElement_group").setOnchange(
-				sb.toString());
+				.append("']('g=' + val); document.setCookie('group_").append(getClass().getSimpleName())
+				.append("', val);");
+		final InputElement select = InputElement.select("InputElement_group")
+				.setOnchange(sb.toString());
 		if (opts != null) {
 			for (final Option opt : opts) {
 				final String name = opt.getName();

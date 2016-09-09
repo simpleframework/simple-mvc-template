@@ -19,8 +19,8 @@ import net.simpleframework.mvc.template.IPageToolbarAware;
  *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class T1ResizedTemplatePage extends T1TemplatePage implements IPageToolbarAware,
-		IPageFilterbarAware {
+public abstract class T1ResizedTemplatePage extends T1TemplatePage
+		implements IPageToolbarAware, IPageFilterbarAware {
 
 	@Override
 	protected void onForward(final PageParameter pp) throws Exception {
@@ -37,8 +37,8 @@ public abstract class T1ResizedTemplatePage extends T1TemplatePage implements IP
 
 	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
-		final KVMap kv = ((KVMap) super.createVariables(pp)).add("toggleCookie", toggleCookie).add(
-				"headerHidden", isHeaderHidden(pp));
+		final KVMap kv = ((KVMap) super.createVariables(pp)).add("toggleCookie", toggleCookie)
+				.add("headerHidden", isHeaderHidden(pp));
 		return kv;
 	}
 

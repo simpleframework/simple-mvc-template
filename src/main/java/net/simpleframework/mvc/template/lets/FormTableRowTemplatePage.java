@@ -23,8 +23,8 @@ import net.simpleframework.mvc.template.IPageToolbarAware;
  *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class FormTableRowTemplatePage extends FormExTemplatePage implements
-		IPageToolbarAware {
+public abstract class FormTableRowTemplatePage extends FormExTemplatePage
+		implements IPageToolbarAware {
 
 	@Override
 	protected void onForward(final PageParameter pp) throws Exception {
@@ -84,9 +84,8 @@ public abstract class FormTableRowTemplatePage extends FormExTemplatePage implem
 	}
 
 	@Override
-	protected String toHtml(final PageParameter pp,
-			final Class<? extends AbstractMVCPage> pageClass, final Map<String, Object> variables,
-			final String currentVariable) throws IOException {
+	protected String toHtml(final PageParameter pp, final Class<? extends AbstractMVCPage> pageClass,
+			final Map<String, Object> variables, final String currentVariable) throws IOException {
 		if (FormTableRowTemplatePage.class.equals(pageClass)) {
 			final StringBuilder sb = new StringBuilder();
 			sb.append("<div class='FormTableRowTemplatePage'>");
@@ -138,14 +137,17 @@ public abstract class FormTableRowTemplatePage extends FormExTemplatePage implem
 		}
 
 		final StringBuilder js = new StringBuilder();
-		js.append("var topb = $('.form_content .FormTableRowTemplatePage>.tool_bar'); if (!topb) return;");
+		js.append(
+				"var topb = $('.form_content .FormTableRowTemplatePage>.tool_bar'); if (!topb) return;");
 		js.append("var w = parseInt(topb.getStyle('width'));");
 		js.append("Event.observe(window, 'scroll', function() {");
-		js.append(" var scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0;");
+		js.append(
+				" var scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0;");
 		js.append(" if (scrollTop > 0) {");
 		js.append("   topb.addClassName('scroll');");
 		js.append("   topb.up().addClassName('scroll');");
-		js.append("   if (!topb._scroll) { topb.setStyle('width: ' + w + 'px;'); topb._scroll = true; }");
+		js.append(
+				"   if (!topb._scroll) { topb.setStyle('width: ' + w + 'px;'); topb._scroll = true; }");
 		js.append(" } else {");
 		js.append("   topb.removeClassName('scroll');");
 		js.append("   topb.up().removeClassName('scroll');");

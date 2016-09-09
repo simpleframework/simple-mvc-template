@@ -75,8 +75,8 @@ public abstract class View_PageletsPage extends Blank_PageletsPage {
 
 	protected CommentBean addCommentBean(final PageParameter pp,
 			final Class<? extends ICommentHandler> handlerClass) {
-		return (CommentBean) addComponentBean(pp, CommentBean.class, handlerClass).setContainerId(
-				"comment_" + hashId);
+		return (CommentBean) addComponentBean(pp, CommentBean.class, handlerClass)
+				.setContainerId("comment_" + hashId);
 	}
 
 	protected AttachmentBean addAttachmentBean(final PageParameter pp,

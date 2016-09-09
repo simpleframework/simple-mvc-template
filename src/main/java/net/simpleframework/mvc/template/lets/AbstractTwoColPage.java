@@ -68,7 +68,8 @@ public class AbstractTwoColPage extends AbstractTemplatePage {
 	protected static abstract class ListTemplatePagerHandler extends AbstractDbTablePagerHandler {
 
 		@Override
-		protected Map<String, Object> getRowData(final ComponentParameter cp, final Object dataObject) {
+		protected Map<String, Object> getRowData(final ComponentParameter cp,
+				final Object dataObject) {
 			return new KVMap().add("topic", toHTML(cp, dataObject));
 		}
 
@@ -96,8 +97,8 @@ public class AbstractTwoColPage extends AbstractTemplatePage {
 		protected String toHTML_image(final ComponentParameter cp, final Object dataObject) {
 			final StringBuilder sb = new StringBuilder();
 			final Element img = doc(cp, dataObject).select("img").first();
-			sb.append(new PhotoImage(
-					new ImageCache().getPath(cp, img == null ? null : img.attr("src"))));
+			sb.append(
+					new PhotoImage(new ImageCache().getPath(cp, img == null ? null : img.attr("src"))));
 			return sb.toString();
 		}
 
@@ -108,10 +109,8 @@ public class AbstractTwoColPage extends AbstractTemplatePage {
 		protected Document doc(final ComponentParameter cp, final Object dataObject) {
 			Document doc = (Document) cp.getRequestAttr("_doc");
 			if (doc == null) {
-				cp.setRequestAttr(
-						"_doc",
-						doc = HtmlUtils.createHtmlDocument((String) getDataProperty(cp, dataObject,
-								OP_CONTENT)));
+				cp.setRequestAttr("_doc", doc = HtmlUtils
+						.createHtmlDocument((String) getDataProperty(cp, dataObject, OP_CONTENT)));
 			}
 			return doc;
 		}

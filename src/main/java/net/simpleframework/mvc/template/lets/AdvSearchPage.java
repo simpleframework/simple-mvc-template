@@ -30,8 +30,8 @@ public abstract class AdvSearchPage extends FormTemplatePage {
 		super.onForward(pp);
 		addHtmlViewVariable(pp, AdvSearchPage.class, "_form");
 
-		addAjaxRequest(pp, "ajaxAdvSearchSave").setHandlerMethod("doSearch").setSelector(
-				".AdvSearchPage");
+		addAjaxRequest(pp, "ajaxAdvSearchSave").setHandlerMethod("doSearch")
+				.setSelector(".AdvSearchPage");
 	}
 
 	protected String[] getFilterParams() {

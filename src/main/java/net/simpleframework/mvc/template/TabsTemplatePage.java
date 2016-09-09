@@ -25,15 +25,14 @@ public abstract class TabsTemplatePage extends AbstractTemplatePage {
 
 		final Class<?> beanClass = getClass();
 		if (!TabsTemplatePage.class.equals(beanClass)) {
-			addComponentBean(pp, TabsBean.class, ContentTabsHandler.class).setContainerId(
-					"tabs_" + ObjectUtils.hashStr(beanClass));
+			addComponentBean(pp, TabsBean.class, ContentTabsHandler.class)
+					.setContainerId("tabs_" + ObjectUtils.hashStr(beanClass));
 		}
 	}
 
 	@Override
-	protected String toHtml(final PageParameter pp,
-			final Class<? extends AbstractMVCPage> pageClass, final Map<String, Object> variables,
-			final String variable) throws IOException {
+	protected String toHtml(final PageParameter pp, final Class<? extends AbstractMVCPage> pageClass,
+			final Map<String, Object> variables, final String variable) throws IOException {
 		if (TabsTemplatePage.class.equals(pageClass)) {
 			return "<div class='TabsTemplatePage' id='tabs_" + ObjectUtils.hashStr(getClass())
 					+ "'></div>";

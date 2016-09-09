@@ -31,13 +31,15 @@ public abstract class RootTemplatePage extends AbstractTemplatePage {
 
 	private final Meta MOBILE_VIEWPORT = new Meta(
 			"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
-			.setName("viewport");
+					.setName("viewport");
 
 	@Override
 	public void onHttpRequestMeta(final PageParameter pp, final Collection<Meta> coll) {
 		super.onHttpRequestMeta(pp, coll);
 		if (pp.isMobile()) {
 			coll.add(MOBILE_VIEWPORT);
+		} else {
+			coll.add(Meta.DEFAULT_VIEWPORT);
 		}
 	}
 
@@ -88,9 +90,9 @@ public abstract class RootTemplatePage extends AbstractTemplatePage {
 		}
 	}
 
-	public static LinkElement CHROME_LINK = LinkElement.BLANK("Chrome").setHref(
-			"http://www.google.cn/chrome/browser/");
-	public static LinkElement FIREFOX_LINK = LinkElement.BLANK("Firefox").setHref(
-			"http://firefox.com.cn/");
+	public static LinkElement CHROME_LINK = LinkElement.BLANK("Chrome")
+			.setHref("http://www.google.cn/chrome/browser/");
+	public static LinkElement FIREFOX_LINK = LinkElement.BLANK("Firefox")
+			.setHref("http://firefox.com.cn/");
 
 }

@@ -29,9 +29,8 @@ public abstract class BlockTemplatePage extends AbstractTemplatePage {
 	}
 
 	@Override
-	protected String toHtml(final PageParameter pp,
-			final Class<? extends AbstractMVCPage> pageClass, final Map<String, Object> variables,
-			final String currentVariable) throws IOException {
+	protected String toHtml(final PageParameter pp, final Class<? extends AbstractMVCPage> pageClass,
+			final Map<String, Object> variables, final String currentVariable) throws IOException {
 		if (BlockTemplatePage.class.equals(pageClass)) {
 			final StringBuilder sb = new StringBuilder();
 			final String blockId = getBlockId();
