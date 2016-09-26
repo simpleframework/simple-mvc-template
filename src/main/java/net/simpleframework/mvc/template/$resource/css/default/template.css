@@ -729,7 +729,8 @@
 }
 
 .txt-wrap textarea,
-.txt-wrap input[type=text] {
+.txt-wrap input[type=text],
+.txt-wrap input[type=password] {
   background: none;
   border: 0;
   width: 100%;
