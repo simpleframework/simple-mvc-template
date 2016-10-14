@@ -230,6 +230,8 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	protected TablePagerColumn createUserColumn(final PageParameter pp, final String columnName,
 			final String columnText, final String tblComponentName) {
 		return new TablePagerColumn(columnName, columnText, 120) {
+			private static final long serialVersionUID = 422304970879212349L;
+
 			@Override
 			public String getFilterVal(final String val) {
 				if (val == null) {
