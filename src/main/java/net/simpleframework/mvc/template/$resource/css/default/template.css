@@ -380,6 +380,14 @@
   margin-top: -1px;
 }
 
+.AdvSearchPage input[type=text] {
+  height: 20px;
+  line-height: 20px;
+  width: 80%;
+  background-color: #fbfbfb;
+  background-image: none;
+}
+
 .AdvSearchPage .it {
   border-bottom: 1px solid #ccc;
   padding: 6px;
@@ -403,21 +411,21 @@
 .AdvSearchPage .it label {
   margin-right: 2px;
   cursor: pointer;
+  vertical-align: middle;
+  margin: 0 8px 0 4px;
+}
+
+.AdvSearchPage .it input[type=radio] {
+  vertical-align: middle;
 }
 
 .AdvSearchPage .it .il {
-  margin-top: 6px;
-}
-
-.AdvSearchPage input[type=text] {
-  height: 20px;
-  line-height: 20px;
-  width: 80%;
+  margin-top: 8px;
 }
 
 .AdvSearchPage input.date {
-  height: 17px;
   width: 100px;
+  vertical-align: middle;
 }
 
 .AdvSearchPage .bb {
