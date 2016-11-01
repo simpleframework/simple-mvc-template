@@ -1,5 +1,6 @@
 /**
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885) 
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 Object.extend($UI, {
@@ -95,14 +96,14 @@ Object.extend($UI, {
     var hideEle = function(ev) {
       if (Event.element(ev) == btn || ele._active)
         return;
-      
+
       ele.hide();
       var last = ele._last;
       if (last) {
         _hide(last);
       }
     };
-    
+
     ele.observe("mouseenter", function(ev) {
       ele._active = true;
     }).observe("mouseleave", function(ev) {
@@ -166,4 +167,15 @@ Object.extend($UI, {
       });
     });
   }
+});
+
+$ready(function() {
+  $('body').select('textarea').each(function(ele) {
+    if (ele.getAttribute('autorows') == 'true') {
+      ele.style.height = '0px';
+      ele.style.height = ele.scrollHeight + 'px';
+    }
+  });
+  
+  $UI.disableBackspace();
 });
