@@ -731,6 +731,7 @@
 .txt-wrap {
   border: 1px solid #ccc;
   padding: 6px;
+  background-color: #fff;
 }
 
 .txt-wrap:hover {
