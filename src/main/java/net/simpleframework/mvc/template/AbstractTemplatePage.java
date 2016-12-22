@@ -11,6 +11,8 @@ import net.simpleframework.common.ID;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.common.object.ObjectUtils;
+import net.simpleframework.common.web.JavascriptUtils;
+import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.ctx.permission.PermissionConst;
 import net.simpleframework.ctx.permission.PermissionUser;
 import net.simpleframework.ctx.service.ado.db.IDbBeanService;
@@ -292,6 +294,21 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 			groupVal = defaultGroupVal;
 		}
 		pp.putParameter(IGroupTablePagerHandler.G, groupVal);
+	}
+
+	protected String toWindowTitleJS(final PageParameter pp, final String selector) {
+		final StringBuilder sb = new StringBuilder();
+		final String title = getTitle(pp);
+		if (StringUtils.hasText(title)) {
+			sb.append(HtmlConst.TAG_SCRIPT_START);
+			sb.append("(function(o) {");
+			sb.append(" if (w = $(o).up('.ui-window'))");
+			sb.append("	 w.window.setHeader(\"").append(JavascriptUtils.escape(title).trim())
+					.append("\");");
+			sb.append("})('").append(selector).append("');");
+			sb.append(HtmlConst.TAG_SCRIPT_END);
+		}
+		return sb.toString();
 	}
 
 	protected static SpanElement createTabsElement(final PageParameter pp, final TabButtons tabs) {
