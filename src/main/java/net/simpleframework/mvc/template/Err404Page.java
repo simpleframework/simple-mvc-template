@@ -37,14 +37,14 @@ public class Err404Page extends AbstractTemplatePage {
 		sb.append("<div class='err404'>");
 		sb.append(" <div>");
 		sb.append(new ImageElement(src));
-		sb.append("  <div class='txt1'>#(Err404Page.0)</div>");
-		sb.append("  <div class='txt2'>#(Err404Page.1)</div>");
-		sb.append("  <div class='txt2'>#(Err404Page.2)</div>");
-		sb.append("  <div class='btns'>")
+		sb.append(" </div>");
+		sb.append(" <div class='txt1'>#(Err404Page.0)</div>");
+		sb.append(" <div class='txt2'>#(Err404Page.1)</div>");
+		sb.append(" <div class='txt2'>#(Err404Page.2)</div>");
+		sb.append(" <div class='btns'>")
 				.append(LinkButton.corner("#(Err404Page.3)").setOnclick("history.back();"))
 				.append(SpanElement.SPACE10).append(LinkButton.corner("#(Err404Page.4)").setHref("/"))
 				.append("</div>");
-		sb.append(" </div>");
 		sb.append("</div>");
 		sb.append("<style type='text/css'>body {background-color: #f1f1f1;}</style>");
 		return sb.toString();

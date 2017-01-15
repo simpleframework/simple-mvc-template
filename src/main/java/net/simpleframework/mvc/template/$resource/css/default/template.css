@@ -3,9 +3,7 @@
 }
 
 .err404>div {
-  display: inline-block;
   text-align: center;
-  width: 100%;
 }
 
 .err404 img {
@@ -14,14 +12,14 @@
 
 .err404 .txt1 {
   color: #c33;
-  font-size: 21pt;
+  font-size: 28pt;
   font-weight: bold;
   padding-bottom: 15px;
-  margin-top: -15px;
+  margin-top: -10px;
 }
 
 .err404 .txt2 {
-  font-size: 10.5pt;
+  font-size: 12.5pt;
 }
 
 .err404 .btns {
