@@ -29,10 +29,6 @@ public abstract class RootTemplatePage extends AbstractTemplatePage {
 		pp.addImportJavascript(AbstractTemplatePage.class, "/js/template.js");
 	}
 
-	private final Meta MOBILE_VIEWPORT = new Meta(
-			"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
-					.setName("viewport");
-
 	@Override
 	public void onHttpRequestMeta(final PageParameter pp, final Collection<Meta> coll) {
 		super.onHttpRequestMeta(pp, coll);

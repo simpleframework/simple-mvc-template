@@ -1,6 +1,7 @@
 package net.simpleframework.mvc.template;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import net.simpleframework.mvc.PageMapping;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.ImageElement;
 import net.simpleframework.mvc.common.element.LinkButton;
+import net.simpleframework.mvc.common.element.Meta;
 import net.simpleframework.mvc.common.element.SpanElement;
 
 /**
@@ -27,6 +29,20 @@ public class Err404Page extends AbstractTemplatePage {
 		super.onForward(pp);
 
 		pp.addImportCSS(Err404Page.class, "/template.css");
+	}
+
+	private final Meta MOBILE_VIEWPORT = new Meta(
+			"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+					.setName("viewport");
+
+	@Override
+	public void onHttpRequestMeta(final PageParameter pp, final Collection<Meta> coll) {
+		super.onHttpRequestMeta(pp, coll);
+		if (pp.isMobile()) {
+			coll.add(MOBILE_VIEWPORT);
+		} else {
+			coll.add(Meta.DEFAULT_VIEWPORT);
+		}
 	}
 
 	@Override
