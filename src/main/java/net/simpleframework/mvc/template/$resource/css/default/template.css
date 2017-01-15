@@ -5,6 +5,7 @@
 .err404>div {
   display: inline-block;
   text-align: center;
+  width: 100%;
 }
 
 .err404 img {
