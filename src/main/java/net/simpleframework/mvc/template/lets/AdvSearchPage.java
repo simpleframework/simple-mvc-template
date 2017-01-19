@@ -88,6 +88,10 @@ public abstract class AdvSearchPage extends FormTemplatePage {
 				AdvSearchPage.class, "AdvSearchPage_date.html");
 	}
 
+	public String toAdvSearchHTML(final PageParameter pp) {
+		return toItemsHTML(pp);
+	}
+
 	public String toItemsHTML(final PageParameter pp) {
 		return "";
 	}
