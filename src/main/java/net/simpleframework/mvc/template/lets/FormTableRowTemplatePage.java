@@ -141,8 +141,7 @@ public abstract class FormTableRowTemplatePage extends FormExTemplatePage
 				"var topb = $('.form_content .FormTableRowTemplatePage>.tool_bar'); if (!topb) return;");
 		js.append("var w = parseInt(topb.getStyle('width'));");
 		js.append("Event.observe(window, 'scroll', function() {");
-		js.append(
-				" var scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0;");
+		js.append(" var scrollTop = $UI.scrollTop();");
 		js.append(" if (scrollTop > 0) {");
 		js.append("   topb.addClassName('scroll');");
 		js.append("   topb.up().addClassName('scroll');");
