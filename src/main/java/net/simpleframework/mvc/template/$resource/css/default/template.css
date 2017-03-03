@@ -438,13 +438,12 @@
 
 .AdvSearchPage .bb {
   text-align: right;
-  border-top: 1px solid #aaa;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 6px;
-  background-color: #f1f1f1;
+  background-color: #f4f4f4;
 }
 
 /***************************************************/

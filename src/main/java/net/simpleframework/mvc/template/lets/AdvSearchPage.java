@@ -14,6 +14,8 @@ import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.AbstractElement;
 import net.simpleframework.mvc.common.element.JS;
+import net.simpleframework.mvc.common.element.LinkButton;
+import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.template.struct.FilterButton;
 
@@ -89,7 +91,23 @@ public abstract class AdvSearchPage extends FormTemplatePage {
 	}
 
 	public String toAdvSearchHTML(final PageParameter pp) {
-		return toItemsHTML(pp);
+		final StringBuilder sb = new StringBuilder();
+		sb.append(toItemsHTML(pp));
+		sb.append("<div class='bb'>");
+		sb.append(createOkBtn(pp));
+		sb.append(SpanElement.SPACE);
+		sb.append(createCancelBtn(pp));
+		sb.append("</div>");
+		return sb.toString();
+	}
+
+	protected AbstractElement<?> createOkBtn(final PageParameter pp) {
+		return LinkButton.corner($m("AdvSearchPage.1"))
+				.setOnclick("$Actions['ajaxAdvSearchSave']();");
+	}
+
+	protected AbstractElement<?> createCancelBtn(final PageParameter pp) {
+		return LinkButton.corner($m("Button.Close")).setOnclick("$win(this).close();");
 	}
 
 	public String toItemsHTML(final PageParameter pp) {
