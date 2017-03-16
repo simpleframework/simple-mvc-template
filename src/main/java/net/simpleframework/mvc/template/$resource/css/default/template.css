@@ -735,13 +735,13 @@
 }
 
 .txt-wrap {
-  border: 1px solid #bbb;
+  border: 1px solid #ccc;
   padding: 7px;
   background-color: #fff;
 }
 
 .txt-wrap:hover {
-  box-shadow: 0 0 4px #ddd;
+  border-color: #49d;
 }
 
 .txt-wrap textarea,
