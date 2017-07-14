@@ -20,6 +20,7 @@ import net.simpleframework.mvc.AbstractBasePage;
 import net.simpleframework.mvc.AbstractMVCPage;
 import net.simpleframework.mvc.IForward;
 import net.simpleframework.mvc.JavascriptForward;
+import net.simpleframework.mvc.MVCUtils;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.TextForward;
 import net.simpleframework.mvc.UrlForward;
@@ -78,12 +79,21 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 		}
 
 		final IForward forward = super.forward(pp);
-		String pageCss;
-		if (forward != null && TextForward.class.equals(forward.getClass())
-				&& StringUtils.hasText(pageCss = getPageCSS(pp))) {
+
+		if (forward != null && TextForward.class.equals(forward.getClass())) {
 			final TextForward tf = (TextForward) forward;
-			tf.insert(0, "<div class='" + pageCss + "'>");
-			tf.append("</div>");
+
+			final String pageCss = getPageCSS(pp);
+			if (StringUtils.hasText(pageCss)) {
+				tf.insert(0, "<div class='" + pageCss + "'>");
+				tf.append("</div>");
+			}
+
+			final String alert = MVCUtils.getSessionAlertMsg(pp);
+			if (StringUtils.hasText(alert)) {
+				tf.append(JavascriptUtils
+						.wrapScriptTag("alert(\"" + JavascriptUtils.escape(alert) + "\");", true));
+			}
 		}
 		return forward;
 	}
