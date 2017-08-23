@@ -4,6 +4,7 @@ import static net.simpleframework.common.I18n.$m;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Map;
 
 import net.simpleframework.common.ClassUtils;
@@ -28,6 +29,7 @@ import net.simpleframework.mvc.common.element.ElementList;
 import net.simpleframework.mvc.common.element.InputElement;
 import net.simpleframework.mvc.common.element.JS;
 import net.simpleframework.mvc.common.element.LinkElement;
+import net.simpleframework.mvc.common.element.Meta;
 import net.simpleframework.mvc.common.element.Option;
 import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.common.element.TabButtons;
@@ -96,6 +98,16 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 			}
 		}
 		return forward;
+	}
+
+	@Override
+	public void onHttpRequestMeta(final PageParameter pp, final Collection<Meta> coll) {
+		super.onHttpRequestMeta(pp, coll);
+		if (pp.isMobile()) {
+			coll.add(MOBILE_VIEWPORT);
+		} else {
+			coll.add(Meta.DEFAULT_VIEWPORT);
+		}
 	}
 
 	public static <T extends Serializable> T getCacheBean(final PageParameter pp,
