@@ -774,4 +774,5 @@
 /**************ideal-image-slider***************/
 .iis-loading img {
   max-width: 100%;
+  width: 100%;
 }
