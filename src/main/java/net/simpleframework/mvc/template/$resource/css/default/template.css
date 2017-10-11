@@ -770,3 +770,8 @@
 .AbstractAttachmentTooltipPage .b {
   text-align: right;
 }
+
+/**************ideal-image-slider***************/
+.iis-loading img {
+  max-width: 100%;
+}

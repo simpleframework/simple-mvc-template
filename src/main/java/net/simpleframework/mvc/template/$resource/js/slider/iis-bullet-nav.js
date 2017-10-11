@@ -26,6 +26,7 @@
 	};
 
 	IIS.Slider.prototype.addBulletNav = function() {
+	  if (!this._attributes) return; // ckan77
 		IIS._addClass(this._attributes.container, 'iis-has-bullet-nav');
 
 		// Create bullet nav
