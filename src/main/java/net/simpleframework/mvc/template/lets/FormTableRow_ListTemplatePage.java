@@ -72,7 +72,7 @@ public abstract class FormTableRow_ListTemplatePage extends FormTableRowTemplate
 		Map<String, Map<String, Object>> rows = (Map<String, Map<String, Object>>) rRequest
 				.getSessionAttr(key);
 		if (rows == null) {
-			rRequest.setSessionAttr(key, rows = new LinkedHashMap<String, Map<String, Object>>());
+			rRequest.setSessionAttr(key, rows = new LinkedHashMap<>());
 		}
 		return rows;
 	}

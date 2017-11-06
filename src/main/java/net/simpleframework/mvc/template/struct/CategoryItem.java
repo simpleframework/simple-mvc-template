@@ -98,7 +98,7 @@ public class CategoryItem extends DescriptionObject<CategoryItem> {
 
 	public List<CategoryItem> getChildren() {
 		if (children == null) {
-			children = new ArrayList<CategoryItem>();
+			children = new ArrayList<>();
 		}
 		return children;
 	}

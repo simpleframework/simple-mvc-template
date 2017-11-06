@@ -278,7 +278,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 
 	protected InputElement createGroupElement(final PageParameter pp, final String tblAction,
 			final Option... opts) {
-		final ArrayList<Option> list = new ArrayList<Option>();
+		final ArrayList<Option> list = new ArrayList<>();
 		list.add(OPTION_NO_GROUP);
 		if (opts != null) {
 			for (final Option opt : opts) {
