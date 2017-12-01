@@ -15,5 +15,12 @@
       <groupId>net.simpleframework</groupId>
       <artifactId>simple-mvc-ext</artifactId>
     </dependency>
+    
+    <!-- web容器包 -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 </project>
