@@ -218,8 +218,8 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 		return autocomplete;
 	}
 
-	protected void addComponent_logout(final PageParameter pp) {
-		addAjaxRequest(pp, "AbstractTemplatePage_logout").setHandlerMethod("logout")
+	protected AjaxRequestBean addComponent_logout(final PageParameter pp) {
+		return addAjaxRequest(pp, "AbstractTemplatePage_logout").setHandlerMethod("logout")
 				.setRole(PermissionConst.ROLE_ANONYMOUS);
 	}
 
