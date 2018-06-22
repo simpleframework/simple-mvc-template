@@ -97,8 +97,8 @@ public class AbstractTwoColPage extends AbstractTemplatePage {
 		protected String toHTML_image(final ComponentParameter cp, final Object dataObject) {
 			final StringBuilder sb = new StringBuilder();
 			final Element img = doc(cp, dataObject).select("img").first();
-			sb.append(
-					new PhotoImage(new ImageCache().getPath(cp, img == null ? null : img.attr("src"))));
+			sb.append(new PhotoImage(
+					ImageCache.getInstance().getPath(cp, img == null ? null : img.attr("src"))));
 			return sb.toString();
 		}
 
