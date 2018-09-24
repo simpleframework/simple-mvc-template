@@ -25,6 +25,7 @@ import net.simpleframework.mvc.MVCUtils;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.TextForward;
 import net.simpleframework.mvc.UrlForward;
+import net.simpleframework.mvc.common.element.AbstractInputElement;
 import net.simpleframework.mvc.common.element.ElementList;
 import net.simpleframework.mvc.common.element.InputElement;
 import net.simpleframework.mvc.common.element.JS;
@@ -132,11 +133,12 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 
 	public static LinkElement HOME = new LinkElement("#(AbstractTemplateHandler.0)").setHref("/");
 
-	protected String wrapInputElement(final InputElement iElement) {
+	protected String wrapInputElement(final AbstractInputElement<?> iElement) {
 		return wrapInputElement(iElement, null);
 	}
 
-	protected String wrapInputElement(final InputElement iElement, final String className) {
+	protected String wrapInputElement(final AbstractInputElement<?> iElement,
+			final String className) {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("<div class='txt-wrap");
 		if (StringUtils.hasText(className)) {
