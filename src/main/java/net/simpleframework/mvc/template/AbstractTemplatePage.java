@@ -66,6 +66,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 
 	@Deprecated
 	protected boolean isPage404(final PageParameter pp) {
+		// getPageRedirect
 		return false;
 	}
 
