@@ -64,11 +64,33 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 		return null;
 	}
 
+	@Deprecated
 	protected boolean isPage404(final PageParameter pp) {
 		return false;
 	}
 
+	protected EPageRedirect getPageRedirect(final PageParameter pp) {
+		return null;
+	}
+
 	public static UrlForward PAGE404 = new UrlForward(url(Err404Page.class)).setRedirect(true);
+
+	public static enum EPageRedirect {
+		/* 404 */
+		e404,
+
+		/* 没有权限 */
+		permission {
+			@Override
+			public UrlForward getDefaultPage() {
+				return PAGE404;
+			}
+		};
+
+		public UrlForward getDefaultPage() {
+			return PAGE404;
+		}
+	}
 
 	@Override
 	public IForward forward(final PageParameter pp) throws Exception {
@@ -79,6 +101,11 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 
 		if (isPage404(pp)) {
 			return PAGE404;
+		}
+
+		final EPageRedirect redirect = getPageRedirect(pp);
+		if (redirect != null) {
+			return redirect.getDefaultPage();
 		}
 
 		final IForward forward = super.forward(pp);
