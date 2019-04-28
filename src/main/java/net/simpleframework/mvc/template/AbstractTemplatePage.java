@@ -74,23 +74,27 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 		return null;
 	}
 
-	public static UrlForward PAGE404 = new UrlForward(url(Err404Page.class)).setRedirect(true);
+	public static UrlForward PAGE_404 = new UrlForward(url(Err404Page.class)).setRedirect(true);
+	public static UrlForward PAGE_PERMISSION = new UrlForward(url(ErrPermissionPage.class))
+			.setRedirect(true);
 
 	public static enum EPageRedirect {
 		/* 404 */
-		e404,
-
+		e404 {
+			@Override
+			public UrlForward getDefaultPage() {
+				return PAGE_404;
+			}
+		},
 		/* 没有权限 */
 		permission {
 			@Override
 			public UrlForward getDefaultPage() {
-				return PAGE404;
+				return PAGE_PERMISSION;
 			}
 		};
 
-		public UrlForward getDefaultPage() {
-			return PAGE404;
-		}
+		public abstract UrlForward getDefaultPage();
 	}
 
 	@Override
@@ -101,7 +105,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 		}
 
 		if (isPage404(pp)) {
-			return PAGE404;
+			return PAGE_404;
 		}
 
 		final EPageRedirect redirect = getPageRedirect(pp);
