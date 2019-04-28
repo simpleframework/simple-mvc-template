@@ -749,6 +749,7 @@
 
 .txt-wrap textarea,
 .txt-wrap input[type=text],
+.txt-wrap input[type=number],
 .txt-wrap input[type=password] {
   background: none;
   border: 0;
