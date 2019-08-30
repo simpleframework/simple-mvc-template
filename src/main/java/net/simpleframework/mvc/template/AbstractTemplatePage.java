@@ -100,7 +100,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	@Override
 	public IForward forward(final PageParameter pp) throws Exception {
 		final Class<? extends AbstractMVCPage> mpClass = getMobilePageClass(pp);
-		if (mpClass != null && pp.isMobile()) {
+		if (mpClass != null && pp.isMobile(true)) {
 			return UrlForward.redirect(url(mpClass, pp.getQueryString()));
 		}
 
