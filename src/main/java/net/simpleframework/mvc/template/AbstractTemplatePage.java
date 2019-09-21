@@ -97,11 +97,19 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 		public abstract UrlForward getDefaultPage();
 	}
 
-	@Override
-	public IForward forward(final PageParameter pp) throws Exception {
+	protected IForward getMobilePageForward(final PageParameter pp) {
 		final Class<? extends AbstractMVCPage> mpClass = getMobilePageClass(pp);
 		if (mpClass != null && pp.isMobile()) {
 			return UrlForward.redirect(url(mpClass, pp.getQueryString()));
+		}
+		return null;
+	}
+
+	@Override
+	public IForward forward(final PageParameter pp) throws Exception {
+		IForward forward = getMobilePageForward(pp);
+		if (forward != null) {
+			return forward;
 		}
 
 		if (isPage404(pp)) {
@@ -113,7 +121,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 			return redirect.getDefaultPage();
 		}
 
-		final IForward forward = super.forward(pp);
+		forward = super.forward(pp);
 
 		if (forward != null && TextForward.class.equals(forward.getClass())) {
 			final TextForward tf = (TextForward) forward;
