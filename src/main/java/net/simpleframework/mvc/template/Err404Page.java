@@ -38,7 +38,7 @@ public class Err404Page extends AbstractTemplatePage {
 	@Override
 	public void onHttpRequestMeta(final PageParameter pp, final Collection<Meta> coll) {
 		super.onHttpRequestMeta(pp, coll);
-		if (pp.isMobile()) {
+		if (pp.isMobile(true)) {
 			coll.add(MOBILE_VIEWPORT);
 		} else {
 			coll.add(Meta.DEFAULT_VIEWPORT);
