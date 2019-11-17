@@ -73,4 +73,6 @@ public class FilterButton extends AbstractTagElement<FilterButton> {
 		}
 		return super.toString();
 	}
+
+	private static final long serialVersionUID = 3707740170089362432L;
 }
