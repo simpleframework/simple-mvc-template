@@ -23,6 +23,7 @@ import net.simpleframework.mvc.IForward;
 import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.MVCUtils;
 import net.simpleframework.mvc.PageParameter;
+import net.simpleframework.mvc.PageRequestResponse;
 import net.simpleframework.mvc.TextForward;
 import net.simpleframework.mvc.UrlForward;
 import net.simpleframework.mvc.common.element.AbstractInputElement;
@@ -151,12 +152,12 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 		}
 	}
 
-	public static <T extends Serializable> T getCacheBean(final PageParameter pp,
+	public static <T extends Serializable> T getCacheBean(final PageRequestResponse rRequest,
 			final IDbBeanService<T> beanService, final String key) {
-		return pp.getRequestCache(key, new CacheV<T>() {
+		return rRequest.getRequestCache(key, new CacheV<T>() {
 			@Override
 			public T get() {
-				return beanService.getBean(pp.getParameter(key));
+				return beanService.getBean(rRequest.getParameter(key));
 			}
 		});
 	}
