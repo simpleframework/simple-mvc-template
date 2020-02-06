@@ -182,6 +182,9 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 			final String className) {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("<div class='txt-wrap");
+		if (iElement.isReadonly()) {
+			sb.append(" ro");
+		}
 		if (StringUtils.hasText(className)) {
 			sb.append(" ").append(className);
 		}

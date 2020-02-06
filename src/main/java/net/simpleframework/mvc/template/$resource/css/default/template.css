@@ -747,6 +747,10 @@
   border-color: #49d;
 }
 
+.txt-wrap.ro:hover {
+  border-color: #ccc;
+}
+
 .txt-wrap textarea,
 .txt-wrap input[type=text],
 .txt-wrap input[type=number],
