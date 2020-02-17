@@ -372,7 +372,7 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 		pp.putParameter(IGroupTablePagerHandler.G, groupVal);
 	}
 
-	protected String toWindowTitleJS(final PageParameter pp, final String selector) {
+	protected String js_windowTitle(final PageParameter pp, final String selector) {
 		final StringBuilder sb = new StringBuilder();
 		final String title = getTitle(pp);
 		if (StringUtils.hasText(title)) {
@@ -385,6 +385,17 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 			sb.append(HtmlConst.TAG_SCRIPT_END);
 		}
 		return sb.toString();
+	}
+
+	protected String js_imageZoom(final PageParameter pp) {
+		return js_imageZoom(pp, "img[data-zoomable]");
+	}
+
+	protected String js_imageZoom(final PageParameter pp, final String selector) {
+		pp.addImportJavascript(AbstractTemplatePage.class, "/js/medium-zoom.js");
+		final StringBuilder sb = new StringBuilder();
+		sb.append("mediumZoom('").append(selector).append("', {margin: 24, background: '#000'});");
+		return JavascriptUtils.wrapScriptTag(sb.toString(), true);
 	}
 
 	protected static SpanElement createTabsElement(final PageParameter pp, final TabButtons tabs) {

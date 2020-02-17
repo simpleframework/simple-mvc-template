@@ -35,7 +35,7 @@ public abstract class BlockTemplatePage extends AbstractTemplatePage {
 			sb.append("<div id='").append(blockId).append("'>");
 			sb.append(variables.get("_block"));
 			sb.append("</div>");
-			sb.append(toWindowTitleJS(pp, blockId));
+			sb.append(js_windowTitle(pp, blockId));
 			return sb.toString();
 		}
 		return super.toHtml(pp, pageClass, variables, currentVariable);
