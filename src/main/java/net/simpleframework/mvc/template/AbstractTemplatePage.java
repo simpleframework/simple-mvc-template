@@ -407,4 +407,6 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 	protected static SpanElement createTabsElement(final PageParameter pp, final TabButtons tabs) {
 		return new SpanElement().setClassName("tabbtns").addHtml(tabs.toString(pp));
 	}
+
+	protected static String DEFAULT_CENTERLOADING = $m("AbstractTemplatePage.1");
 }
