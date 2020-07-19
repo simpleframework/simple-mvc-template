@@ -397,6 +397,9 @@ public abstract class AbstractTemplatePage extends AbstractBasePage {
 
 	protected String js_imageZoom(final PageParameter pp, final String selector,
 			final boolean wrapScriptTag) {
+		if (pp.isMobile(true)) {
+			return "";
+		}
 		pp.addImportJavascript(AbstractTemplatePage.class, "/js/medium-zoom.js");
 		final StringBuilder sb = new StringBuilder();
 		sb.append("mediumZoom('").append(selector).append("', {margin: 24, background: '#000'});");
